@@ -2,7 +2,7 @@
   <div class="container">
     <div>
       <Logo />
-      <h1 class="title">lamarsala</h1>
+      <h1 class="title">{{ menu }}</h1>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -26,7 +26,32 @@
 </template>
 
 <script>
-export default {}
+export default {
+  async asyncData({ app, params, error }) {
+    const db = app.$firebase.firestore()
+    const menu = []
+    try {
+      await db
+        .collection('Menu')
+        .get()
+        .then((snapshot) => {
+          snapshot.forEach((doc) => {
+            menu.push(doc.data())
+          })
+        })
+
+      return { menu }
+    } catch (e) {
+      error({ statusCode: 404, message: 'Menu not found' })
+      console.log(e)
+    }
+  },
+  data() {
+    return {
+      menu: [],
+    }
+  },
+}
 </script>
 
 <style>

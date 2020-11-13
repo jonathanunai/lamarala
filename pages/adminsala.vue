@@ -1,0 +1,208 @@
+<template>
+  <div class="page-container">
+    <div v-if="!user" class="login"><form-login /></div>
+    <div v-else class="logged-in">
+      <div class="admin-header">
+        <h3>Identificado como: {{ user.user.email }}</h3>
+        <h2>Zona de adminitración de La Mar Salá</h2>
+        <div v-if="show === 'list'" class="admin-buttons">
+          <div class="admin-button" @click="showForm">Crear nuevo</div>
+        </div>
+      </div>
+      <div class="container">
+        <form-new v-if="show === 'form'" v-on:cancel="showList" />
+        <ul v-else>
+          <li v-for="(item, id) in menu" :key="id" :value="item.nombre">
+            <div class="flex-row">
+              <div class="row-info">
+                <span class="strong">{{ item.nombre }}</span>
+                {{ item.desc }} ({{ item.precio }} eur)
+              </div>
+              <div class="row-actions">
+                <div @click="confirmDeleteItem(item)" class="del">[del]</div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div v-if="confirm" class="confirm-wrapper">
+        <div class="confirm">
+          ¿Seguro que quieres borrar {{ item.nombre }}?
+          <div class="flex">
+            <div class="admin-button" @click="deleteItem">Borrar</div>
+            <div class="admin-button" @click="cancelDel">Cancelar</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  async asyncData({ app, params, error }) {
+    const db = app.$firebase.firestore()
+    const menu = []
+    try {
+      await db
+        .collection('Menu')
+        .get()
+        .then((snapshot) => {
+          snapshot.forEach((doc) => {
+            menu.push({ id: doc.id, ...doc.data() })
+          })
+        })
+
+      return { menu }
+    } catch (e) {
+      error({ statusCode: 404, message: 'Menu not found' })
+      console.log(e)
+    }
+  },
+
+  data() {
+    return {
+      menu: [],
+      show: 'list',
+      confirm: false,
+      item: null,
+    }
+  },
+
+  computed: {
+    user() {
+      return this.$store.state.user
+    },
+  },
+  methods: {
+    showForm() {
+      this.show = 'form'
+    },
+    showList() {
+      this.show = 'list'
+    },
+    cancelDel() {
+      this.confirm = false
+      this.item = null
+    },
+    confirmDeleteItem(item) {
+      this.confirm = true
+      this.item = item
+    },
+    deleteItem() {},
+  },
+}
+</script>
+<style lang="scss">
+.flex {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  li {
+    border-bottom: 1px dashed #f2f2f2;
+    margin-bottom: 12px;
+    padding: 6px 0;
+  }
+  .flex-row {
+    display: flex;
+    justify-content: space-between;
+    .del {
+      cursor: pointer;
+    }
+  }
+}
+.confirm-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  .confirm {
+    background: white;
+    border-radius: 0.5rem;
+    width: 70%;
+    max-width: 300px;
+    margin: auto;
+    margin-top: 40vh;
+    color: red;
+    padding: 16px 24px;
+  }
+}
+.page-container {
+  padding: 16px 24px;
+  background: #434039;
+  color: #f3f3f3;
+  width: 100%;
+  height: 100vh;
+  > * {
+  }
+}
+.admin-header {
+  padding: 32px 0;
+  display: flex;
+  flex-direction: column;
+  h3 {
+    color: #666;
+    padding-bottom: 10px;
+    font-size: 0.75rem;
+    position: absolute;
+    right: 16px;
+    top: 8px;
+  }
+}
+.admin-buttons {
+  margin: 12px 0;
+}
+.admin-button {
+  padding: 8px 16px;
+  background: green;
+  border: 1px solid white;
+  border-radius: 0.25rem;
+  color: white;
+  cursor: pointer;
+  width: fit-content;
+  margin: 0.35rem;
+  &:hover {
+    box-shadow: 0 0.75rem 0.5rem -0.5rem hsl(0 50% 80%);
+  }
+}
+.strong {
+  font-weight: bold;
+}
+form {
+  display: flex;
+  flex-wrap: wrap;
+
+  & > input {
+    flex: 1 1 10ch;
+    margin: 0.35rem;
+
+    &.desc {
+      flex: 3 1 30ch;
+    }
+  }
+}
+input,
+select {
+  border: none;
+  background: hsl(0 0% 93%);
+  border-radius: 0.25rem;
+  padding: 0.75rem 1rem;
+
+  &[type='submit'] {
+    background: green;
+    color: white;
+    &:hover {
+      box-shadow: 0 0.75rem 0.5rem -0.5rem hsl(0 50% 80%);
+    }
+  }
+}
+select {
+  height: 100%;
+  margin-top: 5px;
+}
+</style>
