@@ -35,17 +35,14 @@ export default {
     }
   },
   methods: {
-    async addDocument() {
-      const db = this.$firebase.firestore()
-      // Add a new document with a generated id.
-      const res = await db.collection('Menu').add({
-        ...this.model,
-      })
-
-      console.log('Added document with ID: ', res.id)
-      // [END add_document]
-
-      console.log('Add: ', res)
+    addDocument() {
+      this.$firebase
+        .firestore()
+        .collection('Menu')
+        .add({
+          ...this.model,
+        })
+        .then(() => this.$emit('added'))
     },
   },
 }

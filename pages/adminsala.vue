@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="container">
-        <form-new v-if="show === 'form'" v-on:cancel="showList" />
+        <form-new v-if="show === 'form'" @cancel="showList" @added="added" />
         <ul v-else>
           <li v-for="(item, id) in menu" :key="id" :value="item.nombre">
             <div class="flex-row">
@@ -19,7 +19,7 @@
                 {{ item.desc }} ({{ item.precio }} eur)
               </div>
               <div class="row-actions">
-                <div @click="confirmDeleteItem(item)" class="del">[del]</div>
+                <div class="del" @click="confirmDeleteItem(item)">[del]</div>
               </div>
             </div>
           </li>
@@ -39,26 +39,6 @@
 </template>
 <script>
 export default {
-  async asyncData({ app, params, error }) {
-    const db = app.$firebase.firestore()
-    const menu = []
-    try {
-      await db
-        .collection('Menu')
-        .get()
-        .then((snapshot) => {
-          snapshot.forEach((doc) => {
-            menu.push({ id: doc.id, ...doc.data() })
-          })
-        })
-
-      return { menu }
-    } catch (e) {
-      error({ statusCode: 404, message: 'Menu not found' })
-      console.log(e)
-    }
-  },
-
   data() {
     return {
       menu: [],
@@ -67,15 +47,33 @@ export default {
       item: null,
     }
   },
-
   computed: {
     user() {
       return this.$store.state.user
     },
   },
+  created() {
+    this.loadData()
+  },
   methods: {
+    loadData() {
+      this.menu = []
+      this.$firebase
+        .firestore()
+        .collection('Menu')
+        .get()
+        .then((snapshot) => {
+          snapshot.forEach((doc) => {
+            this.menu.push({ id: doc.id, ...doc.data() })
+          })
+        })
+    },
     showForm() {
       this.show = 'form'
+    },
+    added() {
+      this.show = 'list'
+      this.loadData()
     },
     showList() {
       this.show = 'list'
@@ -88,7 +86,19 @@ export default {
       this.confirm = true
       this.item = item
     },
-    deleteItem() {},
+    deleteItem() {
+      this.$firebase
+        .firestore()
+        .collection('Menu')
+        .doc(this.item.id)
+        .delete()
+        .then(() => {
+          console.log('Deleted')
+          this.confirm = false
+          this.item = null
+          this.loadData()
+        })
+    },
   },
 }
 </script>
