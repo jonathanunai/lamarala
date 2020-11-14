@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&display=swap');
+
+@font-face {
+  font-family: HelveticaNeue;
+  font-weight: 400;
+  src: url('~assets/fonts//HelveticaNeueLTStd-Cn.otf') format("opentype");
+}
+@font-face {
+  font-family: HelveticaNeue;
+  font-weight: bold;
+  src: url('~assets/fonts//HelveticaNeueLTStd-Bd.otf') format("opentype");
+}
+@font-face {
+  font-family: HelveticaNeue;
+  font-weight: 300;
+  src: url('~assets/fonts//HelveticaNeueLTStd-Lt.otf') format("opentype");
+}
+
+
+body {
+  font-family: HelveticaNeue;
+  font-family: 'Archivo Narrow';
+}

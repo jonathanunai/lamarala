@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
+	<!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
+	<!ENTITY ns_graphs "http://ns.adobe.com/Graphs/1.0/">
+	<!ENTITY ns_vars "http://ns.adobe.com/Variables/1.0/">
+	<!ENTITY ns_imrep "http://ns.adobe.com/ImageReplacement/1.0/">
+	<!ENTITY ns_sfw "http://ns.adobe.com/SaveForWeb/1.0/">
+	<!ENTITY ns_custom "http://ns.adobe.com/GenericCustomNamespace/1.0/">
+	<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
+]>
+<svg version="1.1" id="Livello_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="96px" height="67.5px"
+	 viewBox="0 14.25 96 67.5" enable-background="new 0 14.25 96 67.5" xml:space="preserve">
+<metadata>
+	<sfw  xmlns="&ns_sfw;">
+		<slices></slices>
+		<sliceSourceBounds  height="67.5" width="96" x="-0.5" y="14.75" bottomLeftOrigin="true"></sliceSourceBounds>
+	</sfw>
+</metadata>
+<title></title>
+<path fill="#008D8A" d="M87.525,23.85c-0.75-0.975-2.176-1.2-3.15-0.45l0,0l-36.3,27.075c-0.3,0.226-0.6,0.226-0.9,0l-35.55-27.149
+	c-0.975-0.75-2.4-0.6-3.15,0.45c-0.75,1.05-0.6,2.4,0.45,3.15L36.9,48.3L9.225,69.15c-0.975,0.75-1.2,2.175-0.45,3.149
+	c0.75,0.976,2.175,1.2,3.15,0.45l0,0l28.65-21.675l3.9,3c1.875,1.425,4.425,1.425,6.3,0.075l4.05-3.075L83.85,72.75
+	c0.976,0.75,2.4,0.525,3.15-0.45c0.75-0.975,0.525-2.399-0.45-3.149l0,0L58.65,48.225L87.15,27
+	C88.05,26.25,88.275,24.9,87.525,23.85z"/>
+<path fill="#008D8A" d="M84.75,14.25h-73.5C5.025,14.25,0,19.275,0,25.5v45c0,6.225,5.025,11.25,11.25,11.25l0,0h73.5
+	C90.975,81.75,96,76.725,96,70.5l0,0v-45C96,19.275,90.975,14.25,84.75,14.25z M91.5,70.5c0,3.75-3,6.75-6.75,6.75h-73.5
+	c-3.75,0-6.75-3-6.75-6.75v-45c0-3.75,3-6.75,6.75-6.75h73.5c3.75,0,6.75,3,6.75,6.75V70.5z"/>
+</svg>

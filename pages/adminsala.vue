@@ -93,7 +93,6 @@ export default {
         .doc(this.item.id)
         .delete()
         .then(() => {
-          console.log('Deleted')
           this.confirm = false
           this.item = null
           this.loadData()
@@ -103,6 +102,16 @@ export default {
 }
 </script>
 <style lang="scss">
+.page-container {
+  padding: 16px 24px;
+  background: $colorGrey;
+  color: $colorLight;
+  width: 100%;
+  height: 100vh;
+  > * {
+  }
+}
+
 .flex {
   display: flex;
   justify-content: space-between;
@@ -142,15 +151,6 @@ ul {
     padding: 16px 24px;
   }
 }
-.page-container {
-  padding: 16px 24px;
-  background: #434039;
-  color: #f3f3f3;
-  width: 100%;
-  height: 100vh;
-  > * {
-  }
-}
 .admin-header {
   padding: 32px 0;
   display: flex;
@@ -169,8 +169,8 @@ ul {
 }
 .admin-button {
   padding: 8px 16px;
-  background: green;
-  border: 1px solid white;
+  background: $colorTurq;
+  border: 1px solid $colorLight;
   border-radius: 0.25rem;
   color: white;
   cursor: pointer;
@@ -204,7 +204,7 @@ select {
   padding: 0.75rem 1rem;
 
   &[type='submit'] {
-    background: green;
+    background: $colorTurq;
     color: white;
     &:hover {
       box-shadow: 0 0.75rem 0.5rem -0.5rem hsl(0 50% 80%);
