@@ -16,16 +16,17 @@
     Too bad the menu has to be inside of the button
     but hey, it's pure CSS magic.
     -->
-      <ul id="menu">
+      <div id="menu">
         <img src="/img/simbolo_la_mar_sala.png" />
-        <a href="#"><li>Home</li></a>
-        <a href="#"><li>About</li></a>
-        <a href="#"><li>Info</li></a>
-        <a href="#"><li>Contact</li></a>
-        <a href="https://erikterwan.com/" target="_blank"
-          ><li>Show me more</li></a
-        >
-      </ul>
+
+        <nuxt-link to="#"><div>Inicio</div></nuxt-link>
+        <h3>Nuestras especialides</h3>
+        <nuxt-link to="#"><div>Menu degutación</div></nuxt-link>
+        <nuxt-link to="#"><div>Tartar de atún rojo</div></nuxt-link>
+        <nuxt-link to="#"><div>Gamba roja nacional</div></nuxt-link>
+
+        <nuxt-link to="" target="_blank"><div>Reservar</div></nuxt-link>
+      </div>
     </div>
   </nav>
 </template>
@@ -110,6 +111,7 @@ export default {
     margin: -50px 0 0 -50px;
     padding: 50px;
     padding-top: 125px;
+    background: #ffffff;
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
     transform-origin: 0% 0%;
