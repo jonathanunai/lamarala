@@ -18,14 +18,24 @@
     -->
       <div id="menu">
         <img src="/img/simbolo_la_mar_sala.png" />
+        <ul>
+          <nuxt-link to="#"><li class="uppercase">Inicio</li></nuxt-link>
+          <li class="uppercase">
+            Nuestras especialides
+            <ul>
+              <nuxt-link to="#"><li>Menu degutación</li></nuxt-link>
+              <nuxt-link to="#"><li>Tartar de atún rojo</li></nuxt-link>
+              <nuxt-link to="#"><li>Gamba roja nacional</li></nuxt-link>
+            </ul>
+          </li>
 
-        <nuxt-link to="#"><div>Inicio</div></nuxt-link>
-        <h3>Nuestras especialides</h3>
-        <nuxt-link to="#"><div>Menu degutación</div></nuxt-link>
-        <nuxt-link to="#"><div>Tartar de atún rojo</div></nuxt-link>
-        <nuxt-link to="#"><div>Gamba roja nacional</div></nuxt-link>
-
-        <nuxt-link to="" target="_blank"><div>Reservar</div></nuxt-link>
+          <nuxt-link to="#"><li class="uppercase">Reservar</li></nuxt-link>
+          <nuxt-link to="#"><li class="uppercase">Menu</li></nuxt-link>
+          <nuxt-link to="#"
+            ><li class="uppercase">Horario & contacto</li></nuxt-link
+          >
+          <nuxt-link to="#"><li class="uppercase">Imágenes</li></nuxt-link>
+        </ul>
       </div>
     </div>
   </nav>
@@ -48,17 +58,23 @@ export default {
 #menuToggle {
   display: block;
   position: relative;
-  top: 50px;
-  left: 50px;
+  top: 0;
+  left: 0;
   z-index: 1;
   -webkit-user-select: none;
   user-select: none;
+  color: $colorGrey;
+
   a {
     text-decoration: none;
-    color: #232323;
-    transition: color 0.3s ease;
+    color: $colorGrey;
+    transition: all 0.3s ease;
     &:hover {
-      color: tomato;
+      color: $colorTurq;
+      font-weight: bold;
+      li {
+        transform: skewX(-9deg);
+      }
     }
   }
 
@@ -67,8 +83,8 @@ export default {
     width: 40px;
     height: 32px;
     position: absolute;
-    top: -7px;
-    left: -5px;
+    top: 50px;
+    left: 50px;
     cursor: pointer;
     z-index: 2; /* and place it over the hamburger */
     -webkit-touch-callout: none;
@@ -94,38 +110,36 @@ export default {
   span:nth-last-child(2) {
     transform-origin: 0% 100%;
   }
-
-  /*
- * Transform all the slices of hamburger
- * into a crossmark.
- */
-
-  /*
- * Make this absolute positioned
- * at the top left of the screen
- */
   #menu {
     position: absolute;
     width: 100%;
     height: 100vh;
-    margin: -50px 0 0 -50px;
     padding: 50px;
-    padding-top: 125px;
+    padding-top: 75px;
     background: #ffffff;
-    list-style-type: none;
+    text-align: center;
     -webkit-font-smoothing: antialiased;
     transform-origin: 0% 0%;
     transform: translate(-100%, 0);
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-
+    > * {
+      padding-bottom: 8px;
+      font-size: 1.45rem;
+    }
     @include md {
       width: 45%;
     }
-  }
-
-  #menu li {
-    padding: 10px 0;
-    font-size: 22px;
+    ul {
+      list-style-type: none;
+      padding: 0;
+      .uppercase {
+        padding-bottom: 24px;
+        ul li {
+          text-transform: none;
+          padding-top: 4px;
+        }
+      }
+    }
   }
   &.open {
     span {

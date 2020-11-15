@@ -21,3 +21,13 @@ body {
   font-family: HelveticaNeue;
   font-family: 'Archivo Narrow';
 }
+.uppercase {
+  text-transform: uppercase;
+}
+.hidden-sm {
+  display: none;
+  @include sm {
+    display: inherit;
+  }
+
+}
