@@ -122,6 +122,7 @@ export default {
     transform-origin: 0% 0%;
     transform: translate(-100%, 0);
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    z-index: 1;
     &:before {
       content: ' ';
       display: block;
@@ -130,9 +131,8 @@ export default {
       top: 0;
       width: 100%;
       height: 100%;
-      z-index: 1;
       opacity: 0.4;
-
+      z-index: -1;
       background-image: url('/img/imagen_mar_100.png');
       background-position: bottom;
       background-repeat: no-repeat;
