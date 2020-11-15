@@ -30,7 +30,7 @@
           </li>
 
           <nuxt-link to="#"><li class="uppercase">Reservar</li></nuxt-link>
-          <nuxt-link to="#"><li class="uppercase">Menu</li></nuxt-link>
+          <nuxt-link to="/menu"><li class="uppercase">Menu</li></nuxt-link>
           <nuxt-link to="#"
             ><li class="uppercase">Horario & contacto</li></nuxt-link
           >

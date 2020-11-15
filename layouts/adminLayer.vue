@@ -1,7 +1,5 @@
 <template>
   <div>
-    <nav-menu />
-    <contact-bar />
     <Nuxt />
   </div>
 </template>

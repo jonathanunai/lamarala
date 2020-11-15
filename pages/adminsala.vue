@@ -39,6 +39,7 @@
 </template>
 <script>
 export default {
+  layout: 'adminLayer',
   data() {
     return {
       menu: [],

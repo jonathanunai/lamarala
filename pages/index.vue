@@ -1,39 +1,8 @@
 <template>
   <div class="container">
-    <div>
-      <contact-bar />
-    </div>
+    <div></div>
   </div>
 </template>
-
-<script>
-export default {
-  async asyncData({ app, params, error }) {
-    const db = app.$firebase.firestore()
-    const menu = []
-    try {
-      await db
-        .collection('Menu')
-        .get()
-        .then((snapshot) => {
-          snapshot.forEach((doc) => {
-            menu.push(doc.data())
-          })
-        })
-
-      return { menu }
-    } catch (e) {
-      error({ statusCode: 404, message: 'Menu not found' })
-      console.log(e)
-    }
-  },
-  data() {
-    return {
-      menu: [],
-    }
-  },
-}
-</script>
 
 <style>
 .container {
