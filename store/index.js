@@ -34,6 +34,9 @@ export const actions = {
   toggleMenu(state) {
     state.commit('TOGGLE_MENU')
   },
+  closeMenu(state) {
+    state.commit('CLOSE_MENU')
+  },
   setEditItem(state, item) {
     state.commit('SET_EDIT_ITEM', item)
   },

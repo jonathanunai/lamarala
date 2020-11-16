@@ -18,7 +18,7 @@
     -->
       <div id="menu">
         <img src="/img/simbolo_la_mar_sala.png" />
-        <ul>
+        <ul @click="closeMenu">
           <nuxt-link to="/"><li class="uppercase">Inicio</li></nuxt-link>
           <li class="uppercase">
             Nuestras especialides
@@ -50,6 +50,9 @@ export default {
   methods: {
     toggleMenu() {
       this.$store.dispatch('toggleMenu')
+    },
+    closeMenu() {
+      this.$store.dispatch('closeMenu')
     },
   },
 }
