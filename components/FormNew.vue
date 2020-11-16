@@ -21,7 +21,6 @@
       <input type="submit" value="Guardar" @click.prevent="addDocument" />
     </form>
     <div class="admin-button" @click="$emit('cancel')">Cancelar</div>
-    {{ editItem }}
   </div>
 </template>
 <script>

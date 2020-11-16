@@ -8,31 +8,44 @@
           <span class="logout" @click="logout">[desconectar]</span>
         </h3>
         <h2>Zona de adminitración de La Mar Salá</h2>
-        <div v-if="show === 'list'" class="admin-buttons">
-          <div class="admin-button" @click="showForm">Crear nuevo</div>
+        <div class="admin-buttons">
+          <h4 v-if="show === 'form'">Creando / Editando</h4>
+          <div v-if="show === 'list'" class="admin-button" @click="showForm">
+            Crear nuevo
+          </div>
         </div>
       </div>
       <div class="container-admin">
-        <form-new
-          v-if="show === 'form'"
-          :item="item"
-          @cancel="showList"
-          @added="added"
-        />
-        <ul v-else>
-          <li v-for="(item, id) in menu" :key="id" :value="item.nombre">
-            <div class="flex-row">
-              <div class="row-info">
-                <span class="strong">{{ item.nombre }}</span>
-                {{ item.desc }} ({{ item.precio }} eur)
+        <transition name="bounce" mode="out-in">
+          <form-new
+            v-if="show === 'form'"
+            key="form"
+            :item="item"
+            @cancel="showList"
+            @added="added"
+          />
+
+          <ul v-else key="list">
+            <li
+              v-for="(menuItem, id) in orderedMenu"
+              :key="id"
+              :value="menuItem.nombre"
+            >
+              <div class="flex-row">
+                <div class="row-info">
+                  <span class="strong">{{ menuItem.nombre }}</span>
+                  {{ menuItem.desc }} ({{ menuItem.precio }} eur)
+                </div>
+                <div class="row-actions">
+                  <div class="del" @click="editItem(menuItem)">[edit]</div>
+                  <div class="del" @click="confirmDeleteItem(menuItem)">
+                    [del]
+                  </div>
+                </div>
               </div>
-              <div class="row-actions">
-                <div class="del" @click="editItem(item)">[edit]</div>
-                <div class="del" @click="confirmDeleteItem(item)">[del]</div>
-              </div>
-            </div>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </transition>
       </div>
       <div v-if="confirm" class="confirm-wrapper">
         <div class="confirm">
@@ -61,6 +74,12 @@ export default {
     user() {
       return this.$store.state.user
     },
+    orderedMenu() {
+      const temp = this.menu
+      return temp.sort((a, b) =>
+        a.nombre > b.nombre ? 1 : b.nombre > a.nombre ? -1 : 0
+      )
+    },
   },
   created() {
     this.loadData()
@@ -68,6 +87,7 @@ export default {
   methods: {
     loadData() {
       this.menu = []
+
       this.$firebase
         .firestore()
         .collection('Menu')
@@ -190,6 +210,7 @@ ul {
   margin: 12px 0;
   display: flex;
   justify-content: center;
+  min-height: 47px;
 }
 .admin-button {
   padding: 8px 16px;
@@ -242,5 +263,30 @@ select {
 .container-admin {
   max-width: 740px;
   margin: 0 auto;
+}
+.home-enter-active,
+.home-leave-active {
+  transition: opacity 0.5s;
+}
+.home-enter,
+.home-leave-active {
+  opacity: 0;
+}
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
+}
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 </style>
