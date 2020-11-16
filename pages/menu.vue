@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     {{ menu }}
   </div>
 </template>
@@ -22,7 +22,6 @@ export default {
       return { menu }
     } catch (e) {
       error({ statusCode: 404, message: 'Menu not found' })
-      console.log(e)
     }
   },
   data() {

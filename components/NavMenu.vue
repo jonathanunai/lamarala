@@ -19,7 +19,7 @@
       <div id="menu">
         <img src="/img/simbolo_la_mar_sala.png" />
         <ul>
-          <nuxt-link to="#"><li class="uppercase">Inicio</li></nuxt-link>
+          <nuxt-link to="/"><li class="uppercase">Inicio</li></nuxt-link>
           <li class="uppercase">
             Nuestras especialides
             <ul>

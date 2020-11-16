@@ -16,16 +16,19 @@
         <option value="Carne">Carne</option>
         <option value="Postre">Postre</option>
         <option value="Vino">Vino</option>
+        <option value="Marisco">Marisco</option>
       </select>
       <input type="submit" value="Guardar" @click.prevent="addDocument" />
     </form>
     <div class="admin-button" @click="$emit('cancel')">Cancelar</div>
+    {{ editItem }}
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
+      id: '',
       model: {
         nombre: '',
         desc: '',
@@ -34,15 +37,37 @@ export default {
       },
     }
   },
+  computed: {
+    editItem() {
+      return this.$store.state.editItem
+    },
+  },
+  created() {
+    if (this.editItem) {
+      this.model = { ...this.editItem }
+      this.id = this.editItem.id
+    }
+  },
   methods: {
     addDocument() {
-      this.$firebase
-        .firestore()
-        .collection('Menu')
-        .add({
-          ...this.model,
-        })
-        .then(() => this.$emit('added'))
+      if (this.id) {
+        this.$firebase
+          .firestore()
+          .collection('Menu')
+          .doc(this.id)
+          .set({
+            ...this.model,
+          })
+          .then(() => this.$emit('added'))
+      } else {
+        this.$firebase
+          .firestore()
+          .collection('Menu')
+          .add({
+            ...this.model,
+          })
+          .then(() => this.$emit('added'))
+      }
     },
   },
 }

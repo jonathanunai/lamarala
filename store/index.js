@@ -3,11 +3,15 @@ export const strict = false
 export const state = () => ({
   user: null,
   menuOpen: false,
+  editItem: false,
 })
 
 export const mutations = {
   SET_USER(state, user) {
     state.user = user
+  },
+  SET_EDIT_ITEM(state, item) {
+    state.editItem = item
   },
   OPEN_MENU(state) {
     state.menuOpen = true
@@ -29,5 +33,8 @@ export const actions = {
   },
   toggleMenu(state) {
     state.commit('TOGGLE_MENU')
+  },
+  setEditItem(state, item) {
+    state.commit('SET_EDIT_ITEM', item)
   },
 }

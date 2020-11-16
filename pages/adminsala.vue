@@ -3,14 +3,22 @@
     <div v-if="!user" class="login"><form-login /></div>
     <div v-else class="logged-in">
       <div class="admin-header">
-        <h3>Identificado como: {{ user.user.email }}</h3>
+        <h3>
+          Identificado como: {{ user.user.email }}
+          <span class="logout" @click="logout">[desconectar]</span>
+        </h3>
         <h2>Zona de adminitración de La Mar Salá</h2>
         <div v-if="show === 'list'" class="admin-buttons">
           <div class="admin-button" @click="showForm">Crear nuevo</div>
         </div>
       </div>
-      <div class="container">
-        <form-new v-if="show === 'form'" @cancel="showList" @added="added" />
+      <div class="container-admin">
+        <form-new
+          v-if="show === 'form'"
+          :item="item"
+          @cancel="showList"
+          @added="added"
+        />
         <ul v-else>
           <li v-for="(item, id) in menu" :key="id" :value="item.nombre">
             <div class="flex-row">
@@ -19,6 +27,7 @@
                 {{ item.desc }} ({{ item.precio }} eur)
               </div>
               <div class="row-actions">
+                <div class="del" @click="editItem(item)">[edit]</div>
                 <div class="del" @click="confirmDeleteItem(item)">[del]</div>
               </div>
             </div>
@@ -71,6 +80,7 @@ export default {
     },
     showForm() {
       this.show = 'form'
+      this.$store.dispatch('setEditItem', false)
     },
     added() {
       this.show = 'list'
@@ -79,6 +89,9 @@ export default {
     showList() {
       this.show = 'list'
     },
+    logout() {
+      this.$store.dispatch('logout')
+    },
     cancelDel() {
       this.confirm = false
       this.item = null
@@ -86,6 +99,10 @@ export default {
     confirmDeleteItem(item) {
       this.confirm = true
       this.item = item
+    },
+    editItem(item) {
+      this.$store.dispatch('setEditItem', item)
+      this.show = 'form'
     },
     deleteItem() {
       this.$firebase
@@ -108,8 +125,11 @@ export default {
   background: $colorGrey;
   color: $colorLight;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   > * {
+  }
+  .logout {
+    cursor: pointer;
   }
 }
 
@@ -155,9 +175,10 @@ ul {
 .admin-header {
   padding: 32px 0;
   display: flex;
+  text-align: center;
   flex-direction: column;
   h3 {
-    color: #666;
+    color: $colorLight;
     padding-bottom: 10px;
     font-size: 0.75rem;
     position: absolute;
@@ -167,6 +188,8 @@ ul {
 }
 .admin-buttons {
   margin: 12px 0;
+  display: flex;
+  justify-content: center;
 }
 .admin-button {
   padding: 8px 16px;
@@ -215,5 +238,9 @@ select {
 select {
   height: 100%;
   margin-top: 5px;
+}
+.container-admin {
+  max-width: 740px;
+  margin: 0 auto;
 }
 </style>
