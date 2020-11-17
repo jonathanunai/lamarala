@@ -118,7 +118,6 @@ export default {
     width: 100%;
     height: 100vh;
     padding: 50px;
-    padding-top: 75px;
     background: #ffffff;
     text-align: center;
     -webkit-font-smoothing: antialiased;
@@ -146,6 +145,7 @@ export default {
     }
     @include md {
       width: 45%;
+      padding-top: 75px;
     }
     ul {
       list-style-type: none;
