@@ -83,11 +83,11 @@ export default {
 
   .hamburger {
     display: block;
-    width: 40px;
+    width: 36px;
     height: 32px;
     position: absolute;
-    top: 50px;
-    left: 50px;
+    top: 40px;
+    left: 35px;
     cursor: pointer;
     z-index: 2; /* and place it over the hamburger */
     -webkit-touch-callout: none;

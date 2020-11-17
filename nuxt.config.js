@@ -39,6 +39,7 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
+    ['vue-scrollto/nuxt', { duration: 500, easing: 'ease' }],
   ],
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)

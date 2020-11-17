@@ -17,6 +17,7 @@
   background: $colorLight;
   padding: 8px;
   justify-content: space-between;
+  z-index: 5;
   @include md {
     top: 30px;
     right: 30px;

@@ -1,23 +1,36 @@
 <template>
   <div class="container menu-page">
     <div class="left-col">
-      <h2>Entrantes para compartir</h2>
-      <ul>
-        <li v-for="entrada in menu.Entrada" :key="entrada.nombre">
-          <div class="plato">
-            <span>{{ entrada.nombre }}</span> {{ entrada.desc }}
-          </div>
-          <div class="precio">{{ entrada.precio }}</div>
-        </li>
+      <div class="logo-wrapper">
+        <img src="/img/logo_la_mar_sala.png" alt="Logo cabecera La Mar Salá" />
+      </div>
+      <ul class="menu-links">
+        <li v-scroll-to="'#Entradas'">Entradas para compartir</li>
+        <li v-scroll-to="'#Mariscos'">Mariscos</li>
+        <li v-scroll-to="'#Pescado'">Plato pricipal</li>
+        <ul>
+          <li v-scroll-to="'#Pescado'">Pescados y arroz</li>
+          <li v-scroll-to="'#Carne'">Carne</li>
+        </ul>
       </ul>
+
+      <h2 id="Entradas">Entradas para compartir</h2>
+      <menu-list :menu="menu.Entrada" />
+      <h2 id="Mariscos">Mariscos</h2>
+      <menu-list :menu="menu.Entrada" />
+      <h2 id="Pescado">Pescado y Arroz</h2>
+      <menu-list :menu="menu.Arroz" />
+      <menu-list :menu="menu.Pescado" />
+      <h2 id="Carne">Carnes</h2>
+      <menu-list :menu="menu.Carne" />
     </div>
-    <div class="right-col">
-      {{ menu }}
-    </div>
+    <div class="right-col"></div>
   </div>
 </template>
 <script>
+import MenuList from '~/components/MenuList.vue'
 export default {
+  components: { MenuList },
   async asyncData({ app, params, error }) {
     const db = app.$firebase.firestore()
     const menu = { Entrada: [], Pescado: [], Carne: [], Arroz: [] }
@@ -45,47 +58,66 @@ export default {
 }
 </script>
 <style lang="scss">
-.container {
-  > * {
-    width: 100%;
-  }
-}
 .menu-page {
+  justify-content: left;
+  .logo-wrapper {
+    width: 100%;
+    padding: 16px;
+    text-align: left;
+    display: flex;
+    justify-content: left;
+    img {
+      width: 220px;
+    }
+  }
+  .menu-links {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+
+    li {
+      text-align: left;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      padding-left: 16px;
+      border-left: 3px solid $colorTurq;
+      letter-spacing: 0.2rem;
+      color: $colorGrey;
+      cursor: pointer;
+      &:hover {
+        font-weight: bold;
+      }
+    }
+    ul {
+      margin: 0;
+      list-style-type: none;
+      li {
+        text-transform: none;
+        border: 0;
+      }
+    }
+  }
   h2 {
     text-transform: uppercase;
     color: $colorTurq;
     font-weight: 400;
-    margin-bottom: 24px;
-    letter-spacing: 0.3rem;
-  }
-  ul {
-    padding: 0;
-    margin: 0;
-    li {
-      list-style-type: none;
-      padding: 0;
-      padding-bottom: 12px;
-      margin: 0;
-      display: flex;
-      justify-content: space-between;
-      font-size: 1.1rem;
-      color: $colorGrey;
-      font-weight: 400;
-    }
+    margin: 24px auto;
+    letter-spacing: 0.25rem;
+    font-size: 1.5rem;
   }
   .left-col {
-    padding: 0 48px;
+    padding: 0 78px;
+    width: 50%;
   }
-  .plato {
-    text-align: left;
-    max-width: 70%;
-    span {
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-  }
-  .precio {
-    font-weight: bold;
+  .right-col {
+    position: fixed;
+    width: 50%;
+    height: 100vh;
+    left: 50%;
+    top: 0;
+    background: url('/img/Pez-mantequilla.jpg');
+    background-position: center;
+    background-size: cover;
   }
 }
 </style>

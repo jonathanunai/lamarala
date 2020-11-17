@@ -1,23 +1,25 @@
 @font-face {
-  font-family: HelveticaNeue;
+  font-family: 'HelveticaNeue';
   font-weight: 400;
-  src: url('~assets/fonts//HelveticaNeue.ttf');
+  font-style: normal;
+  src: url('~assets/fonts//HelveticaNeueLt.ttf') format('truetype');
 }
 @font-face {
-  font-family: HelveticaNeue;
-  font-weight: bold;
-  src: url('~assets/fonts//HelveticaNeueBd.ttf');
-}
-@font-face {
-  font-family: HelveticaNeue;
+  font-family: 'HelveticaNeue';
   font-weight: 300;
-  src: url('~assets/fonts//HelveticaNeueLt.ttf') ;
+  font-style: normal;
+  src: url('~assets/fonts//HelveticaNeue.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'HelveticaNeue';
+  font-weight: 700;
+  font-style: normal;
+  src: url('~assets/fonts//HelveticaNeueBd.ttf') format('truetype');
 }
 
 
 body {
-  font-family: 'Archivo Narrow';
-  font-family: HelveticaNeue;
+  font-family: 'HelveticaNeue', 'Verdana', 'Geneva';
 
 }
 .uppercase {
