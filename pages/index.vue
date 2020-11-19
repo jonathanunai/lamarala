@@ -1,13 +1,11 @@
 <template>
   <div class="container home-container">
     <div class="home-img">
-      <div class="logo-wrapper">
-        <img src="/img/logo_la_mar_sala.png" alt="" />
-      </div>
+      <logo class="home-logo" />
       <div class="book-button">RESERVAR</div>
     </div>
     <div class="home-content">
-      <div class="logo-wrapper">
+      <div class="logo-wrapper hide-on-large">
         <img src="/img/simbolo_la_mar_sala.png" alt="" class="star" />
       </div>
       <h1>LA MAR SALÁ</h1>
@@ -47,6 +45,12 @@
 <style lang="scss">
 .home-container {
   flex-direction: column;
+  @include md {
+    flex-direction: row-reverse;
+    > div {
+      width: 50%;
+    }
+  }
 }
 .home-img {
   height: 100vh;
@@ -63,6 +67,11 @@
     border: 1px solid #ffffff;
     padding: 2px 8px;
   }
+  .home-logo {
+    @include md {
+      transform: translateX(-100%);
+    }
+  }
 }
 .home-content {
   text-align: left;
@@ -77,18 +86,6 @@
   p {
     padding-bottom: 16px;
     font-size: 0.9rem;
-  }
-}
-.logo-wrapper {
-  width: 100%;
-  background: #ffffff;
-  margin: 0 auto;
-  text-align: center;
-  img {
-    width: 220px;
-  }
-  img.star {
-    width: unset;
   }
 }
 </style>

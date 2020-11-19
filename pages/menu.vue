@@ -1,9 +1,7 @@
 <template>
   <div class="container menu-page">
     <div class="left-col">
-      <div class="logo-wrapper">
-        <img src="/img/logo_la_mar_sala.png" alt="Logo cabecera La Mar Salá" />
-      </div>
+      <logo />
       <ul class="menu-links">
         <li v-scroll-to="'#Entradas'">Entradas para compartir</li>
         <li v-scroll-to="'#Mariscos'">Mariscos</li>

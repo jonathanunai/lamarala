@@ -25,6 +25,12 @@ body {
 .uppercase {
   text-transform: uppercase;
 }
+.hide-on-large {
+  @include sm {
+    display: none;
+  }
+
+}
 .hidden-sm {
   display: none;
   @include sm {
