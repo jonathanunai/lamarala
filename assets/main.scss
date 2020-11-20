@@ -42,3 +42,14 @@ body {
   border: 1px solid $colorDark;
   padding: 0 6px;
 }
+
+.show-enter-active,
+.show-leave-enter {
+    transform: translateX(0);
+    transition: all .3s linear;
+}
+.show-enter,
+.show-leave-to {
+    transform: translateX(100%);
+}
+
