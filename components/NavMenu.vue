@@ -23,7 +23,9 @@
           <li class="uppercase">
             Nuestras especialides
             <ul>
-              <nuxt-link to="#"><li>Menu degutación</li></nuxt-link>
+              <nuxt-link to="/nuestras-especialidades#degustacion"
+                ><li>Menu degutación</li></nuxt-link
+              >
               <nuxt-link to="#"><li>Tartar de atún rojo</li></nuxt-link>
               <nuxt-link to="#"><li>Gamba roja nacional</li></nuxt-link>
             </ul>
@@ -38,6 +40,7 @@
             ><li class="uppercase">Imágenes</li></nuxt-link
           >
         </ul>
+        <social-links />
       </div>
     </div>
   </nav>
@@ -117,9 +120,12 @@ export default {
   }
   #menu {
     position: absolute;
+    overflow: scroll;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
     padding: 50px;
+    padding-top: 20px;
     background: #ffffff;
     text-align: center;
     -webkit-font-smoothing: antialiased;
@@ -130,7 +136,7 @@ export default {
     &:before {
       content: ' ';
       display: block;
-      position: absolute;
+      position: fixed;
       left: 0;
       top: 0;
       width: 100%;
@@ -140,6 +146,9 @@ export default {
       background-image: url('/img/imagen_mar_100.png');
       background-position: bottom;
       background-repeat: no-repeat;
+      @include md {
+        width: 45%;
+      }
     }
     > * {
       padding-bottom: 8px;

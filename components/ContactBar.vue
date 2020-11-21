@@ -20,15 +20,16 @@
   background: url('/img/franja_imagen_inferior_15.png');
   background-position: center;
   background-size: cover;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   @include md {
     top: 30px;
     right: 30px;
     bottom: unset;
     background: $colorLight;
-    width: 47%;
+    width: 44%;
     min-width: 400px;
     justify-content: space-between;
+    font-size: 0.9rem;
   }
 
   > * {

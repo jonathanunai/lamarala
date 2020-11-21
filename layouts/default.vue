@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content-wrapper">
     <nav-menu />
     <contact-bar />
     <Nuxt />
@@ -7,6 +7,18 @@
 </template>
 <script>
 export default {
+  computed: {
+    openMenu() {
+      return this.$store.state.menuOpen
+    },
+  },
+  head() {
+    return {
+      bodyAttrs: {
+        class: this.openMenu ? 'no-scroll' : '',
+      },
+    }
+  },
   created() {
     this.$store.dispatch('closeMenu')
   },
@@ -30,15 +42,5 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
-}
-</style>
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 </style>

@@ -21,6 +21,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    { src: '~/plugins/vueVisibility' },
     { src: '~/plugins/firebase' },
     { src: '~/plugins/localStorage', ssr: false },
   ],
@@ -39,6 +40,7 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
+    'nuxt-svg-loader',
     ['vue-scrollto/nuxt', { duration: 500, easing: 'ease' }],
   ],
 

@@ -1,13 +1,12 @@
 <template>
   <div class="container home-container">
     <div class="home-img">
-      <logo class="home-logo" />
-      <div class="book-button">RESERVAR</div>
+      <logo class="hide-on-large" />
+      <div class="book-button hide-on-large">RESERVAR</div>
     </div>
     <div class="home-content">
-      <div class="logo-wrapper hide-on-large">
-        <img src="/img/simbolo_la_mar_sala.png" alt="" class="star" />
-      </div>
+      <logo class="hide-on-small" />
+      <star class="hide-on-large" />
       <h1>LA MAR SALÁ</h1>
       <p>
         Restaurante de Toledo especializado en Marisco y Pescado Salvaje de
@@ -35,7 +34,7 @@
         hablando.
       </p>
       <p>Le esperamos pronto en La Mar Salá. Estamos a su servicio.</p>
-      <div class="logo-wrapper">
+      <div class="img-wrapper">
         <img src="/img/tripadvisor.png" alt="" class="star" />
       </div>
     </div>
@@ -45,6 +44,7 @@
 <style lang="scss">
 .home-container {
   flex-direction: column;
+  align-items: unset;
   @include md {
     flex-direction: row-reverse;
     > div {
@@ -66,11 +66,6 @@
     transform: translate(-50%, 0);
     border: 1px solid #ffffff;
     padding: 2px 8px;
-  }
-  .home-logo {
-    @include md {
-      transform: translateX(-100%);
-    }
   }
 }
 .home-content {

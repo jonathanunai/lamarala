@@ -1,28 +1,46 @@
 <template>
   <div class="container menu-page">
     <div class="left-col">
-      <logo />
+      <logo :header="true" />
       <ul class="menu-links">
-        <li v-scroll-to="'#Entradas'">Entradas para compartir</li>
-        <li v-scroll-to="'#Mariscos'">Mariscos</li>
-        <li v-scroll-to="'#Pescado'">Plato pricipal</li>
+        <li v-scroll-to="'#entradas'" @click="changeImg('entradas')">
+          Entradas para compartir
+        </li>
+        <li v-scroll-to="'#mariscos'" @click="changeImg('mariscos')">
+          Mariscos
+        </li>
+        <li v-scroll-to="'#pescados'" @click="changeImg('pescados')">
+          Plato pricipal
+        </li>
         <ul>
-          <li v-scroll-to="'#Pescado'">Pescados y arroz</li>
-          <li v-scroll-to="'#Carne'">Carne</li>
+          <li v-scroll-to="'#pescados'" @click="changeImg('pescados')">
+            Pescados y arroz
+          </li>
+          <li v-scroll-to="'#carnes'" @click="changeImg('carnes')">Carne</li>
         </ul>
       </ul>
+      <star class="hide-on-large" />
 
-      <h2 id="Entradas">Entradas para compartir</h2>
+      <h2 id="entradas" v-observe-visibility="visibilityChanged">Entradas</h2>
       <menu-list :menu="menu.Entrada" />
-      <h2 id="Mariscos">Mariscos</h2>
+      <star class="hide-on-large" />
+
+      <h2 id="mariscos" v-observe-visibility="visibilityChanged">Mariscos</h2>
       <menu-list :menu="menu.Entrada" />
-      <h2 id="Pescado">Pescado y Arroz</h2>
+      <star class="hide-on-large" />
+
+      <h2 id="pescados" v-observe-visibility="visibilityChanged">
+        Pescado y Arroz
+      </h2>
       <menu-list :menu="menu.Arroz" />
       <menu-list :menu="menu.Pescado" />
-      <h2 id="Carne">Carnes</h2>
+      <star class="hide-on-large" />
+
+      <h2 id="carnes" v-observe-visibility="visibilityChanged">Carnes</h2>
       <menu-list :menu="menu.Carne" />
+      <star class="hide-on-large" />
     </div>
-    <div class="right-col"></div>
+    <div class="right-col" :class="imageDisplayed"></div>
   </div>
 </template>
 <script>
@@ -38,7 +56,6 @@ export default {
         .get()
         .then((snapshot) => {
           snapshot.forEach((doc) => {
-            console.log(doc.data().tipo)
             if (doc.data().tipo) menu[doc.data().tipo].push(doc.data())
           })
         })
@@ -50,72 +67,73 @@ export default {
   },
   data() {
     return {
+      imageDisplayed: 'inicio',
       menu: [],
     }
+  },
+  beforeMount() {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
+  methods: {
+    changeImg(imgClass) {
+      this.imageDisplayed = imgClass
+    },
+    handleScroll() {},
+    visibilityChanged(isVisible, entry) {
+      // console.log(entry.target.id + isVisible)
+      // console.log(entry)
+      // if (isVisible) this.changeImg(entry.target.id)
+    },
   },
 }
 </script>
 <style lang="scss">
 .menu-page {
   justify-content: left;
-  .logo-wrapper {
-    width: 100%;
-    padding: 16px;
-    text-align: left;
-    display: flex;
-    justify-content: left;
-    img {
-      width: 220px;
-    }
-  }
-  .menu-links {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-
-    li {
-      text-align: left;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      padding-left: 16px;
-      border-left: 3px solid $colorTurq;
-      letter-spacing: 0.2rem;
-      color: $colorGrey;
-      cursor: pointer;
-      &:hover {
-        font-weight: bold;
-      }
-    }
-    ul {
-      margin: 0;
-      list-style-type: none;
-      li {
-        text-transform: none;
-        border: 0;
-      }
-    }
-  }
   h2 {
     text-transform: uppercase;
-    color: $colorTurq;
+    color: #ffffff;
     font-weight: 400;
-    margin: 24px auto;
-    letter-spacing: 0.25rem;
-    font-size: 1.5rem;
-  }
-  .left-col {
-    padding: 0 78px;
-    width: 50%;
-  }
-  .right-col {
-    position: fixed;
-    width: 50%;
-    height: 100vh;
-    left: 50%;
-    top: 0;
-    background: url('/img/Pez-mantequilla.jpg');
+    letter-spacing: 0.45rem;
+    font-size: 2.1rem;
+    padding-top: 105px;
+    margin: 16px -24px;
     background-position: center;
     background-size: cover;
+    background-image: url('/img/gambita-roja-fresca.jpg');
+
+    @include md {
+      color: $colorTurq;
+      font-size: 1.6rem;
+      letter-spacing: 0.25rem;
+      padding: 0;
+      padding-top: 40px;
+      margin: 24px auto;
+      background: none;
+      text-align: left;
+    }
+  }
+
+  .inicio {
+    background-image: url('/img/Pez-mantequilla.jpg');
+  }
+  .entradas {
+    background-image: url('/img/gambita-roja-fresca.jpg');
+  }
+  .pescados {
+    background-image: url('/img/gambita-roja-fresca.jpg');
+  }
+  .mariscos {
+    background-image: url('/img/percebe-gallego.jpg');
+  }
+  .arroces {
+    background-image: url('/img/gambita-roja-fresca.jpg');
+  }
+  .carnes {
+    background-image: url('/img/gambita-roja-fresca.jpg');
   }
 }
 </style>

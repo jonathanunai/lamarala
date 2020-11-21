@@ -20,13 +20,17 @@ export default {
   li {
     list-style-type: none;
     padding: 0;
-    padding-bottom: 12px;
+    padding-bottom: 16px;
     margin: 0;
     display: flex;
     justify-content: space-between;
-    font-size: 1.1rem;
     color: $colorGrey;
+    font-size: 0.9rem;
+
     font-weight: 400;
+    @include md {
+      font-size: 1rem;
+    }
   }
   .plato {
     text-align: left;
