@@ -2,7 +2,7 @@
   <div class="container home-container">
     <div class="home-img">
       <logo class="hide-on-large" />
-      <div class="book-button hide-on-large">RESERVAR</div>
+      <button-reservar class="hide-on-large" />
     </div>
     <div class="home-content">
       <logo class="hide-on-small" />
@@ -58,15 +58,6 @@
   background: url('/img/Pez-mantequilla.jpg');
   background-size: cover;
   background-position: center;
-  .book-button {
-    position: absolute;
-    bottom: 42px;
-    color: #ffffff;
-    left: 50%;
-    transform: translate(-50%, 0);
-    border: 1px solid #ffffff;
-    padding: 2px 8px;
-  }
 }
 .home-content {
   text-align: left;

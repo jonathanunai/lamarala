@@ -23,17 +23,21 @@
           <li class="uppercase">
             Nuestras especialides
             <ul>
-              <nuxt-link to="/nuestras-especialidades#degustacion"
+              <nuxt-link to="/nuestras-especialidades#MenuDegustacion"
                 ><li>Menu degutación</li></nuxt-link
               >
-              <nuxt-link to="#"><li>Tartar de atún rojo</li></nuxt-link>
-              <nuxt-link to="#"><li>Gamba roja nacional</li></nuxt-link>
+              <nuxt-link to="/nuestras-especialidades#AtunRojo"
+                ><li>Tartar de atún rojo</li></nuxt-link
+              >
+              <nuxt-link to="/nuestras-especialidades#GambaRoja"
+                ><li>Gamba roja nacional</li></nuxt-link
+              >
             </ul>
           </li>
 
           <nuxt-link to="#"><li class="uppercase">Reservar</li></nuxt-link>
           <nuxt-link to="/menu"><li class="uppercase">Menu</li></nuxt-link>
-          <nuxt-link to="#"
+          <nuxt-link to="/horario-y-contacto"
             ><li class="uppercase">Horario & contacto</li></nuxt-link
           >
           <nuxt-link to="/nuestras-fotografias"
