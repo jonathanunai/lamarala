@@ -1,8 +1,8 @@
 <template>
   <div class="social-menu" :class="column ? 'column' : ''">
-    <facebook-logo />
-    <twitter-logo />
-    <google-logo />
+    <nuxt-link to=""><facebook-logo /></nuxt-link>
+    <nuxt-link to=""><twitter-logo /></nuxt-link>
+    <nuxt-link to=""><google-logo /></nuxt-link>
   </div>
 </template>
 <script>
@@ -26,12 +26,12 @@ export default {
     height: 22px;
     margin: 8px auto;
   }
-}
-.column {
-  flex-direction: row;
-  padding: 8px 0;
-  svg {
-    margin: 8px;
+  &.column {
+    flex-direction: row;
+    padding: 8px;
+    svg {
+      margin: 8px;
+    }
   }
 }
 </style>

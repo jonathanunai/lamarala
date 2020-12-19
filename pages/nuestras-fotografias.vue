@@ -103,17 +103,19 @@ export default {
   .right-col {
     display: flex;
     height: 0;
+    max-height: 0;
     opacity: 0;
     position: fixed;
     align-items: center;
     width: 100%;
     background: rgba(0, 0, 0, 0.4);
     z-index: -1;
-    transition: opacity 0.4s ease, z-index 0.4s ease;
+    transition: all 0.4s ease;
+    left: 0;
     @include md {
       height: 100vh;
+      max-height: 100vh;
       opacity: 1;
-
       background: #ffffff;
       width: 50%;
       left: 50%;
@@ -122,8 +124,9 @@ export default {
   }
   .showModal {
     height: 100vh;
+    max-height: 100vh;
     opacity: 1;
-    z-index: 3;
+    z-index: 6;
   }
 
   .thumbnails {

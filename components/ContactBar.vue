@@ -16,7 +16,7 @@
   color: $colorDark;
   padding: 8px;
   justify-content: space-around;
-  z-index: 5;
+  z-index: 8;
   background: url('/img/franja_imagen_inferior_15.png');
   background-position: center;
   background-size: cover;
