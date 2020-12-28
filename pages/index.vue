@@ -28,8 +28,9 @@
       <h4>EMAIL</h4>
       <a href="mailto:info@lamarsalatoledo.com">info@lamarsalatoledo.com</a>
     </div>
+    <nuxt-link to="/reservas" class="book-button">RESERVAR</nuxt-link>
+
     <social-links :column="true" />
-    <button-reservar :white="false" />
   </div>
 </template>
 <style lang="scss">
@@ -86,6 +87,13 @@
       width: 50vw;
       margin: 0;
     }
+  }
+  .book-button {
+    color: $colorGrey;
+    border: 1px solid $colorGrey;
+    padding: 2px 8px;
+    margin: 24px auto 10px;
+    text-decoration: none;
   }
 }
 </style>
