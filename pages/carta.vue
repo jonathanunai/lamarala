@@ -18,7 +18,7 @@
           </li>
           <li v-scroll-to="'#carnes'" @click="changeImg('carnes')">Carne</li>
         </ul>
-        <li v-scroll-to="'#postres'" @click="changeImg('pescados')">Postres</li>
+        <li v-scroll-to="'#postres'" @click="changeImg('postres')">Postres</li>
       </ul>
       <!-- <star class="hide-on-large" /> -->
 
@@ -27,7 +27,7 @@
       <star class="hide-on-large" />
 
       <h2 id="mariscos" v-observe-visibility="visibilityChanged">Mariscos</h2>
-      <menu-list :menu="menu.Entrada" />
+      <menu-list :menu="menu.Marisco" />
       <star class="hide-on-large" />
 
       <h2 id="pescados" v-observe-visibility="visibilityChanged">
