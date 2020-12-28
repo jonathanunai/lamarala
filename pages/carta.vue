@@ -18,8 +18,9 @@
           </li>
           <li v-scroll-to="'#carnes'" @click="changeImg('carnes')">Carne</li>
         </ul>
+        <li v-scroll-to="'#postres'" @click="changeImg('pescados')">Postres</li>
       </ul>
-      <star class="hide-on-large" />
+      <!-- <star class="hide-on-large" /> -->
 
       <h2 id="entradas" v-observe-visibility="visibilityChanged">Entradas</h2>
       <menu-list :menu="menu.Entrada" />
@@ -39,6 +40,11 @@
       <h2 id="carnes" v-observe-visibility="visibilityChanged">Carnes</h2>
       <menu-list :menu="menu.Carne" />
       <star class="hide-on-large" />
+
+      <h2 id="postres" v-observe-visibility="visibilityChanged">Postres</h2>
+      <menu-list :menu="menu.Postre" />
+      <star class="hide-on-large" />
+      <span class="smalltext">Servicio de pan 1.90 IVA incluido</span>
     </div>
     <div class="right-col" :class="imageDisplayed"></div>
   </div>
@@ -87,7 +93,7 @@ export default {
   },
   methods: {
     changeImg(imgClass) {
-      this.imageDisplayed = imgClass
+      // this.imageDisplayed = imgClass
     },
     handleScroll() {},
     visibilityChanged(isVisible, entry) {
@@ -111,7 +117,7 @@ export default {
     margin: 16px -24px;
     background-position: center;
     background-size: cover;
-    background-image: url('/img/gambita-roja-fresca.jpg');
+    background-color: $colorTurq;
 
     @include md {
       color: $colorTurq;
@@ -128,20 +134,25 @@ export default {
   .inicio {
     background-image: url('/img/Pez-mantequilla.jpg');
   }
-  .entradas {
-    background-image: url('/img/gambita-roja-fresca.jpg');
+  #entradas {
+    background-image: none;
   }
-  .pescados {
-    background-image: url('/img/gambita-roja-fresca.jpg');
+  #pescados {
+    background-image: none;
   }
-  .mariscos {
-    background-image: url('/img/percebe-gallego.jpg');
+  #mariscos {
+    background-image: none;
   }
-  .arroces {
-    background-image: url('/img/gambita-roja-fresca.jpg');
+  #arroces {
+    background-image: none;
   }
-  .carnes {
-    background-image: url('/img/gambita-roja-fresca.jpg');
+  #carnes {
+    background-image: none;
+  }
+  .smalltext {
+    color: $colorDark;
+    display: block;
+    margin: 10px auto 24px;
   }
 }
 </style>
