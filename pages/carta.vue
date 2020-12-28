@@ -46,10 +46,18 @@
 <script>
 import MenuList from '~/components/MenuList.vue'
 export default {
+  layout: 'temp',
   components: { MenuList },
   async asyncData({ app, params, error }) {
     const db = app.$firebase.firestore()
-    const menu = { Entrada: [], Pescado: [], Carne: [], Arroz: [] }
+    const menu = {
+      Entrada: [],
+      Pescado: [],
+      Carne: [],
+      Arroz: [],
+      Postre: [],
+      Marisco: [],
+    }
     try {
       await db
         .collection('Menu')
@@ -62,7 +70,7 @@ export default {
 
       return { menu }
     } catch (e) {
-      error({ statusCode: 404, message: 'Menu not found' })
+      error({ statusCode: 404, message: 'Menu no encontrado' })
     }
   },
   data() {

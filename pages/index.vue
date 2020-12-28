@@ -33,6 +33,18 @@
     <social-links :column="true" />
   </div>
 </template>
+<script>
+import HorarioIcon from '@/assets/svg/horario.svg'
+import DireccionIcon from '@/assets/svg/direccion.svg'
+import TelefonoIcon from '@/assets/svg/telefono.svg'
+import MailIcon from '@/assets/svg/mail.svg'
+
+export default {
+  layout: 'temp',
+  components: { HorarioIcon, DireccionIcon, TelefonoIcon, MailIcon },
+}
+</script>
+
 <style lang="scss">
 .horario-page {
   color: $colorGrey;
@@ -97,15 +109,3 @@
   }
 }
 </style>
-
-<script>
-import HorarioIcon from '@/assets/svg/horario.svg'
-import DireccionIcon from '@/assets/svg/direccion.svg'
-import TelefonoIcon from '@/assets/svg/telefono.svg'
-import MailIcon from '@/assets/svg/mail.svg'
-
-export default {
-  layout: 'temp',
-  components: { HorarioIcon, DireccionIcon, TelefonoIcon, MailIcon },
-}
-</script>
