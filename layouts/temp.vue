@@ -1,26 +1,14 @@
 <template>
   <div class="content-wrapper">
-    <nav-menu />
-    <contact-bar />
     <Nuxt />
   </div>
 </template>
 <script>
 export default {
-  computed: {
-    openMenu() {
-      return this.$store.state.menuOpen
-    },
-  },
   head() {
     return {
-      bodyAttrs: {
-        class: this.openMenu ? 'no-scroll' : '',
-      },
+      bodyAttrs: {},
     }
-  },
-  created() {
-    this.$store.dispatch('closeMenu')
   },
 }
 </script>

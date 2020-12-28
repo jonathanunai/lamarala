@@ -1,80 +1,103 @@
 <template>
-  <div class="page-container">
-    <div class="container home-container">
-      <div class="home-img">
-        <logo class="hide-on-large" />
-        <button-reservar class="hide-on-large" />
-      </div>
-      <div class="home-content">
-        <logo class="hide-on-small" />
-        <star class="hide-on-large" />
-        <h1>LA MAR SALÁ</h1>
-        <p>
-          Restaurante de Toledo especializado en Marisco y Pescado Salvaje de
-          máxima calidad.
-        </p>
-        <p>
-          La Mar Salá de Toledo es un pequeño, pero hermoso restaurante, situado
-          cerca de la famosa Puerta de Bisagra de Toledo, junto a los juzgados.
-        </p>
-        <p>
-          Somos conscientes de que tras una buena cocina debe encontrarse la
-          materia prima más selecta, traída directamente de los mejores lugares
-          de España para usted.
-        </p>
-        <p>
-          Depositamos gran esfuerzo y dedicación en nuestros platos, día tras
-          día, sin ningún tipo de intermediarios. Vamos en busca de este
-          maravilloso producto obtenido del mar, para prepararlo después en
-          nuestros fogones exprimiendo al máximo sus cualidades intrínsecas,
-          incluida su frescura y el olor a mar característico.
-        </p>
-        <p>
-          En la mesa, encontramos el maridaje perfecto con nuestros vinos, que
-          le harán realzar aún más los maravillosos sabores de los que estamos
-          hablando.
-        </p>
-        <p>Le esperamos pronto en La Mar Salá. Estamos a su servicio.</p>
-        <div class="img-wrapper">
-          <img src="/img/tripadvisor.png" alt="" class="star" />
-        </div>
-      </div>
+  <div class="container horario-page">
+    <logo class="" />
+
+    <div class="icon-wrapper"><horario-icon /></div>
+
+    <div>
+      <h4>HORARIO DE COMIDAS</h4>
+      <p>Lunes a sábado: 12,00 a 16,30h.</p>
+      <h4 class="second">HORARIO DE CENAS</h4>
+      <p>Viernes y sábado: 20,30 a 23,30h.</p>
     </div>
-    <nuestras-especialidades />
+
+    <div class="icon-wrapper"><direccion-icon /></div>
+    <div>
+      <h4>DIRECCIÓN</h4>
+      Calle Honda, 9 <br />45003 Toledo (España)
+    </div>
+
+    <div class="icon-wrapper"><telefono-icon /></div>
+    <div>
+      <h4>TELÉFONO</h4>
+      +34 925 254 785
+    </div>
+
+    <div class="icon-wrapper"><mail-icon /></div>
+    <div>
+      <h4>EMAIL</h4>
+      <a href="mailto:info@lamarsalatoledo.com">info@lamarsalatoledo.com</a>
+    </div>
+    <social-links :column="true" />
+    <button-reservar :white="false" />
   </div>
 </template>
-
 <style lang="scss">
-.home-container {
-  flex-direction: column;
+.horario-page {
+  color: $colorGrey;
+  padding: 24px;
+  padding-top: 0;
   align-items: unset;
+  flex-direction: column;
+
   @include md {
-    flex-direction: row-reverse;
-    > div {
+    justify-content: left;
+  }
+  .right-col {
+    display: block;
+    position: relative;
+    width: 100%;
+    left: 0;
+    @include md {
+      position: fixed;
       width: 50%;
+      left: 50%;
+    }
+  }
+  h4.second {
+    padding-top: 8px;
+  }
+  .icon-wrapper {
+    text-align: center;
+    padding-top: 16px;
+  }
+  svg {
+    width: 22px;
+    height: 22px;
+    margin: 8px auto;
+  }
+  a {
+    text-decoration: none;
+    color: $colorGrey;
+  }
+  .mapouter {
+    position: relative;
+    text-align: right;
+    height: 774px;
+    width: 100%;
+  }
+  .gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    height: 100vh;
+    width: 100vw;
+    margin-left: -24px;
+    @include md {
+      width: 50vw;
+      margin: 0;
     }
   }
 }
-.home-img {
-  height: 100vh;
-  width: 100%;
-  background: url('/img/Pez-mantequilla.jpg');
-  background-size: cover;
-  background-position: center;
-}
-.home-content {
-  text-align: left;
-  margin: 8px 24px;
-  margin-bottom: 24px;
-  h1 {
-    font-size: 1rem;
-    text-transform: uppercase;
-    color: $colorTurq;
-    padding-bottom: 16px;
-  }
-  p {
-    padding-bottom: 16px;
-    font-size: 0.9rem;
-  }
-}
 </style>
+
+<script>
+import HorarioIcon from '@/assets/svg/horario.svg'
+import DireccionIcon from '@/assets/svg/direccion.svg'
+import TelefonoIcon from '@/assets/svg/telefono.svg'
+import MailIcon from '@/assets/svg/mail.svg'
+
+export default {
+  layout: 'temp',
+  components: { HorarioIcon, DireccionIcon, TelefonoIcon, MailIcon },
+}
+</script>

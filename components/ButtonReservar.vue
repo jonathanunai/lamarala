@@ -1,5 +1,7 @@
 <template>
-  <div class="book-button" :class="white ? 'white' : ''">RESERVAR</div>
+  <nuxt-link to="/reservas" class="book-button" :class="white ? 'white' : ''"
+    >RESERVAR</nuxt-link
+  >
 </template>
 <script>
 export default {
@@ -15,6 +17,7 @@ export default {
   transform: translate(-50%, 0);
   border: 1px solid $colorGrey;
   padding: 2px 8px;
+  text-decoration: none;
 }
 .white {
   color: #ffffff;

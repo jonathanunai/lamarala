@@ -1,7 +1,7 @@
 <template>
   <div class="container special-page">
     <div class="left-col">
-      <logo :header="true" />
+      <!-- <logo :header="true" /> -->
 
       <h1>Nuestras especialidades</h1>
       <ul class="menu-links">
