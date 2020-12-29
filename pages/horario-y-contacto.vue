@@ -36,9 +36,9 @@
       <div class="mapouter">
         <div class="gmap_canvas">
           <iframe
+            id="gmap_canvas"
             width="100%"
             height="100%"
-            id="gmap_canvas"
             src="https://maps.google.com/maps?q=la%20mar%20sala%2C%20toledo&t=&z=15&ie=UTF8&iwloc=&output=embed"
             frameborder="0"
             scrolling="no"

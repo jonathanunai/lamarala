@@ -54,35 +54,17 @@ import MenuList from '~/components/MenuList.vue'
 export default {
   layout: 'temp',
   components: { MenuList },
-  async asyncData({ app, params, error }) {
-    const db = app.$firebase.firestore()
-    const menu = {
-      Entrada: [],
-      Pescado: [],
-      Carne: [],
-      Arroz: [],
-      Postre: [],
-      Marisco: [],
-    }
-    try {
-      await db
-        .collection('Menu')
-        .get()
-        .then((snapshot) => {
-          snapshot.forEach((doc) => {
-            if (doc.data().tipo) menu[doc.data().tipo].push(doc.data())
-          })
-        })
-
-      return { menu }
-    } catch (e) {
-      error({ statusCode: 404, message: 'Menu no encontrado' })
-    }
-  },
   data() {
     return {
       imageDisplayed: 'inicio',
-      menu: [],
+      menu: {
+        Entrada: [],
+        Pescado: [],
+        Carne: [],
+        Arroz: [],
+        Postre: [],
+        Marisco: [],
+      },
     }
   },
   beforeMount() {
@@ -91,7 +73,23 @@ export default {
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll)
   },
+  created() {
+    this.loadData()
+  },
+
   methods: {
+    loadData() {
+      this.$firebase
+        .firestore()
+        .collection('Menu')
+        .get()
+        .then((snapshot) => {
+          snapshot.forEach((doc) => {
+            this.menu[doc.data().tipo].push({ id: doc.id, ...doc.data() })
+          })
+        })
+    },
+
     changeImg(imgClass) {
       // this.imageDisplayed = imgClass
     },

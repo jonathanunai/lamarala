@@ -11,8 +11,8 @@ import TwitterLogo from '@/assets/svg/twitter.svg'
 import GoogleLogo from '@/assets/svg/google.svg'
 
 export default {
-  props: { column: { type: Boolean, default: false } },
   components: { FacebookLogo, TwitterLogo, GoogleLogo },
+  props: { column: { type: Boolean, default: false } },
 }
 </script>
 

@@ -12,15 +12,16 @@ export default {
       return this.$store.state.menuOpen
     },
   },
+  created() {
+    this.$store.dispatch('closeMenu')
+  },
+
   head() {
     return {
       bodyAttrs: {
         class: this.openMenu ? 'no-scroll' : '',
       },
     }
-  },
-  created() {
-    this.$store.dispatch('closeMenu')
   },
 }
 </script>
