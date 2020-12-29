@@ -107,6 +107,7 @@ export default {
 <style lang="scss">
 .menu-page {
   justify-content: left;
+
   h2 {
     text-transform: uppercase;
     color: #ffffff;
