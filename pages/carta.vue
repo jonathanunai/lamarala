@@ -85,7 +85,8 @@ export default {
         .get()
         .then((snapshot) => {
           snapshot.forEach((doc) => {
-            this.menu[doc.data().tipo].push({ id: doc.id, ...doc.data() })
+            if (doc.data().isActive !== 0)
+              this.menu[doc.data().tipo].push({ id: doc.id, ...doc.data() })
           })
         })
     },

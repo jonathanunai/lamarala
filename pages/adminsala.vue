@@ -1,5 +1,8 @@
 <template>
   <div class="page-container">
+    <transition name="bounce">
+      <div v-if="statusChanging" class="status-changing"></div>
+    </transition>
     <div v-if="!user" class="login"><form-login /></div>
     <div v-else class="logged-in">
       <div class="admin-header">
@@ -32,6 +35,14 @@
               :value="menuItem.nombre"
             >
               <div class="flex-row">
+                <div class="active-button">
+                  <span
+                    :class="
+                      menuItem.isActive === 0 ? 'not-active' : 'is-active'
+                    "
+                    @click="changeItemStatus(menuItem)"
+                  ></span>
+                </div>
                 <div class="row-info">
                   <span class="strong">{{ menuItem.nombre }}</span>
                   {{ menuItem.desc }} ({{ menuItem.precio }} eur)
@@ -68,6 +79,7 @@ export default {
       show: 'list',
       confirm: false,
       item: null,
+      statusChanging: false,
     }
   },
   computed: {
@@ -97,6 +109,19 @@ export default {
             this.menu.push({ id: doc.id, ...doc.data() })
           })
         })
+    },
+    changeItemStatus(item) {
+      console.log(item)
+      item.isActive = item.isActive !== 0 ? 0 : 1
+      this.statusChanging = true
+      this.$firebase
+        .firestore()
+        .collection('Menu')
+        .doc(item.id)
+        .update({
+          isActive: item.isActive,
+        })
+        .then(() => (this.statusChanging = false))
     },
     showForm() {
       this.show = 'form'
@@ -152,7 +177,14 @@ export default {
     cursor: pointer;
   }
 }
-
+.status-changing {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+}
 .flex {
   display: flex;
   justify-content: space-between;
@@ -263,6 +295,20 @@ select {
 .container-admin {
   max-width: 740px;
   margin: 0 auto;
+}
+.active-button {
+  span {
+    width: 16px;
+    height: 16px;
+    display: block;
+    margin-top: 5px;
+    margin-right: 7px;
+    border-radius: 50%;
+    background: #44b773;
+  }
+  span.not-active {
+    background: #b72436;
+  }
 }
 .home-enter-active,
 .home-leave-active {
