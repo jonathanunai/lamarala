@@ -1,5 +1,5 @@
 <template>
-  <div class="page-container">
+  <div class="page-container admin-page">
     <transition name="bounce">
       <div v-if="statusChanging" class="status-changing"></div>
     </transition>
@@ -10,7 +10,7 @@
           Identificado como: {{ user.user.email }}
           <span class="logout" @click="logout">[desconectar]</span>
         </h3>
-        <h2>Zona de adminitración de La Mar Salá</h2>
+        <h1>Zona de adminitración de La Mar Salá</h1>
         <div class="admin-buttons">
           <h4 v-if="show === 'form'">Creando / Editando</h4>
           <div v-if="show === 'list'" class="admin-button" @click="showForm">
@@ -34,7 +34,7 @@
               :key="id"
               :value="id"
             >
-              <h3>{{ id }}</h3>
+              <h2>{{ id === 'Arroz' ? 'Arroces' : id + 's' }}</h2>
               <ul key="list">
                 <li
                   v-for="(menuItem, id) in cartaItem"
@@ -91,11 +91,11 @@ export default {
       statusChanging: false,
       carta: {
         Entrada: [],
-        Pescado: [],
-        Carne: [],
-        Arroz: [],
-        Postre: [],
         Marisco: [],
+        Pescado: [],
+        Arroz: [],
+        Carne: [],
+        Postre: [],
         Vino: [],
       },
     }
@@ -118,11 +118,11 @@ export default {
     loadData() {
       this.carta = {
         Entrada: [],
-        Pescado: [],
-        Carne: [],
-        Arroz: [],
-        Postre: [],
         Marisco: [],
+        Pescado: [],
+        Arroz: [],
+        Carne: [],
+        Postre: [],
         Vino: [],
       }
       this.$firebase
@@ -201,6 +201,15 @@ export default {
   }
   .logout {
     cursor: pointer;
+  }
+}
+.admin-page {
+  h2 {
+    padding: 16px 0;
+    margin: 24px auto 16px;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.6);
+    text-align: center;
   }
 }
 .status-changing {
