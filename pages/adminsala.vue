@@ -27,35 +27,44 @@
             @cancel="showList"
             @added="added"
           />
-
-          <ul v-else key="list">
-            <li
-              v-for="(menuItem, id) in orderedMenu"
+          <div v-else class="lists">
+            <div
+              class="list"
+              v-for="(cartaItem, id) in carta"
               :key="id"
-              :value="menuItem.nombre"
+              :value="id"
             >
-              <div class="flex-row">
-                <div class="active-button">
-                  <span
-                    :class="
-                      menuItem.isActive === 0 ? 'not-active' : 'is-active'
-                    "
-                    @click="changeItemStatus(menuItem)"
-                  ></span>
-                </div>
-                <div class="row-info">
-                  <span class="strong">{{ menuItem.nombre }}</span>
-                  {{ menuItem.desc }} ({{ menuItem.precio }} eur)
-                </div>
-                <div class="row-actions">
-                  <div class="del" @click="editItem(menuItem)">[edit]</div>
-                  <div class="del" @click="confirmDeleteItem(menuItem)">
-                    [del]
+              <h3>{{ id }}</h3>
+              <ul key="list">
+                <li
+                  v-for="(menuItem, id) in cartaItem"
+                  :key="id"
+                  :value="menuItem.nombre"
+                >
+                  <div class="flex-row">
+                    <div class="active-button">
+                      <span
+                        :class="
+                          menuItem.isActive === 0 ? 'not-active' : 'is-active'
+                        "
+                        @click="changeItemStatus(menuItem)"
+                      ></span>
+                    </div>
+                    <div class="row-info">
+                      <span class="strong">{{ menuItem.nombre }}</span>
+                      {{ menuItem.desc }} ({{ menuItem.precio }} eur)
+                    </div>
+                    <div class="row-actions">
+                      <div class="del" @click="editItem(menuItem)">[edit]</div>
+                      <div class="del" @click="confirmDeleteItem(menuItem)">
+                        [del]
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </li>
-          </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
         </transition>
       </div>
       <div v-if="confirm" class="confirm-wrapper">
@@ -87,6 +96,7 @@ export default {
         Arroz: [],
         Postre: [],
         Marisco: [],
+        Vino: [],
       },
     }
   },
