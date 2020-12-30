@@ -80,6 +80,14 @@ export default {
       confirm: false,
       item: null,
       statusChanging: false,
+      carta: {
+        Entrada: [],
+        Pescado: [],
+        Carne: [],
+        Arroz: [],
+        Postre: [],
+        Marisco: [],
+      },
     }
   },
   computed: {
@@ -98,15 +106,23 @@ export default {
   },
   methods: {
     loadData() {
-      this.menu = []
-
+      this.carta = {
+        Entrada: [],
+        Pescado: [],
+        Carne: [],
+        Arroz: [],
+        Postre: [],
+        Marisco: [],
+        Vino: [],
+      }
       this.$firebase
         .firestore()
         .collection('Menu')
         .get()
         .then((snapshot) => {
           snapshot.forEach((doc) => {
-            this.menu.push({ id: doc.id, ...doc.data() })
+            // this.menu.push({ id: doc.id, ...doc.data() })
+            this.carta[doc.data().tipo].push({ id: doc.id, ...doc.data() })
           })
         })
     },

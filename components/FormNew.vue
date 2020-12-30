@@ -33,6 +33,7 @@ export default {
         desc: '',
         precio: '',
         tipo: '',
+        isActive: 1,
       },
     }
   },

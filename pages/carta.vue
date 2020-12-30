@@ -64,6 +64,7 @@ export default {
         Arroz: [],
         Postre: [],
         Marisco: [],
+        Vino: [],
       },
     }
   },
