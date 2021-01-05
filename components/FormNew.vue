@@ -21,10 +21,8 @@
       <div v-if="model.tipo === 'Vino'" class="seccion-vino">
         <select v-model="model.tipovino">
           <option value="Blanco">Blanco</option>
-          <option value="BlancoInt">Blanco Internacional</option>
           <option value="Espumoso">Espumoso</option>
           <option value="Tinto">Tinto</option>
-          <option value="TintoInt">Tinto Internacional</option>
           <option value="Otros">Otros</option>
         </select>
         <select v-model="model.zona">

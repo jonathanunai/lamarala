@@ -55,12 +55,11 @@
 <script>
 export default {
   props: ['vinos'],
-  data() {},
   methods: {
     getList(tipo, zona) {
-      return this.vinos.map((item) => {
-        return item.tipovino === tipo && item.zona === zona ? item : false
-      })
+      return this.vinos.filter(
+        (item) => item.tipovino === tipo && item.zona === zona
+      )
     },
   },
 }
@@ -85,7 +84,8 @@ export default {
     height: 100vh;
   }
   &__wrapper {
-    position: relative;
+    position: fixed;
+    top: 2rem;
     width: 95vmin;
     min-height: 95vh;
     background: #fff;
@@ -128,7 +128,20 @@ export default {
     background: $colorTurq;
     @include md {
       color: #ffffff;
+      padding-left: 1rem;
     }
+  }
+  h3 {
+    border-bottom: 2px solid $colorTurq;
+    padding: 0.5rem;
+    padding-top: 2rem;
+  }
+  h4 {
+    text-align: left;
+    padding: 0.5rem 0;
+  }
+  .extra {
+    text-align: center;
   }
 }
 </style>
