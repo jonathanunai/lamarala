@@ -120,4 +120,10 @@ body {
 .show-leave-to {
     transform: translateX(100%);
 }
+.modal-enter-active, .modal-leave-active {
+  transition: opacity .5s
+}
+.modal-enter, .modal-leave-to {
+  opacity: 0
+}
 

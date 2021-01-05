@@ -19,6 +19,7 @@
           <li v-scroll-to="'#carnes'" @click="changeImg('carnes')">Carne</li>
         </ul>
         <li v-scroll-to="'#postres'" @click="changeImg('postres')">Postres</li>
+        <li @click="toggleModal()">Carta de Vinos</li>
       </ul>
       <!-- <star class="hide-on-large" /> -->
 
@@ -44,6 +45,13 @@
       <h2 id="postres" v-observe-visibility="visibilityChanged">Postres</h2>
       <menu-list :menu="menu.Postre" />
       <star class="hide-on-large" />
+      <transition name="modal">
+        <vinos
+          v-if="showVinos"
+          :vinos="menu.Vino"
+          v-on:toggle="toggleModal()"
+        />
+      </transition>
       <span class="smalltext">Servicio de pan 1.90 IVA incluido</span>
     </div>
     <div class="right-col" :class="imageDisplayed"></div>
@@ -66,6 +74,7 @@ export default {
         Marisco: [],
         Vino: [],
       },
+      showVinos: false,
     }
   },
   beforeMount() {
@@ -79,6 +88,9 @@ export default {
   },
 
   methods: {
+    toggleModal() {
+      this.showVinos = !this.showVinos
+    },
     loadData() {
       this.$firebase
         .firestore()

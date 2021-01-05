@@ -18,6 +18,30 @@
         <option value="Vino">Vino</option>
         <option value="Marisco">Marisco</option>
       </select>
+      <div v-if="model.tipo === 'Vino'" class="seccion-vino">
+        <select v-model="model.tipovino">
+          <option value="Blanco">Blanco</option>
+          <option value="BlancoInt">Blanco Internacional</option>
+          <option value="Espumoso">Espumoso</option>
+          <option value="Tinto">Tinto</option>
+          <option value="TintoInt">Tinto Internacional</option>
+          <option value="Otros">Otros</option>
+        </select>
+        <select v-model="model.zona">
+          <option value="Cadiz">Cádiz</option>
+          <option value="Champagne">AOC Champagne</option>
+          <option value="CastillaLaMancha">Castilla La Mancha</option>
+          <option value="CastillaYLeon">Castilla Y León</option>
+          <option value="Galicia">Galicia</option>
+          <option value="Rioja">Rioja</option>
+          <option value="Africa">África</option>
+          <option value="Alemania">Alemania</option>
+          <option value="Francia">Francia</option>
+          <option value="NuevaZelanda">Nueva Zelanda</option>
+          <option value="Sudáfrica">Sudáfrica</option>
+          <option value="Otras">Otras Zonas</option>
+        </select>
+      </div>
       <input type="submit" value="Guardar" @click.prevent="addDocument" />
     </form>
     <div class="admin-button" @click="$emit('cancel')">Cancelar</div>
@@ -33,6 +57,8 @@ export default {
         desc: '',
         precio: '',
         tipo: '',
+        zona: '',
+        tipovino: '',
         isActive: 1,
       },
     }
@@ -72,4 +98,17 @@ export default {
   },
 }
 </script>
-<style lang="scss"></style>
+<style lang="scss">
+.seccion-vino {
+  padding: 8px;
+  margin: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px #fff solid;
+  border-radius: 1rem;
+  > * {
+    margin: 4px 0;
+  }
+}
+</style>

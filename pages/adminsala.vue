@@ -52,7 +52,9 @@
                     </div>
                     <div class="row-info">
                       <span class="strong">{{ menuItem.nombre }}</span>
-                      {{ menuItem.desc }} ({{ menuItem.precio }} eur)
+                      {{ menuItem.desc }} {{ menuItem.tipovino }}
+                      {{ menuItem.zona }} ({{ menuItem.precio }}
+                      eur)
                     </div>
                     <div class="row-actions">
                       <div class="del" @click="editItem(menuItem)">[edit]</div>
