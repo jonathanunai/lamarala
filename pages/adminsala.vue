@@ -134,7 +134,11 @@ export default {
         .then((snapshot) => {
           snapshot.forEach((doc) => {
             // this.menu.push({ id: doc.id, ...doc.data() })
-            this.carta[doc.data().tipo].push({ id: doc.id, ...doc.data() })
+
+            if (
+              Object.prototype.hasOwnProperty.call(this.carta, doc.data().tipo)
+            )
+              this.carta[doc.data().tipo].push({ id: doc.id, ...doc.data() })
           })
         })
     },

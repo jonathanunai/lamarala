@@ -40,6 +40,7 @@
           <option value="Otras">Otras Zonas</option>
         </select>
       </div>
+      <div class="error-msg">{{ errorMsg }}</div>
       <input type="submit" value="Guardar" @click.prevent="addDocument" />
     </form>
     <div class="admin-button" @click="$emit('cancel')">Cancelar</div>
@@ -50,6 +51,7 @@ export default {
   data() {
     return {
       id: '',
+      errorMsg: '',
       model: {
         nombre: '',
         desc: '',
@@ -74,6 +76,12 @@ export default {
   },
   methods: {
     addDocument() {
+      if (!this.model.tipo) {
+        this.errorMsg = '¡Selecciona un tipo!'
+        return
+      }
+      this.errorMsg = ''
+
       if (this.id) {
         this.$firebase
           .firestore()
@@ -108,5 +116,9 @@ export default {
   > * {
     margin: 4px 0;
   }
+}
+.error-msg {
+  color: white;
+  font-weight: bold;
 }
 </style>

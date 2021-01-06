@@ -99,7 +99,10 @@ export default {
         .then((snapshot) => {
           snapshot.forEach((doc) => {
             if (doc.data().isActive !== 0)
-              this.menu[doc.data().tipo].push({ id: doc.id, ...doc.data() })
+              if (
+                Object.prototype.hasOwnProperty.call(this.menu, doc.data().tipo)
+              )
+                this.menu[doc.data().tipo].push({ id: doc.id, ...doc.data() })
           })
         })
     },

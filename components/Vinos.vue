@@ -1,14 +1,14 @@
 <template>
   <div class="modal">
-    <div class="modal__mask"></div>
+    <div class="modal__mask" @click="$emit('toggle')"></div>
     <div class="modal__wrapper">
       <div class="modal__container">
         <div class="modal__header">
-          <h2 id="vinos">Carta de vinos</h2>
+          <h2 id="vinos" class="winetitle">Carta de vinos</h2>
           <div class="modal__x" @click="$emit('toggle')">&times;</div>
         </div>
         <div class="modal__body">
-          <h3 id="blancos">Blancos</h3>
+          <h2 id="blancos">Blancos</h2>
           <h4>Galicia</h4>
           <menu-list :menu="getList('Blanco', 'Galicia')" />
           <h4>Castilla la Mancha - Castilla y León</h4>
@@ -27,10 +27,10 @@
           <menu-list :menu="getList('Blanco', 'Africa')" />
           <h4>Alemania</h4>
           <menu-list :menu="getList('Blanco', 'Alemania')" />
-          <h3 id="espumosos">Espumosos</h3>
+          <h2 id="espumosos">Espumosos</h2>
           <h4>AOC Champagne</h4>
           <menu-list :menu="getList('Blanco', 'Champagne')" />
-          <h3 id="tintos">Tintos</h3>
+          <h2 id="tintos">Tintos</h2>
           <h4>Castilla la Mancha</h4>
           <menu-list :menu="getList('Tinto', 'CastillaLaMancha')" />
           <h4>Castilla y León</h4>
@@ -87,7 +87,7 @@ export default {
     position: fixed;
     top: 2rem;
     width: 95vmin;
-    min-height: 95vh;
+    height: 95vh;
     background: #fff;
     color: #333;
     display: flex;
@@ -121,11 +121,22 @@ export default {
     position: absolute;
     right: 15px;
     color: #ffffff;
+    font-size: 3rem;
   }
-  h2 {
+  h2.winetitle {
     width: 100%;
     margin: 0;
     background: $colorTurq;
+    padding-top: 40px;
+    @include md {
+      color: #ffffff;
+      padding-left: 1rem;
+    }
+  }
+  h2 {
+    background: $colorTurq;
+    padding: 25px 0;
+
     @include md {
       color: #ffffff;
       padding-left: 1rem;
