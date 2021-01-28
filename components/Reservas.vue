@@ -2,7 +2,7 @@
   <div>
     <iframe
       title="Reservas"
-      src="https://www.covermanager.com/reserve/module_restaurant/restaurante-la-mar-sala/spanish"
+      src="https://module.lafourchette.com/es_ES/module/677655-03f4f"
       width="100%"
       height="550"
       frameborder="0"

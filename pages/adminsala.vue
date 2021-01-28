@@ -16,6 +16,9 @@
           <div v-if="show === 'list'" class="admin-button" @click="showForm">
             Crear nuevo
           </div>
+          <div v-if="show === 'list'" class="admin-button" @click="csvExport">
+            Exportar a Excel
+          </div>
         </div>
       </div>
       <div class="container-admin">
@@ -192,6 +195,21 @@ export default {
           this.item = null
           this.loadData()
         })
+    },
+    csvExport() {
+      let csvContent = 'data:text/csv;charset=utf-8,'
+      csvContent += [
+        Object.keys(this.carta).join(';'),
+        this.carta.Entrada.map((item) => Object.values(item).join(';')),
+      ]
+        .join('\n')
+        .replace(/(^\[)|(\]$)/gm, '')
+
+      const data = encodeURI(csvContent)
+      const link = document.createElement('a')
+      link.setAttribute('href', data)
+      link.setAttribute('download', 'export.csv')
+      link.click()
     },
   },
 }
