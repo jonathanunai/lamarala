@@ -4,16 +4,46 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'lamarsala',
+    title: 'La Mar Salá - Restaurante',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Restaurante especializado en pescado salvaje y marisco de alta calidad, situado muy cerca del casco histórico de Toledo.',
+      },
+      { property: 'og:site_name', content: 'La Mar Salá - Restaurante' },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: 'https://lamarsalatoledo.com',
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'La Mar Salá - Restaurante',
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content:
+          'Restaurante especializado en pescado salvaje y marisco de alta calidad, situado muy cerca del casco histórico de Toledo.',
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: '/img/logo_la_mar_sala.png',
+      },
+      { property: 'og:image:width', content: '280' },
+      { property: 'og:image:height', content: '115' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  // Global CSS (https://go.nuxtjs.dev/config-css)
+  // Global CSS
   css: ['~/assets/main.scss'],
   styleResources: {
     scss: ['~/assets/vars/*.scss'],
@@ -68,7 +98,6 @@ export default {
 
       if (to.hash) {
         const el = await findEl(to.hash)
-        console.log(el.offsetTop)
         if ('scrollBehavior' in document.documentElement.style) {
           return window.scrollTo({ top: el.offsetTop, behavior: 'smooth' })
         } else {

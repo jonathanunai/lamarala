@@ -28,7 +28,12 @@
     </p>
     <p>Le esperamos pronto en La Mar Salá. Estamos a su servicio.</p>
     <div class="img-wrapper">
-      <img src="/img/tripadvisor.png" alt="" class="star" />
+      <a
+        href="https://www.tripadvisor.es/Restaurant_Review-g187489-d2486849-Reviews-La_Mar_Sala-Toledo_Province_of_Toledo_Castile_La_Mancha.html"
+        target="_blank"
+      >
+        <img src="/img/tripadvisor.png" alt="" class="star" />
+      </a>
     </div>
   </div>
 </template>

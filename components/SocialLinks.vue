@@ -1,7 +1,11 @@
 <template>
   <div class="social-menu" :class="column ? 'column' : ''">
-    <nuxt-link to=""><facebook-logo /></nuxt-link>
-    <nuxt-link to=""><twitter-logo /></nuxt-link>
+    <a href="https://www.facebook.com/lamarsalatoledo" target="_blank"
+      ><facebook-logo
+    /></a>
+    <a href="https://twitter.com/lamarsalatoledo" target="_blank"
+      ><twitter-logo
+    /></a>
   </div>
 </template>
 <script>

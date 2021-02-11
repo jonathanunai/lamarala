@@ -146,7 +146,6 @@ export default {
         })
     },
     changeItemStatus(item) {
-      console.log(item)
       item.isActive = item.isActive !== 0 ? 0 : 1
       this.statusChanging = true
       this.$firebase

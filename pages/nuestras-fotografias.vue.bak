@@ -84,7 +84,6 @@ export default {
     },
     closeRight() {
       this.showModal = false
-      console.log('close')
     },
   },
 }

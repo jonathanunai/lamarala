@@ -1,7 +1,7 @@
 <template>
   <div class="top-header">
     <nav-menu />
-    <logo class="to-left" />
+    <nuxt-link to="/"><logo class="to-left" /></nuxt-link>
     <contact-bar />
   </div>
 </template>

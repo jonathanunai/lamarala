@@ -3,7 +3,9 @@
     <div>c/ Honda, 9 45003 Toledo</div>
     <div><a href="tel:+34925254785">Tel. 925 254 785</a></div>
     <div class="hidden-sm"></div>
-    <div class="boxed hidden-sm">RESERVAR</div>
+    <nuxt-link to="/reservas">
+      <div class="boxed hidden-sm">RESERVAR</div>
+    </nuxt-link>
   </div>
 </template>
 <style lang="scss">
