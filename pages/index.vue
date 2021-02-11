@@ -1,7 +1,7 @@
 <template>
   <div class="onepage-container">
     <presentacion />
-    <nuestras-especialidades />
+    <nuestras-especialidades v-if="false" />
     <contact />
   </div>
 </template>
