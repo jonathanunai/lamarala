@@ -29,7 +29,8 @@ export default {
     width: 220px;
   }
   img.header-logo {
-    width: 190px;
+    transition: all 0.3s ease;
+    width: 90px;
   }
 }
 

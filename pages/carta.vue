@@ -1,7 +1,6 @@
 <template>
   <div class="container menu-page">
     <div class="left-col">
-      <logo :header="true" />
       <ul class="menu-links">
         <li v-scroll-to="'#entradas'" @click="changeImg('entradas')">
           Entradas para compartir
@@ -60,7 +59,6 @@
 <script>
 import MenuList from '~/components/MenuList.vue'
 export default {
-  layout: 'temp',
   components: { MenuList },
   data() {
     return {
@@ -122,6 +120,7 @@ export default {
 <style lang="scss">
 .menu-page {
   justify-content: left;
+  padding-top: 120px;
   h2 {
     text-transform: uppercase;
     color: #ffffff;

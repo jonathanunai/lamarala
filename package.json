@@ -11,30 +11,30 @@
     "lint": "npm run lint:js"
   },
   "dependencies": {
-    "@nuxt/content": "^1.9.0",
-    "@nuxtjs/firebase": "^7.1.0",
-    "@nuxtjs/pwa": "^3.0.2",
-    "firebase": "^8.0.1",
-    "nuxt": "^2.14.6",
+    "@nuxt/content": "^1.12.0",
+    "@nuxtjs/firebase": "^7.4.1",
+    "@nuxtjs/pwa": "^3.3.5",
+    "firebase": "^8.2.6",
+    "nuxt": "^2.14.12",
     "nuxt-svg-loader": "^1.2.0",
     "vue-observe-visibility": "^0.4.6",
     "vue-scrollto": "^2.20.0",
-    "vuex-persistedstate": "^4.0.0-beta.1"
+    "vuex-persistedstate": "^4.0.0-beta.3"
   },
   "devDependencies": {
-    "@babel/runtime-corejs3": "^7.12.5",
+    "@babel/runtime-corejs3": "^7.12.13",
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/style-resources": "^1.0.0",
     "babel-eslint": "^10.1.0",
-    "core-js": "^3.7.0",
-    "eslint": "^7.10.0",
+    "core-js": "^3.8.3",
+    "eslint": "^7.19.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-nuxt": "^1.0.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "prettier": "^2.1.2",
-    "sass": "^1.29.0",
-    "sass-loader": "^10.0.5",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1",
+    "sass": "^1.32.6",
+    "sass-loader": "^10.1.1",
     "vue-svg-loader": "^0.17.0-beta.2"
   }
 }

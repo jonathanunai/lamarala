@@ -1,21 +1,11 @@
 <template>
   <nav role="navigation">
     <div id="menuToggle" :class="openMenu ? 'open' : ''">
-      <!--
-    Some spans to act as a hamburger.
-
-    They are acting like a real hamburger,
-    not that McDonalds stuff.
-    -->
       <div class="hamburger" @click="toggleMenu">
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <!--
-    Too bad the menu has to be inside of the button
-    but hey, it's pure CSS magic.
-    -->
       <div id="menu">
         <img src="/img/simbolo_la_mar_sala.png" />
         <ul @click="closeMenu">
@@ -23,26 +13,24 @@
           <li class="uppercase">
             Nuestras especialides
             <ul>
-              <nuxt-link to="/nuestras-especialidades#MenuDegustacion"
+              <nuxt-link :to="{ path: '/', hash: '#MenuDegustacion' }"
                 ><li>Menu degutación</li></nuxt-link
               >
-              <nuxt-link to="/nuestras-especialidades#AtunRojo"
+              <nuxt-link :to="{ path: '/', hash: '#AtunRojo' }"
                 ><li>Tartar de atún rojo</li></nuxt-link
               >
-              <nuxt-link to="/nuestras-especialidades#GambaRoja"
-                ><li>Gamba roja nacional</li></nuxt-link
-              >
+              <nuxt-link to="/"><li>Gamba roja nacional</li></nuxt-link>
             </ul>
           </li>
 
-          <nuxt-link to="#"><li class="uppercase">Reservar</li></nuxt-link>
-          <nuxt-link to="/menu"><li class="uppercase">Menu</li></nuxt-link>
-          <nuxt-link to="/horario-y-contacto"
+          <nuxt-link to="/reservas"
+            ><li class="uppercase">Reservar</li></nuxt-link
+          >
+          <nuxt-link to="/carta"><li class="uppercase">Menu</li></nuxt-link>
+          <nuxt-link :to="{ path: '/', hash: '#horario-y-contacto' }"
             ><li class="uppercase">Horario & contacto</li></nuxt-link
           >
-          <nuxt-link to="/nuestras-fotografias"
-            ><li class="uppercase">Imágenes</li></nuxt-link
-          >
+          <nuxt-link to="/"><li class="uppercase">Imágenes</li></nuxt-link>
         </ul>
         <social-links />
       </div>
@@ -81,11 +69,15 @@ export default {
     text-decoration: none;
     color: $colorGrey;
     transition: all 0.3s ease;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+
     &:hover {
       color: $colorTurq;
-      font-weight: bold;
+      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+
       li {
         transform: skewX(-9deg);
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
       }
     }
   }
@@ -94,8 +86,8 @@ export default {
     display: block;
     width: 36px;
     height: 32px;
-    position: absolute;
-    top: 40px;
+    position: fixed;
+    top: 20px;
     left: 35px;
     cursor: pointer;
     z-index: 2; /* and place it over the hamburger */

@@ -2,16 +2,14 @@
   <div class="social-menu" :class="column ? 'column' : ''">
     <nuxt-link to=""><facebook-logo /></nuxt-link>
     <nuxt-link to=""><twitter-logo /></nuxt-link>
-    <nuxt-link to=""><google-logo /></nuxt-link>
   </div>
 </template>
 <script>
 import FacebookLogo from '@/assets/svg/facebook.svg'
 import TwitterLogo from '@/assets/svg/twitter.svg'
-import GoogleLogo from '@/assets/svg/google.svg'
 
 export default {
-  components: { FacebookLogo, TwitterLogo, GoogleLogo },
+  components: { FacebookLogo, TwitterLogo },
   props: { column: { type: Boolean, default: false } },
 }
 </script>

@@ -22,7 +22,8 @@
   background-size: cover;
   font-size: 0.8rem;
   @include md {
-    top: 30px;
+    top: 10px;
+    transition: all 0.3s ease;
     right: 30px;
     bottom: unset;
     background: $colorLight;

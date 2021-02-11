@@ -5,11 +5,11 @@
 </template>
 <style lang="scss">
 .reservas {
-  padding-top: 50px;
+  padding-top: 120px;
 }
 </style>
 <script>
 export default {
-  layout: 'temp',
+  layout: '',
 }
 </script>
