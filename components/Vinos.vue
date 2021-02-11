@@ -23,13 +23,13 @@
           <menu-list :menu="getList('Blanco', 'Francia')" />
           <h4>Nueva Zelanda</h4>
           <menu-list :menu="getList('Blanco', 'NuevaZelanda')" />
-          <h4>África</h4>
-          <menu-list :menu="getList('Blanco', 'Africa')" />
+          <h4>Sudáfrica</h4>
+          <menu-list :menu="getList('Blanco', 'Sudáfrica')" />
           <h4>Alemania</h4>
           <menu-list :menu="getList('Blanco', 'Alemania')" />
           <h2 id="espumosos">Espumosos</h2>
           <h4>AOC Champagne</h4>
-          <menu-list :menu="getList('Blanco', 'Champagne')" />
+          <menu-list :menu="getList('Espumoso', 'Champagne')" />
           <h2 id="tintos">Tintos</h2>
           <h4>Castilla la Mancha</h4>
           <menu-list :menu="getList('Tinto', 'CastillaLaMancha')" />
@@ -43,7 +43,7 @@
           <h4>Francia</h4>
           <menu-list :menu="getList('Tinto', 'Francia')" />
           <h4>Sudáfrica</h4>
-          <menu-list :menu="getList('Tinto', 'Sudafrica')" />
+          <menu-list :menu="getList('Tinto', 'Sudáfrica')" />
           <h4>Nueva Zelanda</h4>
           <menu-list :menu="getList('Tinto', 'NuevaZelanda')" />
         </div>
