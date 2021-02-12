@@ -16,6 +16,10 @@
           <div v-if="show === 'list'" class="admin-button" @click="showForm">
             Crear nuevo
           </div>
+          <div v-if="show === 'list'" class="admin-button" @click="showWine">
+            <span v-if="wine">Carta</span>
+            <span v-else>Vinos</span>
+          </div>
           <div v-if="show === 'list'" class="admin-button" @click="csvExport">
             Exportar a Excel
           </div>
@@ -32,16 +36,16 @@
           />
           <div v-else class="lists">
             <div
-              class="list"
-              v-for="(cartaItem, id) in carta"
+              v-for="(cartaItem, id) in showWineorFood"
               :key="id"
               :value="id"
+              class="list"
             >
               <h2>{{ id === 'Arroz' ? 'Arroces' : id + 's' }}</h2>
               <ul key="list">
                 <li
-                  v-for="(menuItem, id) in cartaItem"
-                  :key="id"
+                  v-for="(menuItem, i) in cartaItem"
+                  :key="i"
                   :value="menuItem.nombre"
                 >
                   <div class="flex-row">
@@ -92,6 +96,7 @@ export default {
       menu: [],
       show: 'list',
       confirm: false,
+      wine: false,
       item: null,
       statusChanging: false,
       carta: {
@@ -101,13 +106,20 @@ export default {
         Arroz: [],
         Carne: [],
         Postre: [],
-        Vino: [],
+      },
+      vino: {
+        Blanco: [],
+        Espumoso: [],
+        Tinto: [],
       },
     }
   },
   computed: {
     user() {
       return this.$store.state.user
+    },
+    showWineorFood() {
+      return this.wine ? this.vino : this.carta
     },
     orderedMenu() {
       const temp = this.menu
@@ -128,7 +140,11 @@ export default {
         Arroz: [],
         Carne: [],
         Postre: [],
-        Vino: [],
+      }
+      this.vino = {
+        Blanco: [],
+        Espumoso: [],
+        Tinto: [],
       }
       this.$firebase
         .firestore()
@@ -137,8 +153,20 @@ export default {
         .then((snapshot) => {
           snapshot.forEach((doc) => {
             // this.menu.push({ id: doc.id, ...doc.data() })
-
-            if (
+            if (doc.data().tipo === 'Vino') {
+              console.log(doc.data())
+              if (
+                Object.prototype.hasOwnProperty.call(
+                  this.vino,
+                  doc.data().tipovino
+                )
+              ) {
+                this.vino[doc.data().tipovino].push({
+                  id: doc.id,
+                  ...doc.data(),
+                })
+              }
+            } else if (
               Object.prototype.hasOwnProperty.call(this.carta, doc.data().tipo)
             )
               this.carta[doc.data().tipo].push({ id: doc.id, ...doc.data() })
@@ -160,6 +188,9 @@ export default {
     showForm() {
       this.show = 'form'
       this.$store.dispatch('setEditItem', false)
+    },
+    showWine() {
+      this.wine = !this.wine
     },
     added() {
       this.show = 'list'
