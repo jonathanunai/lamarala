@@ -32,7 +32,6 @@
           <option value="CastillaYLeon">Castilla Y León</option>
           <option value="Galicia">Galicia</option>
           <option value="Rioja">Rioja</option>
-          <option value="Africa">África</option>
           <option value="Alemania">Alemania</option>
           <option value="Francia">Francia</option>
           <option value="NuevaZelanda">Nueva Zelanda</option>

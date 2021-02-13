@@ -59,8 +59,10 @@
                     </div>
                     <div class="row-info">
                       <span class="strong">{{ menuItem.nombre }}</span>
-                      {{ menuItem.desc }} {{ menuItem.tipovino }}
-                      {{ menuItem.zona }} ({{ menuItem.precio }}
+                      {{ menuItem.desc }}
+                      <span class="yellow">{{ menuItem.zona }}</span> ({{
+                        menuItem.precio
+                      }}
                       eur)
                     </div>
                     <div class="row-actions">
@@ -264,6 +266,10 @@ export default {
     color: #ffffff;
     background: rgba(0, 0, 0, 0.6);
     text-align: center;
+  }
+  .yellow {
+    font-weight: bold;
+    color: #d0c000;
   }
 }
 .status-changing {
