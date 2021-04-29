@@ -40,7 +40,6 @@
 <style lang="scss">
 .home-content {
   padding-top: 90vh;
-
   padding-bottom: 24px;
   .img-wrapper {
     padding: 24px 0 48px 0;
