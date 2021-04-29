@@ -1,7 +1,7 @@
 <template>
   <div class="logo-wrapper">
     <img
-      src="/img/logo_la_mar_sala.png"
+      src="/img/logo-la-mar-sala.svg"
       alt="Logo cabecera La Mar Salá"
       :class="header ? 'header-logo' : ''"
     />
@@ -27,10 +27,6 @@ export default {
   display: inline-block;
   img {
     width: 220px;
-  }
-  img.header-logo {
-    transition: all 0.3s ease;
-    width: 90px;
   }
 }
 

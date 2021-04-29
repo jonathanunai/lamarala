@@ -1,5 +1,6 @@
 <template>
   <div class="onepage-container">
+    <intro />
     <presentacion />
     <nuestras-especialidades v-if="false" />
     <contact />

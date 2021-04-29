@@ -30,7 +30,9 @@
           <nuxt-link :to="{ path: '/', hash: '#horario-y-contacto' }"
             ><li class="uppercase">Horario & contacto</li></nuxt-link
           >
-          <nuxt-link to="/"><li class="uppercase">Imágenes</li></nuxt-link>
+          <nuxt-link to="/nuestras-fotografias"
+            ><li class="uppercase">Imágenes</li></nuxt-link
+          >
         </ul>
         <social-links />
       </div>

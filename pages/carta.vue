@@ -53,7 +53,29 @@
       </transition>
       <span class="smalltext">Servicio de pan 1.90 IVA incluido</span>
     </div>
-    <div class="right-col" :class="imageDisplayed"></div>
+    <div class="right-col">
+      <div class="right-col-inner">
+        <div class="img-wrapper">
+          <img src="/img/fotos/carpaccio-640.jpg" alt="" />
+        </div>
+        <div class="img-wrapper">
+          <img src="/img/fotos/tartar-640.jpg" alt="" />
+        </div>
+
+        <div class="img-wrapper">
+          <img src="/img/fotos/mariscos-640.jpg" alt="" />
+        </div>
+        <div class="img-wrapper">
+          <img src="/img/fotos/arroz-carabinero-640.jpg" alt="" />
+        </div>
+        <div class="img-wrapper">
+          <img src="/img/fotos/steak-tartar-640.jpg" alt="" />
+        </div>
+        <div class="img-wrapper">
+          <img src="/img/fotos/torrija-640.jpg" alt="" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -120,7 +142,31 @@ export default {
 <style lang="scss">
 .menu-page {
   justify-content: left;
+  @include md {
+    align-items: stretch;
+  }
   padding-top: 120px;
+  padding-bottom: 24px;
+  flex-wrap: wrap;
+  .left-col {
+  }
+  .right-col {
+    top: 0px;
+    position: relative;
+    flex: 1;
+    left: 0;
+    height: auto;
+    .right-col-inner {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      height: 100%;
+    }
+    .img-wrapper img {
+      width: 100%;
+    }
+  }
   h2 {
     text-transform: uppercase;
     color: #ffffff;
@@ -132,6 +178,8 @@ export default {
     background-position: center;
     background-size: cover;
     background-color: $colorTurq;
+    text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
+      0px 18px 23px rgba(0, 0, 0, 0.1);
 
     @include md {
       color: $colorTurq;
@@ -145,24 +193,35 @@ export default {
     }
   }
 
-  .inicio {
-    background-image: url('/img/Pez-mantequilla.jpg');
-  }
   #entradas {
-    background-image: none;
+    background-image: url('/img/fotos/carpaccio-640.jpg');
   }
   #pescados {
-    background-image: none;
+    background-image: url('/img/fotos/tartar-640.jpg');
   }
   #mariscos {
-    background-image: none;
+    background-image: url('/img/fotos/mariscos-640.jpg');
   }
   #arroces {
-    background-image: none;
+    background-image: url('/img/fotos/arroz-carabinero-640.jpg');
   }
   #carnes {
-    background-image: none;
+    background-image: url('/img/fotos/steak-tartar-640.jpg');
   }
+  #postres {
+    background-image: url('/img/fotos/torrija-640.jpg');
+  }
+  #entradas,
+  #pescados,
+  #mariscos,
+  #arroces,
+  #carnes,
+  #postres {
+    @include md {
+      background-image: none;
+    }
+  }
+
   .smalltext {
     color: $colorDark;
     display: block;

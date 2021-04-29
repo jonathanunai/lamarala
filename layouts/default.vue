@@ -1,5 +1,5 @@
 <template>
-  <div class="content-wrapper">
+  <div class="content-wrapper" :class="path">
     <top-header :class="top ? 'top' : ''" />
     <Nuxt />
   </div>
@@ -17,6 +17,11 @@ export default {
     },
     openMenu() {
       return this.$store.state.menuOpen
+    },
+    path() {
+      return this.$nuxt.$route.path.replace('/', '')
+        ? this.$nuxt.$route.path.replace('/', '') + '-page'
+        : 'home-page'
     },
   },
   methods: {

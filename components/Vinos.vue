@@ -21,14 +21,18 @@
           <h4 class="extra">Internacionales</h4>
           <h4>Francia</h4>
           <menu-list :menu="getList('Blanco', 'Francia')" />
-          <h4>Nueva Zelanda</h4>
+          <h4 v-if="getList('Blanco', 'NuevaZelanda').length > 0">
+            Nueva Zelanda
+          </h4>
           <menu-list :menu="getList('Blanco', 'NuevaZelanda')" />
-          <h4>Sudáfrica</h4>
+          <h4 v-if="getList('Blanco', 'Sudáfrica').length > 0">Sudáfrica</h4>
           <menu-list :menu="getList('Blanco', 'Sudáfrica')" />
-          <h4>Alemania</h4>
+          <h4 v-if="getList('Blanco', 'Alemania').length > 0">Alemania</h4>
           <menu-list :menu="getList('Blanco', 'Alemania')" />
           <h2 id="espumosos">Espumosos</h2>
-          <h4>AOC Champagne</h4>
+          <h4 v-if="getList('Espumoso', 'Champagne').length > 0">
+            AOC Champagne
+          </h4>
           <menu-list :menu="getList('Espumoso', 'Champagne')" />
           <h2 id="tintos">Tintos</h2>
           <h4>Castilla la Mancha</h4>
@@ -39,12 +43,14 @@
           <menu-list :menu="getList('Tinto', 'Rioja')" />
           <h4>Otras zonas</h4>
           <menu-list :menu="getList('Tinto', 'Otras')" />
-          <h4>Internacionales</h4>
+          <h4 class="extra">Internacionales</h4>
           <h4>Francia</h4>
           <menu-list :menu="getList('Tinto', 'Francia')" />
-          <h4>Sudáfrica</h4>
+          <h4 v-if="getList('Tinto', 'Sudáfrica').length > 0">Sudáfrica</h4>
           <menu-list :menu="getList('Tinto', 'Sudáfrica')" />
-          <h4>Nueva Zelanda</h4>
+          <h4 v-if="getList('Tinto', 'NuevaZelanda').length > 0">
+            Nueva Zelanda
+          </h4>
           <menu-list :menu="getList('Tinto', 'NuevaZelanda')" />
         </div>
         <div class="modal__footer"></div>
@@ -74,7 +80,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
+  z-index: 200;
   &__mask {
     background: rgba(#000000, 0.65);
     position: absolute;
@@ -85,7 +91,7 @@ export default {
   }
   &__wrapper {
     position: fixed;
-    top: 2rem;
+    top: 1.2rem;
     width: 95vmin;
     height: 95vh;
     background: #fff;
@@ -127,7 +133,10 @@ export default {
     width: 100%;
     margin: 0;
     background: $colorTurq;
-    padding-top: 40px;
+    padding-top: 80px;
+    background-image: url('/img/fotos/vinos-640.jpg');
+    background-size: cover;
+
     @include md {
       color: #ffffff;
       padding-left: 1rem;
