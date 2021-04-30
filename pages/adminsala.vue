@@ -1,5 +1,21 @@
 <template>
   <div class="page-container admin-page">
+    <div class="overlay" :class="dataReady ? 'loaded' : 'loading'">
+      <div class="lds-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
     <transition name="bounce">
       <div v-if="statusChanging" class="status-changing"></div>
     </transition>
@@ -100,6 +116,7 @@ export default {
       confirm: false,
       wine: false,
       item: null,
+      dataReady: false,
       statusChanging: false,
       carta: {
         Entrada: [],
@@ -108,6 +125,7 @@ export default {
         Arroz: [],
         Carne: [],
         Postre: [],
+        Pan: [],
       },
       vino: {
         Blanco: [],
@@ -118,7 +136,7 @@ export default {
   },
   computed: {
     user() {
-      return this.$store.state.user
+      return this.dataReady && this.$store.state.user
     },
     showWineorFood() {
       return this.wine ? this.vino : this.carta
@@ -142,6 +160,7 @@ export default {
         Arroz: [],
         Carne: [],
         Postre: [],
+        Pan: [],
       }
       this.vino = {
         Blanco: [],
@@ -156,7 +175,6 @@ export default {
           snapshot.forEach((doc) => {
             // this.menu.push({ id: doc.id, ...doc.data() })
             if (doc.data().tipo === 'Vino') {
-              console.log(doc.data())
               if (
                 Object.prototype.hasOwnProperty.call(
                   this.vino,
@@ -173,6 +191,7 @@ export default {
             )
               this.carta[doc.data().tipo].push({ id: doc.id, ...doc.data() })
           })
+          this.dataReady = true
         })
     },
     changeItemStatus(item) {
@@ -258,6 +277,21 @@ export default {
   .logout {
     cursor: pointer;
   }
+}
+.page-container .overlay {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page-container .overlay.loaded {
+  display: none;
 }
 .admin-page {
   h2 {
@@ -419,6 +453,86 @@ select {
 .bounce-leave-active {
   animation: bounce-in 0.5s reverse;
 }
+
+.lds-spinner {
+  color: official;
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-spinner div {
+  transform-origin: 40px 40px;
+  animation: lds-spinner 1.2s linear infinite;
+}
+.lds-spinner div:after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 37px;
+  width: 6px;
+  height: 18px;
+  border-radius: 20%;
+  background: #fff;
+}
+.lds-spinner div:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -1.1s;
+}
+.lds-spinner div:nth-child(2) {
+  transform: rotate(30deg);
+  animation-delay: -1s;
+}
+.lds-spinner div:nth-child(3) {
+  transform: rotate(60deg);
+  animation-delay: -0.9s;
+}
+.lds-spinner div:nth-child(4) {
+  transform: rotate(90deg);
+  animation-delay: -0.8s;
+}
+.lds-spinner div:nth-child(5) {
+  transform: rotate(120deg);
+  animation-delay: -0.7s;
+}
+.lds-spinner div:nth-child(6) {
+  transform: rotate(150deg);
+  animation-delay: -0.6s;
+}
+.lds-spinner div:nth-child(7) {
+  transform: rotate(180deg);
+  animation-delay: -0.5s;
+}
+.lds-spinner div:nth-child(8) {
+  transform: rotate(210deg);
+  animation-delay: -0.4s;
+}
+.lds-spinner div:nth-child(9) {
+  transform: rotate(240deg);
+  animation-delay: -0.3s;
+}
+.lds-spinner div:nth-child(10) {
+  transform: rotate(270deg);
+  animation-delay: -0.2s;
+}
+.lds-spinner div:nth-child(11) {
+  transform: rotate(300deg);
+  animation-delay: -0.1s;
+}
+.lds-spinner div:nth-child(12) {
+  transform: rotate(330deg);
+  animation-delay: 0s;
+}
+@keyframes lds-spinner {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 @keyframes bounce-in {
   0% {
     transform: scale(0);

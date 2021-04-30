@@ -29,11 +29,16 @@ export default {
     }
   },
   created() {
-    firebase
-      .auth()
-      .onAuthStateChanged((user) => (this.authenticatedUser = user))
+    /*     firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.authenticatedUser = user
+        console.log(' LOGGED')
+      } else {
+        console.log('NOT LOGGED')
+      }
+    })
+ */
   },
-
   methods: {
     login() {
       this.error = null

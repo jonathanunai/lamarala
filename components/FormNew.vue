@@ -17,6 +17,7 @@
         <option value="Postre">Postre</option>
         <option value="Vino">Vino</option>
         <option value="Marisco">Marisco</option>
+        <option value="Pan">Servicio de pan</option>
       </select>
       <div v-if="model.tipo === 'Vino'" class="seccion-vino">
         <select v-model="model.tipovino">
@@ -34,6 +35,8 @@
           <option value="Rioja">Rioja</option>
           <option value="Alemania">Alemania</option>
           <option value="Francia">Francia</option>
+          <option value="Italia">Italia</option>
+          <option value="EstadosUnidos">Estados Unidos</option>
           <option value="NuevaZelanda">Nueva Zelanda</option>
           <option value="Sudáfrica">Sudáfrica</option>
           <option value="Otras">Otras Zonas</option>

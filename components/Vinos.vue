@@ -19,8 +19,15 @@
           <h4>Otras Zonas</h4>
           <menu-list :menu="getList('Blanco', 'Otras')" />
           <h4 class="extra">Internacionales</h4>
-          <h4>Francia</h4>
+          <h4 v-if="getList('Blanco', 'Francia').length > 0">Francia</h4>
           <menu-list :menu="getList('Blanco', 'Francia')" />
+          <h4 v-if="getList('Blanco', 'Italia').length > 0">Italia</h4>
+          <menu-list :menu="getList('Blanco', 'Italia')" />
+          <h4 v-if="getList('Blanco', 'EstadosUnidos').length > 0">
+            Estados Unidos
+          </h4>
+          <menu-list :menu="getList('Blanco', 'EstadosUnidos')" />
+
           <h4 v-if="getList('Blanco', 'NuevaZelanda').length > 0">
             Nueva Zelanda
           </h4>
@@ -34,7 +41,9 @@
             AOC Champagne
           </h4>
           <menu-list :menu="getList('Espumoso', 'Champagne')" />
+
           <h2 id="tintos">Tintos</h2>
+
           <h4>Castilla la Mancha</h4>
           <menu-list :menu="getList('Tinto', 'CastillaLaMancha')" />
           <h4>Castilla y León</h4>
@@ -43,11 +52,23 @@
           <menu-list :menu="getList('Tinto', 'Rioja')" />
           <h4>Otras zonas</h4>
           <menu-list :menu="getList('Tinto', 'Otras')" />
+
           <h4 class="extra">Internacionales</h4>
+
           <h4>Francia</h4>
           <menu-list :menu="getList('Tinto', 'Francia')" />
+
+          <h4 v-if="getList('Tinto', 'Italia').length > 0">Italia</h4>
+          <menu-list :menu="getList('Tinto', 'Italia')" />
+
+          <h4 v-if="getList('Tinto', 'EstadosUnidos').length > 0">
+            Estados Unidos
+          </h4>
+          <menu-list :menu="getList('Tinto', 'EstadosUnidos')" />
+
           <h4 v-if="getList('Tinto', 'Sudáfrica').length > 0">Sudáfrica</h4>
           <menu-list :menu="getList('Tinto', 'Sudáfrica')" />
+
           <h4 v-if="getList('Tinto', 'NuevaZelanda').length > 0">
             Nueva Zelanda
           </h4>
@@ -60,6 +81,7 @@
 </template>
 <script>
 export default {
+  // eslint-disable-next-line
   props: ['vinos'],
   methods: {
     getList(tipo, zona) {

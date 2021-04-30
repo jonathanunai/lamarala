@@ -24,11 +24,6 @@ export default {
         : 'home-page'
     },
   },
-  methods: {
-    handleScroll() {
-      this.scrollPosition = window.scrollY
-    },
-  },
   created() {
     this.$store.dispatch('closeMenu')
   },
@@ -37,6 +32,11 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll)
+  },
+  methods: {
+    handleScroll() {
+      this.scrollPosition = window.scrollY
+    },
   },
 
   head() {

@@ -10,7 +10,7 @@
         <img src="/img/simbolo_la_mar_sala.png" />
         <ul @click="closeMenu">
           <nuxt-link to="/"><li class="uppercase">Inicio</li></nuxt-link>
-          <li class="uppercase" v-if="false">
+          <li v-if="false" class="uppercase">
             Nuestras especialides
             <ul>
               <nuxt-link :to="{ path: '/', hash: '#MenuDegustacion' }"

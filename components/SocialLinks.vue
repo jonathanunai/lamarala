@@ -6,14 +6,18 @@
     <a href="https://twitter.com/lamarsalatoledo" target="_blank"
       ><twitter-logo
     /></a>
+    <a href="https://www.instagram.com/lamarsalatoledo/?hl=es" target="_blank"
+      ><instagram-logo
+    /></a>
   </div>
 </template>
 <script>
 import FacebookLogo from '@/assets/svg/facebook.svg'
 import TwitterLogo from '@/assets/svg/twitter.svg'
+import InstagramLogo from '@/assets/svg/instagram.svg'
 
 export default {
-  components: { FacebookLogo, TwitterLogo },
+  components: { FacebookLogo, TwitterLogo, InstagramLogo },
   props: { column: { type: Boolean, default: false } },
 }
 </script>
@@ -23,6 +27,9 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  path {
+    fill: #008d8a;
+  }
   svg {
     width: 22px;
     height: 22px;

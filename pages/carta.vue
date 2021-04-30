@@ -2,56 +2,45 @@
   <div class="container menu-page">
     <div class="left-col">
       <ul class="menu-links">
-        <li v-scroll-to="'#entradas'" @click="changeImg('entradas')">
-          Entradas para compartir
-        </li>
-        <li v-scroll-to="'#mariscos'" @click="changeImg('mariscos')">
-          Mariscos
-        </li>
-        <li v-scroll-to="'#pescados'" @click="changeImg('pescados')">
-          Plato pricipal
-        </li>
+        <li v-scroll-to="'#entradas'">Entradas para compartir</li>
+        <li v-scroll-to="'#mariscos'">Mariscos</li>
+        <li v-scroll-to="'#pescados'">Plato pricipal</li>
         <ul>
-          <li v-scroll-to="'#pescados'" @click="changeImg('pescados')">
-            Pescados y arroz
-          </li>
-          <li v-scroll-to="'#carnes'" @click="changeImg('carnes')">Carne</li>
+          <li v-scroll-to="'#pescados'">Pescados y arroz</li>
+          <li v-scroll-to="'#carnes'">Carne</li>
         </ul>
-        <li v-scroll-to="'#postres'" @click="changeImg('postres')">Postres</li>
+        <li v-scroll-to="'#postres'">Postres</li>
         <li @click="toggleModal()">Carta de Vinos</li>
       </ul>
       <!-- <star class="hide-on-large" /> -->
 
-      <h2 id="entradas" v-observe-visibility="visibilityChanged">Entradas</h2>
+      <h2 id="entradas">Entradas</h2>
       <menu-list :menu="menu.Entrada" />
       <star class="hide-on-large" />
 
-      <h2 id="mariscos" v-observe-visibility="visibilityChanged">Mariscos</h2>
+      <h2 id="mariscos">Mariscos</h2>
       <menu-list :menu="menu.Marisco" />
       <star class="hide-on-large" />
 
-      <h2 id="pescados" v-observe-visibility="visibilityChanged">
-        Pescado y Arroz
-      </h2>
+      <h2 id="pescados">Pescado y Arroz</h2>
       <menu-list :menu="menu.Arroz" />
       <menu-list :menu="menu.Pescado" />
       <star class="hide-on-large" />
 
-      <h2 id="carnes" v-observe-visibility="visibilityChanged">Carnes</h2>
+      <h2 id="carnes">Carnes</h2>
       <menu-list :menu="menu.Carne" />
       <star class="hide-on-large" />
 
-      <h2 id="postres" v-observe-visibility="visibilityChanged">Postres</h2>
+      <h2 id="postres">Postres</h2>
       <menu-list :menu="menu.Postre" />
       <star class="hide-on-large" />
       <transition name="modal">
-        <vinos
-          v-if="showVinos"
-          :vinos="menu.Vino"
-          v-on:toggle="toggleModal()"
-        />
+        <vinos v-if="showVinos" :vinos="menu.Vino" @:toggle="toggleModal()" />
       </transition>
-      <span class="smalltext">Servicio de pan 1.90 IVA incluido</span>
+      <span v-if="menu.Pan[0]" class="smalltext"
+        >{{ menu.Pan[0].nombre }} {{ menu.Pan[0].precio }}
+        {{ menu.Pan[0].desc }}</span
+      >
     </div>
     <div class="right-col">
       <div class="right-col-inner">
@@ -93,6 +82,7 @@ export default {
         Postre: [],
         Marisco: [],
         Vino: [],
+        Pan: [],
       },
       showVinos: false,
     }
@@ -125,16 +115,6 @@ export default {
                 this.menu[doc.data().tipo].push({ id: doc.id, ...doc.data() })
           })
         })
-    },
-
-    changeImg(imgClass) {
-      // this.imageDisplayed = imgClass
-    },
-    handleScroll() {},
-    visibilityChanged(isVisible, entry) {
-      // console.log(entry.target.id + isVisible)
-      // console.log(entry)
-      // if (isVisible) this.changeImg(entry.target.id)
     },
   },
 }
@@ -190,6 +170,7 @@ export default {
       margin: 24px auto;
       background: none;
       text-align: left;
+      text-shadow: none;
     }
   }
 
