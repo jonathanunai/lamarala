@@ -272,8 +272,6 @@ export default {
   color: $colorLight;
   width: 100%;
   min-height: 100vh;
-  > * {
-  }
   .logout {
     cursor: pointer;
   }

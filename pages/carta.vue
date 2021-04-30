@@ -128,8 +128,6 @@ export default {
   padding-top: 120px;
   padding-bottom: 24px;
   flex-wrap: wrap;
-  .left-col {
-  }
   .right-col {
     top: 0px;
     position: relative;
