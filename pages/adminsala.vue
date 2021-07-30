@@ -37,7 +37,9 @@
             <span v-else>Vinos</span>
           </div>
           <div v-if="show === 'list'" class="admin-button" @click="csvExport">
-            Exportar a Excel
+            <download-excel :data="Todos" worksheet="Carta" name="carta.xls">
+              Exportar a Excel
+            </download-excel>
           </div>
         </div>
       </div>
@@ -111,6 +113,7 @@ export default {
   layout: 'adminLayer',
   data() {
     return {
+      datatest: [],
       menu: [],
       show: 'list',
       confirm: false,
@@ -145,6 +148,15 @@ export default {
       const temp = this.menu
       return temp.sort((a, b) =>
         a.nombre > b.nombre ? 1 : b.nombre > a.nombre ? -1 : 0
+      )
+    },
+    Todos() {
+      return this.carta.Entrada.concat(
+        this.carta.Carne,
+        this.carta.Marisco,
+        this.carta.Pescado,
+        this.carta.Arroz,
+        this.carta.Postre
       )
     },
   },
@@ -250,17 +262,17 @@ export default {
     csvExport() {
       let csvContent = 'data:text/csv;charset=utf-8,'
       csvContent += [
-        Object.keys(this.carta).join(';'),
         this.carta.Entrada.map((item) => Object.values(item).join(';')),
       ]
-        .join('\n')
+        .join('\r\n')
         .replace(/(^\[)|(\]$)/gm, '')
 
       const data = encodeURI(csvContent)
       const link = document.createElement('a')
-      link.setAttribute('href', data)
+      this.datatest = data
+      link.setAttribute('href', csvContent)
       link.setAttribute('download', 'export.csv')
-      link.click()
+      // link.click()
     },
   },
 }

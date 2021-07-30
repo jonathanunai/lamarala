@@ -20,6 +20,7 @@
     "firebase": "^8.4.3",
     "nuxt": "^2.15.4",
     "nuxt-svg-loader": "^1.2.0",
+    "vue-json-excel": "^0.3.0",
     "vue-observe-visibility": "^0.4.6",
     "vue-scrollto": "^2.20.0",
     "vuex-persistedstate": "^3.2.0"
