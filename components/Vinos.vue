@@ -80,12 +80,30 @@
   </div>
 </template>
 <script>
+function compare(a, b) {
+  console.log(a)
+  const priceA = parseInt(a.precio.replace(',', '.'))
+  const priceB = parseInt(b.precio.replace(',', '.'))
+  if (priceA < priceB) {
+    return -1
+  }
+  if (priceA > priceB) {
+    return 1
+  }
+  return 0
+}
+
 export default {
   // eslint-disable-next-line
   props: ['vinos'],
+  computed: {
+    orderedList() {
+      return [...this.vinos].sort(compare)
+    },
+  },
   methods: {
     getList(tipo, zona) {
-      return this.vinos.filter(
+      return this.orderedList.filter(
         (item) => item.tipovino === tipo && item.zona === zona
       )
     },
@@ -137,7 +155,7 @@ export default {
   }
   &__body {
     flex: 1;
-    padding: 1em;
+    padding: 0 1.7em;
     overflow: auto;
   }
   &__footer {
@@ -179,8 +197,17 @@ export default {
     padding-top: 2rem;
   }
   h4 {
+    color: #008d8a;
+    font-size: 1.23rem;
+    letter-spacing: 0.25rem;
+    padding: 0;
+    padding-top: 20px;
+    margin: 6px auto;
+    background: none;
     text-align: left;
-    padding: 0.5rem 0;
+    text-shadow: none;
+    text-transform: uppercase;
+    font-weight: 400;
   }
   .extra {
     text-align: center;
