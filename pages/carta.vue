@@ -35,12 +35,12 @@
       <menu-list :menu="menu.Postre" />
       <star class="hide-on-large" />
       <transition name="modal">
-        <vinos v-if="showVinos" :vinos="menu.Vino" @:toggle="toggleModal()" />
+        <vinos v-if="showVinos" :vinos="menu.Vino" @toggleModal="toggleModal" />
       </transition>
-      <span v-if="menu.Pan[0]" class="smalltext"
-        >{{ menu.Pan[0].nombre }} {{ menu.Pan[0].precio }}
-        {{ menu.Pan[0].desc }}</span
-      >
+      <span v-if="menu.Pan[0]" class="smalltext">
+        {{ menu.Pan[0].nombre }} {{ menu.Pan[0].precio }}
+        {{ menu.Pan[0].desc }}
+      </span>
     </div>
     <div class="right-col">
       <div class="right-col-inner">

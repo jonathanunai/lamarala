@@ -1,11 +1,11 @@
 <template>
   <div class="modal">
-    <div class="modal__mask" @click="$emit('toggle')"></div>
+    <div class="modal__mask" @click="$emit('toggleModal')"></div>
     <div class="modal__wrapper">
       <div class="modal__container">
         <div class="modal__header">
           <h2 id="vinos" class="winetitle">Carta de vinos</h2>
-          <div class="modal__x" @click="$emit('toggle')">&times;</div>
+          <div class="modal__x" @click="$emit('toggleModal')">&times;</div>
         </div>
         <div class="modal__body">
           <h2 id="blancos">Blancos</h2>

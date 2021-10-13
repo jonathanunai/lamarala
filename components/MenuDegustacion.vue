@@ -18,8 +18,7 @@ export default {
         { nombre: 'Crema castellana', desc: 'con torreznitos de Soria' },
         {
           nombre: 'SARDINA AHUMADA',
-          desc:
-            'sobre quinoa y salmorejo, microensalada con vinagreta de maracuyá y helado de green juice.',
+          desc: 'sobre quinoa y salmorejo, microensalada con vinagreta de maracuyá y helado de green juice.',
         },
         { nombre: 'ALCACHOFA A LA PLANCHA', desc: 'sobre crema de changurro.' },
         {
@@ -33,8 +32,7 @@ export default {
         },
         {
           nombre: 'Postre',
-          desc:
-            'Trufa fluida de chocolate negro sobre crema de zumo de naranja natural y té helado.',
+          desc: 'Trufa fluida de chocolate negro sobre crema de zumo de naranja natural y té helado.',
         },
       ],
     }

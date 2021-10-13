@@ -51,8 +51,7 @@ export default {
         { foto: 'anchoa-640.jpg', text: 'Anchoas costeras del cantábrico 000' },
         {
           foto: 'sardina-640.jpg',
-          text:
-            'Sardina ahumada sobre quinoa y salmorejo, microensalada con vinagreta de maracuyá y helado de pepino y menta',
+          text: 'Sardina ahumada sobre quinoa y salmorejo, microensalada con vinagreta de maracuyá y helado de pepino y menta',
         },
         {
           foto: 'torrija-640.jpg',
@@ -65,8 +64,7 @@ export default {
         },
         {
           foto: 'ensalada-foie-640.jpg',
-          text:
-            'Ensalada de foie y atún rojo con algas wakama y sésamo tostado',
+          text: 'Ensalada de foie y atún rojo con algas wakama y sésamo tostado',
         },
         {
           foto: 'alcachofas-640.jpg',
@@ -74,33 +72,27 @@ export default {
         },
         {
           foto: 'tataki-640.jpg',
-          text:
-            'Tataki de tarantelo de atún rojo de almadraba con reducción de cítricos y mahonesa de wasabi',
+          text: 'Tataki de tarantelo de atún rojo de almadraba con reducción de cítricos y mahonesa de wasabi',
         },
         {
           foto: 'chipiron-640.jpg',
-          text:
-            'Chipirón de potera con crema de foie glaseada y huevo de corral',
+          text: 'Chipirón de potera con crema de foie glaseada y huevo de corral',
         },
         {
           foto: 'tarta-640.jpg',
-          text:
-            'Tarta de queso manchego con espuma de tomillo, nueces caramelizadas y reducción de vino tinto',
+          text: 'Tarta de queso manchego con espuma de tomillo, nueces caramelizadas y reducción de vino tinto',
         },
         {
           foto: 'bacalao-640.jpg',
-          text:
-            'Bacalao de anzuelo confitado con jamón, tirabetes y crema de patata',
+          text: 'Bacalao de anzuelo confitado con jamón, tirabetes y crema de patata',
         },
         {
           foto: 'steak-tartar-640.jpg',
-          text:
-            'Steak tartar con trufa, tomate especiado, confitura de limón con encurtidos, helado de mostaza y crujiente de parmesado',
+          text: 'Steak tartar con trufa, tomate especiado, confitura de limón con encurtidos, helado de mostaza y crujiente de parmesado',
         },
         {
           foto: 'carpaccio-640.jpg',
-          text:
-            'Carpaccio de carabineros con vinagreta de kumato, albahaca y huevas de Tobiko',
+          text: 'Carpaccio de carabineros con vinagreta de kumato, albahaca y huevas de Tobiko',
         },
       ],
     }
