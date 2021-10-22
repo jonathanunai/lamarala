@@ -11,6 +11,8 @@
           <h2 id="blancos">Blancos</h2>
           <h4>Galicia</h4>
           <menu-list :menu="getList('Blanco', 'Galicia')" />
+          <h4>Rioja</h4>
+          <menu-list :menu="getList('Blanco', 'Rioja')" />
           <h4>Castilla la Mancha - Castilla y León</h4>
           <menu-list :menu="getList('Blanco', 'CastillaLaMancha')" />
           <menu-list :menu="getList('Blanco', 'CastillaYLeon')" />
@@ -81,7 +83,6 @@
 </template>
 <script>
 function compare(a, b) {
-  console.log(a)
   const priceA = parseInt(a.precio.replace(',', '.'))
   const priceB = parseInt(b.precio.replace(',', '.'))
   if (priceA < priceB) {
