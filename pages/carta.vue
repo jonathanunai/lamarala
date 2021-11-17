@@ -105,16 +105,18 @@ export default {
       this.$firebase
         .firestore()
         .collection('Menu')
+        .where('isActive', '!=', '0')
         .get()
         .then((snapshot) => {
           snapshot.forEach((doc) => {
-            if (doc.data().isActive !== 0)
-              if (
-                Object.prototype.hasOwnProperty.call(this.menu, doc.data().tipo)
-              )
-                this.menu[doc.data().tipo].push({ id: doc.id, ...doc.data() })
+            if (
+              !Object.prototype.hasOwnProperty.call(this.menu, doc.data().tipo)
+            )
+              this.menu[doc.data().tipo] = []
+            this.menu[doc.data().tipo].push({ id: doc.id, ...doc.data() })
           })
         })
+      console.log(this.menu)
     },
   },
 }

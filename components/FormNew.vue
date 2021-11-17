@@ -1,14 +1,6 @@
 <template>
-  <div>
+  <div class="new-form">
     <form action="">
-      <input v-model="model.nombre" type="text" placeholder="Nombre" />
-      <input
-        v-model="model.desc"
-        type="text"
-        class="desc"
-        placeholder="Descripcón"
-      />
-      <input v-model="model.precio" type="text" placeholder="Precio" />
       <select v-model="model.tipo">
         <option value="Entrada">Entrada</option>
         <option value="Pescado">Pescado</option>
@@ -17,8 +9,25 @@
         <option value="Postre">Postre</option>
         <option value="Vino">Vino</option>
         <option value="Marisco">Marisco</option>
+        <option value="Degustacion">Plato degustación</option>
         <option value="Pan">Servicio de pan</option>
       </select>
+
+      <input v-model="model.nombre" type="text" placeholder="Nombre" />
+      <input
+        v-model="model.desc"
+        type="text"
+        class="desc"
+        placeholder="Descripcón"
+      />
+      <input
+        v-if="model.tipo !== 'Degustacion'"
+        v-model="model.precio"
+        type="text"
+        placeholder="Precio"
+      />
+      <input v-else v-model="model.orden" type="text" placeholder="Orden" />
+
       <div v-if="model.tipo === 'Vino'" class="seccion-vino">
         <select v-model="model.tipovino">
           <option value="Blanco">Blanco</option>
@@ -58,6 +67,7 @@ export default {
         nombre: '',
         desc: '',
         precio: '',
+        orden: '',
         tipo: '',
         zona: '',
         tipovino: '',
@@ -107,6 +117,12 @@ export default {
 }
 </script>
 <style lang="scss">
+.new-form {
+  select {
+    width: 100%;
+    margin: 0.35rem;
+  }
+}
 .seccion-vino {
   padding: 8px;
   margin: 8px;

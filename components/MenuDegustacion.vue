@@ -15,23 +15,39 @@ export default {
   data() {
     return {
       degustacion: [
-        { nombre: 'Crema castellana', desc: 'con torreznitos de Soria' },
+        {
+          nombre: 'Crema castellana',
+          precio: '30',
+          desc: 'con torreznitos de Soria',
+        },
         {
           nombre: 'SARDINA AHUMADA',
+          precio: '30',
           desc: 'sobre quinoa y salmorejo, microensalada con vinagreta de maracuyá y helado de green juice.',
         },
-        { nombre: 'ALCACHOFA A LA PLANCHA', desc: 'sobre crema de changurro.' },
+        {
+          nombre: 'ALCACHOFA A LA PLANCHA',
+          precio: '30',
+          desc: 'sobre crema de changurro.',
+        },
         {
           nombre: 'TARTAR DE ATÚN ROJO',
+          precio: '30',
           desc: 'salvaje de almadraba con helado de wasabi.',
         },
-        { nombre: 'GAMBA', desc: 'cristal frita con mahonesa de piparras.' },
+        {
+          nombre: 'GAMBA',
+          precio: '30',
+          desc: 'cristal frita con mahonesa de piparras.',
+        },
         {
           nombre: 'SOLOMILLO DE TERNERA',
+          precio: '30',
           desc: 'a la plancha y su guiso de patatas.',
         },
         {
           nombre: 'Postre',
+          precio: '30',
           desc: 'Trufa fluida de chocolate negro sobre crema de zumo de naranja natural y té helado.',
         },
       ],
