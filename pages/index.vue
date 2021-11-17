@@ -2,7 +2,7 @@
   <div class="onepage-container">
     <intro />
     <presentacion />
-    <menu-degustacion />
+    <menu-degustacion v-if="false" />
     <contact />
   </div>
 </template>
