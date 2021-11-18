@@ -127,7 +127,7 @@ export default {
       this.$firebase
         .firestore()
         .collection('Menu')
-        .where('isActive', '!=', '0')
+        .where('isActive', '==', 1)
         .get()
         .then((snapshot) => {
           snapshot.forEach((doc) => {
