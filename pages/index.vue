@@ -2,13 +2,46 @@
   <div class="onepage-container">
     <intro />
     <presentacion />
-    <menu-degustacion v-if="false" />
+    <star class="hide-on-large" />
+    <menu-degustacion v-if="false" :items="degustacion" />
+    <star v-if="false" class="hide-on-large" />
     <contact />
   </div>
 </template>
 <script>
 export default {
-  watch: {},
+  data() {
+    return {
+      menu: {},
+    }
+  },
+  computed: {
+    degustacion() {
+      return this.menu.Degustacion
+    },
+  },
+  created() {
+    this.loadData()
+  },
+  methods: {
+    loadData() {
+      this.$firebase
+        .firestore()
+        .collection('Menu')
+        .where('isActive', '!=', '0')
+        .get()
+        .then((snapshot) => {
+          snapshot.forEach((doc) => {
+            if (
+              !Object.prototype.hasOwnProperty.call(this.menu, doc.data().tipo)
+            )
+              this.$set(this.menu, doc.data().tipo, [])
+            this.menu[doc.data().tipo].push({ id: doc.id, ...doc.data() })
+          })
+        })
+      console.log(this.menu)
+    },
+  },
 }
 </script>
 <style lang="scss">

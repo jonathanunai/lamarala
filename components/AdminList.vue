@@ -1,6 +1,6 @@
 <template>
   <ul key="list">
-    <li v-for="(menuItem, i) in list" :key="i" :value="menuItem.nombre">
+    <li v-for="(menuItem, i) in orderedList" :key="i" :value="menuItem.nombre">
       <div class="flex-row">
         <div class="active-button">
           <span
@@ -28,5 +28,16 @@
 <script>
 export default {
   props: ['list'],
+  computed: {
+    orderedList() {
+      const temp = this.list
+      console.log(this.list)
+      return temp.sort((a, b) => {
+        console.log(a)
+        if (b.isActive !== 0 && b.isActive !== 1) b.isActive = 1
+        return b.isActive.toString().localeCompare(a.isActive)
+      })
+    },
+  },
 }
 </script>

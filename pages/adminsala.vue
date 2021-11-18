@@ -35,7 +35,6 @@
         <template v-else>
           <div class="admin-buttons">
             <div class="admin-button" @click="showForm">Crear nuevo</div>
-
             <div
               class="admin-button"
               :class="!wine ? 'active' : ' '"

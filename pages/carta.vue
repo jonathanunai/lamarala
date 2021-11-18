@@ -11,8 +11,8 @@
         </ul>
         <li v-scroll-to="'#postres'">Postres</li>
         <li @click="toggleModal()">Carta de Vinos</li>
+        <li v-if="false" @click="toggleModalDegustacion()">Menú Degustación</li>
       </ul>
-      <!-- <star class="hide-on-large" /> -->
 
       <h2 id="entradas">Entradas</h2>
       <menu-list :menu="menu.Entrada" />
@@ -34,8 +34,26 @@
       <h2 id="postres">Postres</h2>
       <menu-list :menu="menu.Postre" />
       <star class="hide-on-large" />
+
       <transition name="modal">
-        <vinos v-if="showVinos" :vinos="menu.Vino" @toggleModal="toggleModal" />
+        <modal-wrapper
+          v-if="showVinos"
+          header-title="Carta de vinos"
+          image="winetitle"
+          @toggleModal="toggleModal"
+        >
+          <vinos :vinos="menu.Vino" />
+        </modal-wrapper>
+      </transition>
+      <transition name="modal">
+        <modal-wrapper
+          v-if="showDegustacion"
+          header-title="Menú degustación"
+          image="menutitle"
+          @toggleModal="toggleModalDegustacion"
+        >
+          <menu-degustacion :items="menu.Degustacion" />
+        </modal-wrapper>
       </transition>
       <span v-if="menu.Pan[0]" class="smalltext">
         {{ menu.Pan[0].nombre }} {{ menu.Pan[0].precio }}
@@ -85,6 +103,7 @@ export default {
         Pan: [],
       },
       showVinos: false,
+      showDegustacion: false,
     }
   },
   beforeMount() {
@@ -100,6 +119,9 @@ export default {
   methods: {
     toggleModal() {
       this.showVinos = !this.showVinos
+    },
+    toggleModalDegustacion() {
+      this.showDegustacion = !this.showDegustacion
     },
     loadData() {
       this.$firebase

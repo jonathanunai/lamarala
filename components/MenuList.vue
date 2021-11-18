@@ -4,7 +4,9 @@
       <div class="plato">
         <span>{{ item.nombre }}</span> {{ item.desc }}
       </div>
-      <div class="precio">{{ item.precio.replace('.', ',') }}</div>
+      <div v-if="item.precio" class="precio">
+        {{ item.precio.replace('.', ',') }}
+      </div>
     </li>
   </ul>
 </template>
