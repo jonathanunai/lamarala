@@ -16,8 +16,6 @@ export const mutations = {
     state.user = user
   },
   LOAD_TXT(state, data) {
-    console.log('data', data)
-
     state.textos = { ...data }
   },
   SET_EDIT_ITEM(state, item) {
@@ -39,7 +37,6 @@ export const actions = {
     state.commit('SET_USER', null)
   },
   loadTxt(state, data) {
-    console.log('data', data)
     state.commit('LOAD_TXT', data)
   },
   login(state, user) {
