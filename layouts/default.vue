@@ -26,7 +26,23 @@ export default {
   },
   created() {
     this.$store.dispatch('closeMenu')
+    const textos = {}
+    this.$firebase
+      .firestore()
+      .collection('Textos')
+      .get()
+      .then((snapshot) => {
+        snapshot.forEach((doc) => {
+          /* if (!Object.prototype.hasOwnProperty.call(textos, doc.id))
+              return */
+          textos[doc.id] = doc.data().value
+        })
+      })
+      .then(() => this.$store.dispatch('loadTxt', textos))
+
+    console.log(textos)
   },
+
   beforeMount() {
     window.addEventListener('scroll', this.handleScroll)
   },

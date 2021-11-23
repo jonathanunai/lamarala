@@ -31,10 +31,11 @@
         <h4>La Mar Salá</h4>
 
         <h1>Zona de adminitración</h1>
-        <h4 v-if="show === 'form'">Creando / Editando</h4>
+        <h4 v-if="show === 'form' || show === 'texts' || show === 'images'">
+          Creando / Editando
+        </h4>
         <template v-else>
           <div class="admin-buttons">
-            <div class="admin-button" @click="showForm">Crear nuevo</div>
             <div
               class="admin-button"
               :class="!wine ? 'active' : ' '"
@@ -44,10 +45,31 @@
             </div>
             <div
               class="admin-button"
-              :class="wine ? 'active' : ' '"
-              @click="showWine"
+              :class="tipo === 'Tinto' && wine ? 'active' : ' '"
+              @click="showWine('Tinto')"
             >
-              Vinos
+              Tintos
+            </div>
+            <div
+              class="admin-button"
+              :class="tipo === 'Blanco' && wine ? 'active' : ' '"
+              @click="showWine('Blanco')"
+            >
+              Blancos
+            </div>
+            <div
+              class="admin-button"
+              :class="tipo === 'Espumoso' && wine ? 'active' : ' '"
+              @click="showWine('Espumoso')"
+            >
+              Espumosos
+            </div>
+          </div>
+          <div class="admin-buttons">
+            <div class="admin-button" @click="showForm">Crear nuevo</div>
+            <div class="admin-button" @click="showTexts">Textos</div>
+            <div v-if="false" class="admin-button" @click="showImages">
+              Imagenes
             </div>
             <div class="admin-button" @click="csvExport">
               <download-excel :data="todos" worksheet="Carta" name="carta.xls">
@@ -67,55 +89,66 @@
             @cancel="showList"
             @added="added"
           />
+          <admin-texts
+            v-else-if="show === 'texts'"
+            @cancel="showList"
+            @added="added"
+          />
+          <admin-images
+            v-else-if="show === 'images'"
+            @cancel="showList"
+            @added="added"
+          />
           <div v-else class="lists">
-            <div
-              v-for="(cartaItem, id) in showWineorFood"
-              :key="id"
-              :value="id"
-              class="list"
-            >
-              <h2>
-                {{
-                  id === 'Arroz'
-                    ? 'Arroces'
-                    : id === 'Degustacion'
-                    ? 'Menu Degustacion'
-                    : id + 's'
-                }}
-              </h2>
-              <template v-if="wine">
-                <div
-                  v-for="(listavinos, zona) in cartaItem"
-                  :key="zona"
-                  :value="zona"
-                  class="list"
-                >
-                  <h5>{{ zona }}</h5>
-                  <admin-list
-                    :key="zona + counter"
-                    :list="listavinos"
-                    @editItem="editItem"
-                    @changeItemStatus="changeItemStatus"
-                    @confirmDeleteItem="confirmDeleteItem"
-                  />
-                </div>
-              </template>
-              <admin-list
-                v-else
-                :key="id + counter"
-                :list="cartaItem"
-                @editItem="editItem"
-                @changeItemStatus="changeItemStatus"
-                @confirmDeleteItem="confirmDeleteItem"
-              />
-            </div>
+            <template v-if="wine">
+              <div
+                v-for="(listavinos, zona) in showWineorFood"
+                :key="zona"
+                :value="zona"
+                class="list"
+              >
+                <h5>{{ zona }}</h5>
+                <admin-list
+                  :key="zona + counter"
+                  :list="listavinos"
+                  @editItem="editItem"
+                  @changeItemStatus="changeItemStatus"
+                  @confirmDeleteItem="confirmDeleteItem"
+                />
+              </div>
+            </template>
+            <template v-else>
+              <div
+                v-for="(cartaItem, id) in showWineorFood"
+                :key="id"
+                :value="id"
+                class="list"
+              >
+                <h2>
+                  {{
+                    id === 'Arroz'
+                      ? 'Arroces'
+                      : id === 'Degustacion'
+                      ? 'Menu Degustacion'
+                      : id + 's'
+                  }}
+                </h2>
+                <admin-list
+                  :key="id + counter"
+                  :list="cartaItem"
+                  @editItem="editItem"
+                  @changeItemStatus="changeItemStatus"
+                  @confirmDeleteItem="confirmDeleteItem"
+                />
+              </div>
+            </template>
           </div>
         </transition>
       </div>
       <div v-if="confirm" class="confirm-wrapper">
         <div class="confirm">
           ¿Seguro que quieres borrar {{ item.nombre }}?
-          <div class="flex">
+          <div class="flex-row">
             <div class="admin-button" @click="deleteItem">Borrar</div>
             <div class="admin-button" @click="cancelDel">Cancelar</div>
           </div>
@@ -134,6 +167,7 @@ export default {
       show: 'list',
       confirm: false,
       wine: false,
+      tipo: '',
       item: null,
       dataReady: false,
       statusChanging: false,
@@ -148,7 +182,7 @@ export default {
       return this.dataReady && this.$store.state.user
     },
     showWineorFood() {
-      return this.wine ? this.vino : this.carta
+      return this.wine ? this.vino[this.tipo] : this.carta
     },
     orderedMenu() {
       const temp = this.menu
@@ -227,8 +261,15 @@ export default {
       this.show = 'form'
       this.$store.dispatch('setEditItem', false)
     },
-    showWine() {
+    showWine(tipo) {
       this.wine = true
+      this.tipo = tipo
+    },
+    showTexts() {
+      this.show = 'texts'
+    },
+    showImages() {
+      this.show = 'images'
     },
     showMenu() {
       this.wine = false
@@ -412,11 +453,11 @@ export default {
     width: fit-content;
     margin: 0.35rem;
     &:hover {
-      box-shadow: 0 0.75rem 0.5rem -0.5rem hsl(0 50% 80%);
+      box-shadow: 0 0.55rem 0.9rem -0.75rem hsl(178, 75%, 72%);
     }
     &.active {
       background: $colorDark;
-      box-shadow: 0 0.75rem 0.5rem -0.5rem hsl(0 50% 80%);
+      box-shadow: 0 0.55rem 0.9rem -0.75rem hsl(178, 75%, 72%);
     }
   }
   .strong {

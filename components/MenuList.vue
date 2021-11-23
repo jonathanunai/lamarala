@@ -1,7 +1,7 @@
 <template>
   <ul class="menu-list">
     <li v-for="item in menu" :key="item.nombre">
-      <div class="plato">
+      <div class="plato" :class="item.precio ? 'con-precio' : ''">
         <span>{{ item.nombre }}</span> {{ item.desc }}
       </div>
       <div v-if="item.precio" class="precio">
@@ -37,10 +37,12 @@ export default {
   }
   .plato {
     text-align: left;
-    max-width: 70%;
     span {
       text-transform: uppercase;
       font-weight: bold;
+    }
+    &.con-precio {
+      max-width: 70%;
     }
   }
   .precio {

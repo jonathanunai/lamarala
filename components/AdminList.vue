@@ -31,11 +31,12 @@ export default {
   computed: {
     orderedList() {
       const temp = this.list
-      console.log(this.list)
-      return temp.sort((a, b) => {
-        if (b.isActive !== 0 && b.isActive !== 1) b.isActive = 1
-        return b.isActive.toString().localeCompare(a.isActive)
-      })
+      if (Array.isArray(temp))
+        return temp.sort((a, b) => {
+          if (b.isActive !== 0 && b.isActive !== 1) b.isActive = 1
+          return b.isActive.toString().localeCompare(a.isActive)
+        })
+      return temp
     },
   },
 }

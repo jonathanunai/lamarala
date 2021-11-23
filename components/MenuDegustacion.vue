@@ -1,15 +1,15 @@
 <template>
-  <div class="menu-degustacion">
+  <div class="menu-degustacion" :class="modal ? 'in-modal' : ''">
+    <div class="p-4">
+      <h2 class="degustacion">Menú degustación</h2>
+      <div v-html="menuDegustacion"></div>
+    </div>
     <div class="columns">
       <div class="left-col">
-        <h2 class="degustacion">Menú degustación</h2>
-        <p>
-          Disfrute de nuestro menú degustación de Navidad. Estará disponible del
-          2 de Diciembre hasta el 6 de Enero, ambos inclusive.
-        </p>
-        <p>El menú se servirá a mesa completa (todos los comensales).</p>
-        <menu-list :menu="items" />
-        <p>Todo por 45€ (iva incluido)</p>
+        <div class="list-wrapper">
+          <menu-list :menu="orderedList" />
+        </div>
+        <div v-html="menuDegustacionPrecio"></div>
       </div>
       <div class="right-col"></div>
     </div>
@@ -17,17 +17,37 @@
 </template>
 <script>
 export default {
-  props: ['items'],
+  props: ['items', 'modal'],
   data() {
     return {}
   },
-  created() {},
+  computed: {
+    orderedList() {
+      const temp = this.items
+      return Array.isArray(temp)
+        ? temp.sort((a, b) => (parseInt(a.orden) > parseInt(b.orden) ? 1 : -1))
+        : []
+    },
+    menuDegustacion() {
+      return this.$store.state.textos.menuDegustacion
+    },
+    menuDegustacionPrecio() {
+      return this.$store.state.textos.menuDegustacionPrecio
+    },
+  },
 }
 </script>
 <style lang="scss">
 .menu-degustacion {
-  box-shadow: var(--shadow-elevation-medium);
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  .p-4 {
+    padding: 1rem;
+  }
 
+  .list-wrapper {
+    padding: 24px 0;
+  }
   h2.degustacion {
     text-transform: uppercase;
     color: #ffffff;
@@ -42,16 +62,28 @@ export default {
     text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
       0px 18px 23px rgba(0, 0, 0, 0.1);
     background-image: url('/img/fotos/carpaccio-640.jpg');
-
+  }
+  &.in-modal {
+    h2 {
+      margin: 0px -36px 16px -36px;
+    }
+  }
+  &:not(.in-modal) {
     @include md {
-      color: $colorTurq;
-      font-size: 1.6rem;
-      letter-spacing: 0.25rem;
-      padding: 0;
-      margin: 24px auto;
-      background: none;
-      text-align: left;
-      text-shadow: none;
+      box-shadow: var(--shadow-elevation-high);
+    }
+
+    h2.degustacion {
+      @include md {
+        color: $colorTurq;
+        font-size: 1.6rem;
+        letter-spacing: 0.25rem;
+        padding: 0;
+        margin: 24px auto;
+        background: none;
+        text-align: left;
+        text-shadow: none;
+      }
     }
   }
   .columns {
@@ -69,6 +101,29 @@ export default {
     background: url('/img/fotos/alcachofas-640.jpg');
     background-position: center;
     background-size: cover;
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+  &.in-modal {
+    .menu-degustacion h2.degustacion {
+      @include md {
+        width: 100%;
+      }
+    }
+    .left-col {
+      @include md {
+        width: 100%;
+      }
+    }
+    .right-col {
+      @include md {
+        display: none;
+      }
+    }
+    .h2 {
+      @include md {
+        display: none;
+      }
+    }
   }
 }
 </style>

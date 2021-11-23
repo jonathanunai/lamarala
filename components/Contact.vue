@@ -13,7 +13,7 @@
 
     <div>
       <h4>HORARIO DE COMIDAS</h4>
-      <p>Lunes a sábado: 12,00 a 16,30h.</p>
+      <p>{{ $store.state.textos.horarioComidas }}</p>
       <h4 class="second">HORARIO DE CENAS</h4>
       <p>Viernes y sábado: 20,30 a 23,30h.</p>
     </div>

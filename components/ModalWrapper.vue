@@ -4,7 +4,9 @@
     <div class="modal__wrapper">
       <div class="modal__container">
         <div class="modal__header">
-          <h2 id="vinos" class="title" :class="image">{{ headerTitle }}</h2>
+          <h2 v-if="headerTitle" id="vinos" class="title" :class="image">
+            {{ headerTitle }}
+          </h2>
           <div class="modal__x" @click="$emit('toggleModal')">&times;</div>
         </div>
         <div class="modal__body">
@@ -78,6 +80,7 @@ export default {
     right: 15px;
     color: #ffffff;
     font-size: 3rem;
+    text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.77);
   }
   h2 {
     background: $colorTurq;

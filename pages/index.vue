@@ -3,8 +3,8 @@
     <intro />
     <presentacion />
     <star class="hide-on-large" />
-    <menu-degustacion v-if="false" :items="degustacion" />
-    <star v-if="false" class="hide-on-large" />
+    <menu-degustacion :items="degustacion" />
+    <star class="hide-on-large" />
     <contact />
   </div>
 </template>
@@ -28,7 +28,7 @@ export default {
       this.$firebase
         .firestore()
         .collection('Menu')
-        .where('isActive', '!=', '0')
+        .where('isActive', '==', 1)
         .get()
         .then((snapshot) => {
           snapshot.forEach((doc) => {

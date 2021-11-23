@@ -4,11 +4,21 @@ export const state = () => ({
   user: null,
   menuOpen: false,
   editItem: false,
+  textos: {
+    introWeb: '',
+    menuDegustacion: '',
+    menuDegustacionPrecio: '',
+  },
 })
 
 export const mutations = {
   SET_USER(state, user) {
     state.user = user
+  },
+  LOAD_TXT(state, data) {
+    console.log('data', data)
+
+    state.textos = { ...data }
   },
   SET_EDIT_ITEM(state, item) {
     state.editItem = item
@@ -27,6 +37,10 @@ export const mutations = {
 export const actions = {
   logout(state) {
     state.commit('SET_USER', null)
+  },
+  loadTxt(state, data) {
+    console.log('data', data)
+    state.commit('LOAD_TXT', data)
   },
   login(state, user) {
     state.commit('SET_USER', user)

@@ -11,7 +11,7 @@
         </ul>
         <li v-scroll-to="'#postres'">Postres</li>
         <li @click="toggleModal()">Carta de Vinos</li>
-        <li v-if="false" @click="toggleModalDegustacion()">Menú Degustación</li>
+        <li @click="toggleModalDegustacion()">Menú Degustación</li>
       </ul>
 
       <h2 id="entradas">Entradas</h2>
@@ -48,14 +48,14 @@
       <transition name="modal">
         <modal-wrapper
           v-if="showDegustacion"
-          header-title="Menú degustación"
+          header-title=""
           image="menutitle"
           @toggleModal="toggleModalDegustacion"
         >
-          <menu-degustacion :items="menu.Degustacion" />
+          <menu-degustacion :items="menu.Degustacion" modal="true" />
         </modal-wrapper>
       </transition>
-      <span v-if="menu.Pan[0]" class="smalltext">
+      <span v-if="menu.Pan && menu.Pan[0]" class="smalltext">
         {{ menu.Pan[0].nombre }} {{ menu.Pan[0].precio }}
         {{ menu.Pan[0].desc }}
       </span>
@@ -92,16 +92,7 @@ export default {
   data() {
     return {
       imageDisplayed: 'inicio',
-      menu: {
-        Entrada: [],
-        Pescado: [],
-        Carne: [],
-        Arroz: [],
-        Postre: [],
-        Marisco: [],
-        Vino: [],
-        Pan: [],
-      },
+      menu: {},
       showVinos: false,
       showDegustacion: false,
     }
@@ -134,7 +125,8 @@ export default {
             if (
               !Object.prototype.hasOwnProperty.call(this.menu, doc.data().tipo)
             )
-              this.menu[doc.data().tipo] = []
+              this.$set(this.menu, doc.data().tipo, [])
+
             this.menu[doc.data().tipo].push({ id: doc.id, ...doc.data() })
           })
         })
@@ -168,6 +160,11 @@ export default {
     .img-wrapper img {
       width: 100%;
     }
+    @include md {
+      &.in-modal {
+        display: none;
+      }
+    }
   }
   h2 {
     text-transform: uppercase;
@@ -193,6 +190,21 @@ export default {
       background: none;
       text-align: left;
       text-shadow: none;
+    }
+  }
+  .vinos {
+    h2 {
+      color: $colorTurq;
+      font-size: 1.8rem;
+      letter-spacing: 0.25rem;
+      padding: 0;
+      padding-top: 24px;
+      padding-bottom: 6px;
+      margin: 24px auto;
+      background: none;
+      text-align: left;
+      text-shadow: none;
+      border-bottom: 1px solid;
     }
   }
 
