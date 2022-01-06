@@ -26,7 +26,12 @@
         type="text"
         placeholder="Precio"
       />
-      <input v-else v-model="model.orden" type="text" placeholder="Orden" />
+      <input
+        v-model="model.orden"
+        type="text"
+        placeholder="Orden"
+        style="width: 1rem"
+      />
 
       <div v-if="model.tipo === 'Vino'" class="seccion-vino">
         <select v-model="model.tipovino">
@@ -36,19 +41,13 @@
           <option value="Otros">Otros</option>
         </select>
         <select v-model="model.zona">
-          <option value="Cadiz">Cádiz</option>
-          <option value="Champagne">AOC Champagne</option>
-          <option value="CastillaLaMancha">Castilla La Mancha</option>
-          <option value="CastillaYLeon">Castilla Y León</option>
-          <option value="Galicia">Galicia</option>
-          <option value="Rioja">Rioja</option>
-          <option value="Alemania">Alemania</option>
-          <option value="Francia">Francia</option>
-          <option value="Italia">Italia</option>
-          <option value="EstadosUnidos">Estados Unidos</option>
-          <option value="NuevaZelanda">Nueva Zelanda</option>
-          <option value="Sudáfrica">Sudáfrica</option>
-          <option value="Otras">Otras Zonas</option>
+          <option
+            v-for="zona in config.zones"
+            :key="zona.key"
+            :value="zona.value"
+          >
+            {{ zona.value }}
+          </option>
         </select>
       </div>
       <div class="error-msg">{{ errorMsg }}</div>
@@ -61,6 +60,7 @@
 export default {
   data() {
     return {
+      config: { zones: [], types: [] },
       id: '',
       errorMsg: '',
       model: {
@@ -81,6 +81,15 @@ export default {
     },
   },
   created() {
+    this.$firebase
+      .firestore()
+      .collection('Config')
+      .doc('values')
+      .get()
+      .then((doc) => {
+        this.config = doc.data()
+      })
+
     if (this.editItem) {
       this.model = { ...this.editItem }
       this.id = this.editItem.id

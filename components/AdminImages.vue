@@ -1,32 +1,32 @@
 <template>
-  <div class="mb-4">
-    <label for="imageUrl">Image</label>
-    <div v-if="blog.imageUrl">
+  <div class="image-upload">
+    <label for="imageUrl">Imágen:</label>
+    <div v-if="images.imageUrl">
       <!-- A preview of the image. -->
       <img
-        :src="blog.imageUrl"
+        :src="images.imageUrl"
         class="w-24 md:w-32 h-auto object-cover inline-block"
         alt=""
       />
       <!-- Delete button for deleting the image. -->
       <button
-        v-if="blog.imageUrl"
+        v-if="images.imageUrl"
         :disabled="isDeletingImage"
         type="button"
         class="bg-red-500 border-red-300 text-white"
         @click="deleteImage"
       >
-        {{ isDeletingImage ? 'Deleting...' : 'Delete' }}
+        {{ isDeletingImage ? 'Borrando...' : 'Borrar' }}
       </button>
     </div>
     <!-- Clicking this button triggers the "click" event of the file input. -->
     <button
-      v-if="!blog.imageUrl"
+      v-if="!images.imageUrl"
       :disabled="isUploadingImage"
       type="button"
       @click="launchImageFile"
     >
-      {{ isUploadingImage ? 'Uploading...' : 'Upload' }}
+      {{ isUploadingImage ? 'Subiendo...' : 'Subir' }}
     </button>
     <!-- This is the real file input element. -->
     <input
@@ -45,7 +45,7 @@
 export default {
   data() {
     return {
-      blog: {},
+      images: {},
       isUploadingImage: false,
       isDeletingImage: false,
     }
@@ -62,7 +62,7 @@ export default {
       const file = files[0]
 
       if (!file.type.match('image.*')) {
-        alert('Please upload an image.')
+        alert('Sólo imágenes.')
         return
       }
 
@@ -87,28 +87,41 @@ export default {
           })
         })
         .catch((error) => {
+          // eslint-disable-next-line no-console
           console.error('Error uploading image', error)
         })
 
-      // When the upload ends, set the value of the blog image URL
+      // When the upload ends, set the value of the image URL
       // and signal that uploading is done.
       uploadTask.then((url) => {
-        this.blog.imageUrl = url
+        this.images.imageUrl = url
         this.isUploadingImage = false
       })
     },
     deleteImage() {
       this.$firebase
         .storage()
-        .refFromURL(this.blog.imageUrl)
+        .refFromURL(this.images.imageUrl)
         .delete()
         .then(() => {
-          this.blog.imageUrl = ''
+          this.images.imageUrl = ''
         })
         .catch((error) => {
+          // eslint-disable-next-line no-console
           console.error('Error deleting image', error)
         })
     },
   },
 }
 </script>
+<style lang="scss">
+.image-upload {
+  padding: 2rem 1rem;
+  button {
+    margin: 1rem 0;
+  }
+  .hidden {
+    display: none;
+  }
+}
+</style>

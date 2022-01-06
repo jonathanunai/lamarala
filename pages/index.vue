@@ -39,7 +39,6 @@ export default {
             this.menu[doc.data().tipo].push({ id: doc.id, ...doc.data() })
           })
         })
-      console.log(this.menu)
     },
   },
 }

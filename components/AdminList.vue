@@ -13,7 +13,9 @@
           {{ menuItem.desc }}
           <span class="yellow">{{ menuItem.zona }}</span>
           <span v-if="menuItem.precio"> ({{ menuItem.precio }} eur)</span>
-          <span v-else class="yellow"> Posición: {{ menuItem.orden }}</span>
+          <span v-if="menuItem.orden" class="yellow">
+            ({{ menuItem.orden }})</span
+          >
         </div>
         <div class="row-actions">
           <div class="del" @click="$emit('editItem', menuItem)">[edit]</div>
@@ -27,6 +29,7 @@
 </template>
 <script>
 export default {
+  // eslint-disable-next-line vue/require-prop-types
   props: ['list'],
   computed: {
     orderedList() {

@@ -1,6 +1,7 @@
 <template>
   <div class="home-content">
     <h1>LA MAR SALÁ</h1>
+    <!-- eslint-disable-next-line vue/no-v-html -->
     <div v-html="introWeb"></div>
   </div>
 </template>

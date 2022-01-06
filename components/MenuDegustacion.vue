@@ -1,22 +1,27 @@
 <template>
-  <div class="menu-degustacion" :class="modal ? 'in-modal' : ''">
-    <div class="p-4">
-      <h2 class="degustacion">Menú degustación</h2>
-      <div v-html="menuDegustacion"></div>
-    </div>
-    <div class="columns">
-      <div class="left-col">
-        <div class="list-wrapper">
-          <menu-list :menu="orderedList" />
-        </div>
-        <div v-html="menuDegustacionPrecio"></div>
+  <div class="menu-degustacion-wrapper" :class="modal ? 'in-modal' : ''">
+    <div class="menu-degustacion" :class="modal ? 'in-modal' : ''">
+      <div class="p-4">
+        <h2 class="degustacion">Menú degustación</h2>
+        <!-- eslint-disable-next-line vue/no-v-html -->
+        <div style="text-align: center" v-html="menuDegustacion"></div>
       </div>
-      <div class="right-col"></div>
+      <div class="columns">
+        <div class="left-col">
+          <div class="list-wrapper">
+            <menu-list :menu="orderedList" />
+          </div>
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <div v-html="menuDegustacionPrecio"></div>
+        </div>
+        <div class="right-col"></div>
+      </div>
     </div>
   </div>
 </template>
 <script>
 export default {
+  // eslint-disable-next-line vue/require-prop-types
   props: ['items', 'modal'],
   data() {
     return {}
@@ -38,9 +43,21 @@ export default {
 }
 </script>
 <style lang="scss">
+.menu-degustacion-wrapper {
+  &:not(.in-modal) {
+    @include md {
+      width: calc(100vw - 20%);
+      position: relative;
+      left: calc(-50vw + 50%);
+      margin: 0 10%;
+    }
+  }
+}
 .menu-degustacion {
-  border-radius: 0.5rem;
-  margin-bottom: 2rem;
+  border-radius: 0.7rem;
+  margin: 0 auto 2rem auto;
+  max-width: 1024px;
+
   .p-4 {
     padding: 1rem;
   }
@@ -70,7 +87,7 @@ export default {
   }
   &:not(.in-modal) {
     @include md {
-      box-shadow: var(--shadow-elevation-high);
+      box-shadow: var(--shadow-elevation-medium);
     }
 
     h2.degustacion {
@@ -81,7 +98,7 @@ export default {
         padding: 0;
         margin: 24px auto;
         background: none;
-        text-align: left;
+        text-align: center;
         text-shadow: none;
       }
     }
@@ -90,7 +107,7 @@ export default {
     display: flex;
   }
   .left-col {
-    padding: 0;
+    padding: 0 1rem;
     margin: 0 1rem;
   }
   .right-col {

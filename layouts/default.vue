@@ -39,8 +39,6 @@ export default {
         })
       })
       .then(() => this.$store.dispatch('loadTxt', textos))
-
-    console.log(textos)
   },
 
   beforeMount() {
