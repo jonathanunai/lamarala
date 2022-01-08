@@ -14,7 +14,7 @@
           <!-- eslint-disable-next-line vue/no-v-html -->
           <div v-html="menuDegustacionPrecio"></div>
         </div>
-        <div class="right-col"></div>
+        <div class="right-col" :style="backgroundStyle"></div>
       </div>
     </div>
   </div>
@@ -38,6 +38,13 @@ export default {
     },
     menuDegustacionPrecio() {
       return this.$store.state.textos.menuDegustacionPrecio
+    },
+    backgroundStyle() {
+      return [
+        {
+          backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-degustacion.jpg?alt=media)`,
+        },
+      ]
     },
   },
 }

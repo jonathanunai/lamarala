@@ -63,23 +63,41 @@
     <div class="right-col">
       <div class="right-col-inner">
         <div class="img-wrapper">
-          <img src="/img/fotos/carpaccio-640.jpg" alt="" />
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-entrada.jpg?alt=media"
+            alt=""
+          />
         </div>
         <div class="img-wrapper">
-          <img src="/img/fotos/tartar-640.jpg" alt="" />
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-pescado.jpg?alt=media"
+            alt=""
+          />
         </div>
 
         <div class="img-wrapper">
-          <img src="/img/fotos/mariscos-640.jpg" alt="" />
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-marisco.jpg?alt=media"
+            alt=""
+          />
         </div>
         <div class="img-wrapper">
-          <img src="/img/fotos/arroz-carabinero-640.jpg" alt="" />
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-arroz.jpg?alt=media"
+            alt=""
+          />
         </div>
         <div class="img-wrapper">
-          <img src="/img/fotos/steak-tartar-640.jpg" alt="" />
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-carne.jpg?alt=media"
+            alt=""
+          />
         </div>
         <div class="img-wrapper">
-          <img src="/img/fotos/torrija-640.jpg" alt="" />
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-postre.jpg?alt=media"
+            alt=""
+          />
         </div>
       </div>
     </div>
@@ -208,22 +226,22 @@ export default {
   }
 
   #entradas {
-    background-image: url('/img/fotos/carpaccio-640.jpg');
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-entrada.jpg?alt=media');
   }
   #pescados {
-    background-image: url('/img/fotos/tartar-640.jpg');
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-pescado.jpg?alt=media');
   }
   #mariscos {
-    background-image: url('/img/fotos/mariscos-640.jpg');
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-marisco.jpg?alt=media');
   }
   #arroces {
-    background-image: url('/img/fotos/arroz-carabinero-640.jpg');
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-arroz.jpg?alt=media');
   }
   #carnes {
-    background-image: url('/img/fotos/steak-tartar-640.jpg');
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-carne.jpg?alt=media');
   }
   #postres {
-    background-image: url('/img/fotos/torrija-640.jpg');
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-postre.jpg?alt=media');
   }
   #entradas,
   #pescados,

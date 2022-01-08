@@ -1,65 +1,101 @@
 <template>
   <div class="image-upload">
-    <label for="imageUrl">Imágen:</label>
-    <div v-if="images.imageUrl">
-      <!-- A preview of the image. -->
-      <img
-        :src="images.imageUrl"
-        class="w-24 md:w-32 h-auto object-cover inline-block"
-        alt=""
-      />
-      <!-- Delete button for deleting the image. -->
+    <div v-for="image in images" :key="image.name">
+      <label for="imageUrl">Imagen de {{ image.name }}:</label>
+      <img :src="longUrl(image.fileName)" class="img" alt="" />
+
       <button
-        v-if="images.imageUrl"
-        :disabled="isDeletingImage"
+        v-if="!images.menuDegustacion.imageUrl"
+        :disabled="isUploadingImage"
+        class="admin-button"
         type="button"
-        class="bg-red-500 border-red-300 text-white"
-        @click="deleteImage"
+        @click="launchImageFile(image)"
       >
-        {{ isDeletingImage ? 'Borrando...' : 'Borrar' }}
+        {{ isUploadingImage ? 'Subiendo...' : 'Cambiar imagen' }}
       </button>
+      <!-- This is the real file input element. -->
+      <input
+        :ref="image.fileName"
+        type="file"
+        accept="image/png, image/jpeg"
+        class="hidden"
+        @change.prevent="uploadImageFile($event.target.files, image)"
+      />
     </div>
-    <!-- Clicking this button triggers the "click" event of the file input. -->
-    <button
-      v-if="!images.imageUrl"
-      :disabled="isUploadingImage"
-      type="button"
-      @click="launchImageFile"
-    >
-      {{ isUploadingImage ? 'Subiendo...' : 'Subir' }}
-    </button>
-    <!-- This is the real file input element. -->
-    <input
-      ref="imageFile"
-      type="file"
-      accept="image/png, image/jpeg"
-      class="hidden"
-      @change.prevent="uploadImageFile($event.target.files)"
-    />
+
     <div class="flex-row">
       <div class="admin-button" @click="$emit('cancel')">Volver</div>
     </div>
   </div>
 </template>
 <script>
+function renameFile(originalFile, newName) {
+  return new File([originalFile], newName, {
+    type: originalFile.type,
+    lastModified: originalFile.lastModified,
+  })
+}
+
 export default {
   data() {
     return {
-      images: {},
+      images: {
+        portada: {
+          fileName: 'la-mar-sala-portada.jpg',
+          name: 'Imágen de portada',
+        },
+        menuDegustacion: {
+          fileName: 'menu-degustacion.jpg',
+          name: 'Menú degustación',
+        },
+        entrada: {
+          fileName: 'menu-entrada.jpg',
+          name: 'Menú entradas',
+        },
+        arroz: {
+          fileName: 'menu-arroz.jpg',
+          name: 'Menú arroz',
+        },
+        marisco: {
+          fileName: 'menu-marisco.jpg',
+          name: 'Menú mariscos',
+        },
+        pescado: {
+          fileName: 'menu-pescado.jpg',
+          name: 'Menú pescados',
+        },
+        carne: {
+          fileName: 'menu-carne.jpg',
+          name: 'Menú carnes',
+        },
+        postre: {
+          fileName: 'menu-postre.jpg',
+          name: 'Menú postres',
+        },
+      },
       isUploadingImage: false,
       isDeletingImage: false,
+      rndCache: +new Date(),
     }
   },
+  created() {
+    // this.images.map(i => {return {...i, imageUrl: ''}})
+  },
   methods: {
-    launchImageFile() {
+    launchImageFile(image) {
       // Trigger the file input click event.
-      this.$refs.imageFile.click()
+      const ref = this.$refs[image.fileName][0]
+      ref.click()
     },
-    uploadImageFile(files) {
+    longUrl(file) {
+      return `https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2F${file}?alt=media&rnd=${this.rndCache}`
+    },
+    uploadImageFile(files, image) {
       if (!files.length) {
         return
       }
-      const file = files[0]
+
+      const file = renameFile(files[0], image.fileName)
 
       if (!file.type.match('image.*')) {
         alert('Sólo imágenes.')
@@ -72,10 +108,9 @@ export default {
 
       this.isUploadingImage = true
 
-      // Create a reference to the destination where we're uploading
-      // the file.
+      // Create a reference to the destination where we're uploading the file
       const storage = this.$firebase.storage()
-      const imageRef = storage.ref(`images/${file.name}`)
+      const imageRef = storage.ref(`images/${image.fileName}`)
 
       const uploadTask = imageRef
         .put(file, metadata)
@@ -94,17 +129,17 @@ export default {
       // When the upload ends, set the value of the image URL
       // and signal that uploading is done.
       uploadTask.then((url) => {
-        this.images.imageUrl = url
+        this.rndCache = +new Date()
         this.isUploadingImage = false
       })
     },
     deleteImage() {
       this.$firebase
         .storage()
-        .refFromURL(this.images.imageUrl)
+        .refFromURL(this.images.menuDegustacion.imageUrl)
         .delete()
         .then(() => {
-          this.images.imageUrl = ''
+          this.images.menuDegustacion.imageUrl = ''
         })
         .catch((error) => {
           // eslint-disable-next-line no-console
@@ -117,11 +152,18 @@ export default {
 <style lang="scss">
 .image-upload {
   padding: 2rem 1rem;
-  button {
-    margin: 1rem 0;
+  button.admin-button {
+    margin: 0 0 2.5rem 0;
   }
   .hidden {
     display: none;
+  }
+  .img {
+    width: 90%;
+    padding: 1rem 0;
+  }
+  label {
+    font-size: 1.3rem;
   }
 }
 </style>
