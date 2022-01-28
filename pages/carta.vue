@@ -4,7 +4,7 @@
       <ul class="menu-links">
         <li v-scroll-to="'#entradas'">Entradas para compartir</li>
         <li v-scroll-to="'#mariscos'">Mariscos</li>
-        <li v-scroll-to="'#pescados'">Plato pricipal</li>
+        <li v-scroll-to="'#pescados'">Plato principal</li>
         <ul>
           <li v-scroll-to="'#pescados'">Pescados y arroz</li>
           <li v-scroll-to="'#carnes'">Carne</li>
