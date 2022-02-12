@@ -19,7 +19,6 @@ export default {
 <style lang="scss">
 .logo-wrapper {
   width: 100%;
-  background: #ffffff;
   margin: 0 auto;
   padding: 8px 0;
   text-align: center;

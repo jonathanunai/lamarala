@@ -9,7 +9,7 @@
       <div class="columns">
         <div class="left-col">
           <div class="list-wrapper">
-            <menu-list :menu="orderedList" />
+            <menu-list :menu="items" />
           </div>
           <!-- eslint-disable-next-line vue/no-v-html -->
           <div v-html="menuDegustacionPrecio"></div>
@@ -27,12 +27,6 @@ export default {
     return {}
   },
   computed: {
-    orderedList() {
-      const temp = this.items
-      return Array.isArray(temp)
-        ? temp.sort((a, b) => (parseInt(a.orden) > parseInt(b.orden) ? 1 : -1))
-        : []
-    },
     menuDegustacion() {
       return this.$store.state.textos.menuDegustacion
     },

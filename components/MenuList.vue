@@ -1,6 +1,6 @@
 <template>
   <ul class="menu-list">
-    <li v-for="item in menu" :key="item.nombre">
+    <li v-for="item in orderedMenu" :key="item.nombre">
       <div class="plato" :class="item.precio ? 'con-precio' : ''">
         <span>{{ item.nombre }}</span> {{ item.desc }}
       </div>
@@ -14,6 +14,15 @@
 export default {
   // eslint-disable-next-line
   props: ['menu'],
+  computed: {
+    orderedMenu() {
+      if (!this.menu) return []
+      const temp = this.menu
+      return Array.isArray(temp)
+        ? temp.sort((a, b) => (parseInt(a.orden) > parseInt(b.orden) ? 1 : -1))
+        : []
+    },
+  },
 }
 </script>
 <style lang="scss">

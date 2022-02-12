@@ -18,10 +18,10 @@ export default {
         left: 50%;
         transform: translateX(-50%);
         width: 330px !important;
-        top: 18vh;
+        top: 7vh;
         @include md {
           left: 120px;
-          width: 300px !important;
+          width: 360px !important;
           transform: translateX(0);
         }
       }
@@ -47,7 +47,6 @@ export default {
     }
   }
   &.top {
-    height: auto;
     #menuToggle .hamburger {
       transition: all 0.3s ease;
       top: 40px;
@@ -55,8 +54,6 @@ export default {
     .logo-wrapper {
       transition: all 0.3s ease;
 
-      @include md {
-      }
       .header-logo {
         width: 100%;
         transition: all 0.3s ease;

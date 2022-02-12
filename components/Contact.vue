@@ -116,7 +116,9 @@ export default {
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 22px;
+    bottom: 2.4rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    font-size: 1.2rem;
     @include md {
       display: none;
     }
