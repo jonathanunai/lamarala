@@ -5,7 +5,6 @@
       <img :src="longUrl(image.fileName)" class="img" alt="" />
 
       <button
-        v-if="!images.menuDegustacion.imageUrl"
         :disabled="isUploadingImage"
         class="admin-button"
         type="button"
@@ -39,44 +38,33 @@ function renameFile(originalFile, newName) {
 export default {
   data() {
     return {
-      images: {
+      fixedImages: {
         portada: {
           fileName: 'la-mar-sala-portada.jpg',
-          name: 'Imágen de portada',
+          name: 'la portada',
         },
         menuDegustacion: {
           fileName: 'menu-degustacion.jpg',
           name: 'Menú degustación',
-        },
-        entrada: {
-          fileName: 'menu-entrada.jpg',
-          name: 'Menú entradas',
-        },
-        arroz: {
-          fileName: 'menu-arroz.jpg',
-          name: 'Menú arroz',
-        },
-        marisco: {
-          fileName: 'menu-marisco.jpg',
-          name: 'Menú mariscos',
-        },
-        pescado: {
-          fileName: 'menu-pescado.jpg',
-          name: 'Menú pescados',
-        },
-        carne: {
-          fileName: 'menu-carne.jpg',
-          name: 'Menú carnes',
-        },
-        postre: {
-          fileName: 'menu-postre.jpg',
-          name: 'Menú postres',
         },
       },
       isUploadingImage: false,
       isDeletingImage: false,
       rndCache: +new Date(),
     }
+  },
+  computed: {
+    images() {
+      const aux = {}
+      for (let i = 1; i <= 8; i++) {
+        const name = `section${i}`
+        aux[name] = {
+          fileName: `${name}.jpeg`,
+          name: ` la seccion de Menú ${name}`,
+        }
+      }
+      return { ...this.fixedImages, ...aux }
+    },
   },
   created() {
     // this.images.map(i => {return {...i, imageUrl: ''}})
@@ -133,19 +121,6 @@ export default {
         this.isUploadingImage = false
       })
     },
-    deleteImage() {
-      this.$firebase
-        .storage()
-        .refFromURL(this.images.menuDegustacion.imageUrl)
-        .delete()
-        .then(() => {
-          this.images.menuDegustacion.imageUrl = ''
-        })
-        .catch((error) => {
-          // eslint-disable-next-line no-console
-          console.error('Error deleting image', error)
-        })
-    },
   },
 }
 </script>
@@ -160,10 +135,15 @@ export default {
   }
   .img {
     width: 90%;
+    max-width: 350px;
     padding: 1rem 0;
+    display: block;
   }
   label {
     font-size: 1.3rem;
+  }
+  button {
+    display: block;
   }
 }
 </style>

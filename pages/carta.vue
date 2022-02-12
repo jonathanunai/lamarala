@@ -2,38 +2,29 @@
   <div class="container menu-page">
     <div class="left-col">
       <ul class="menu-links">
-        <li v-scroll-to="'#entradas'">Entradas para compartir</li>
-        <li v-scroll-to="'#mariscos'">Mariscos</li>
-        <li v-scroll-to="'#pescados'">Plato principal</li>
-        <ul>
-          <li v-scroll-to="'#pescados'">Pescados y arroz</li>
-          <li v-scroll-to="'#carnes'">Carne</li>
-        </ul>
-        <li v-scroll-to="'#postres'">Postres</li>
+        <li
+          v-for="section in config.sections"
+          :key="section.key"
+          v-scroll-to="`#section${section.key}`"
+        >
+          {{ section.value }}
+        </li>
         <li @click="toggleModal()">Carta de Vinos</li>
         <li @click="toggleModalDegustacion()">Menú Degustación</li>
       </ul>
 
-      <h2 id="entradas">Entradas</h2>
-      <menu-list :menu="menu.Entrada" />
-      <star class="hide-on-large" />
-
-      <h2 id="mariscos">Mariscos</h2>
-      <menu-list :menu="menu.Marisco" />
-      <star class="hide-on-large" />
-
-      <h2 id="pescados">Pescado y Arroz</h2>
-      <menu-list :menu="menu.Arroz" />
-      <menu-list :menu="menu.Pescado" />
-      <star class="hide-on-large" />
-
-      <h2 id="carnes">Carnes</h2>
-      <menu-list :menu="menu.Carne" />
-      <star class="hide-on-large" />
-
-      <h2 id="postres">Postres</h2>
-      <menu-list :menu="menu.Postre" />
-      <star class="hide-on-large" />
+      <div v-for="section in config.sections" :key="section.key">
+        <template v-if="section && section.value !== ''">
+          <h2 :id="`section${section.key}`">{{ section.value }}</h2>
+          <menu-list :menu="menu[`section${section.key}`]" />
+          <menu-list v-if="section.key === '1'" :menu="menu.Entrada" />
+          <menu-list v-if="section.key === '3'" :menu="menu.Arroz" />
+          <menu-list v-if="section.key === '4'" :menu="menu.Pescado" />
+          <menu-list v-if="section.key === '5'" :menu="menu.Carne" />
+          <menu-list v-if="section.key === '7'" :menu="menu.Postre" />
+          <star class="hide-on-large" />
+        </template>
+      </div>
 
       <transition name="modal">
         <modal-wrapper
@@ -62,40 +53,15 @@
     </div>
     <div class="right-col">
       <div class="right-col-inner">
-        <div class="img-wrapper">
+        <div
+          v-for="section in config.sections"
+          :key="section.key"
+          v-scroll-to="`#section${section.key}`"
+          class="img-wrapper"
+        >
           <img
-            src="https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-entrada.jpg?alt=media"
-            alt=""
-          />
-        </div>
-        <div class="img-wrapper">
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-pescado.jpg?alt=media"
-            alt=""
-          />
-        </div>
-
-        <div class="img-wrapper">
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-marisco.jpg?alt=media"
-            alt=""
-          />
-        </div>
-        <div class="img-wrapper">
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-arroz.jpg?alt=media"
-            alt=""
-          />
-        </div>
-        <div class="img-wrapper">
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-carne.jpg?alt=media"
-            alt=""
-          />
-        </div>
-        <div class="img-wrapper">
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-postre.jpg?alt=media"
+            v-if="section.value"
+            :src="`https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fsection${section.key}.jpeg?alt=media`"
             alt=""
           />
         </div>
@@ -113,6 +79,7 @@ export default {
       menu: {},
       showVinos: false,
       showDegustacion: false,
+      config: {},
     }
   },
   beforeMount() {
@@ -133,6 +100,14 @@ export default {
       this.showDegustacion = !this.showDegustacion
     },
     loadData() {
+      this.$firebase
+        .firestore()
+        .collection('Config')
+        .doc('values')
+        .get()
+        .then((doc) => {
+          this.config = doc.data()
+        })
       this.$firebase
         .firestore()
         .collection('Menu')
@@ -225,35 +200,36 @@ export default {
     }
   }
 
-  #entradas {
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-entrada.jpg?alt=media');
+  #section1 {
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fsection1.jpeg?alt=media');
   }
-  #pescados {
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-pescado.jpg?alt=media');
+  #section2 {
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fsection2.jpeg?alt=media');
   }
-  #mariscos {
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-marisco.jpg?alt=media');
+  #section3 {
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fsection3.jpeg?alt=media');
   }
-  #arroces {
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-arroz.jpg?alt=media');
+  #section4 {
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fsection4.jpeg?alt=media');
   }
-  #carnes {
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-carne.jpg?alt=media');
+  #section5 {
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fsection5.jpeg?alt=media');
   }
-  #postres {
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-postre.jpg?alt=media');
+  #section6 {
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fsection6.jpeg?alt=media');
   }
-  #entradas,
-  #pescados,
-  #mariscos,
-  #arroces,
-  #carnes,
-  #postres {
-    @include md {
-      background-image: none;
-    }
+  #section7 {
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fsection7.jpeg?alt=media');
+  }
+  #section8 {
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fsection8.jpeg?alt=media');
   }
 
+  *[id^='section'] {
+    @include md {
+      background-image: none !important;
+    }
+  }
   .smalltext {
     color: $colorDark;
     display: block;

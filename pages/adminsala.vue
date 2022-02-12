@@ -51,6 +51,7 @@
         <h4>La Mar Salá</h4>
         <h1>Zona de adminitración</h1>
         <h4 v-if="editing">Creando / Editando</h4>
+
         <template v-else-if="!isConfig">
           <div class="admin-buttons">
             <div
@@ -89,6 +90,9 @@
         <template v-else>
           <div>
             <div class="admin-buttons">
+              <div class="admin-button" @click="showThis('sections')">
+                Secciones del menú
+              </div>
               <div class="admin-button" @click="showThis('zones')">Zonas</div>
               <div class="admin-button" @click="showThis('texts')">
                 Textos web
@@ -135,6 +139,12 @@
             @cancel="showThis('config')"
             @added="added"
           />
+          <admin-sections
+            v-else-if="show === 'sections'"
+            :sections="config.sections"
+            @cancel="showThis('config')"
+            @added="added"
+          />
           <div v-else-if="show === 'empty'"></div>
           <div v-else-if="!isConfig" class="lists">
             <template v-if="wine">
@@ -146,7 +156,7 @@
               >
                 <h5>{{ zona }}</h5>
                 <admin-list
-                  :key="zona + counter"
+                  :key="tipo + zona + counter"
                   :list="listavinos"
                   @editItem="editItem"
                   @changeItemStatus="changeItemStatus"
@@ -232,6 +242,7 @@ export default {
         this.show === 'form' ||
         this.show === 'texts' ||
         this.show === 'images' ||
+        this.show === 'sections' ||
         this.show === 'zones'
       )
     },
@@ -253,8 +264,6 @@ export default {
         .doc('values')
         .get()
         .then((doc) => {
-          // eslint-disable-next-line no-console
-          console.log('doc :>> ', doc.data())
           this.config = doc.data()
         })
 
@@ -294,7 +303,6 @@ export default {
               ) {
                 this.carta[doc.data().tipo] = []
               }
-
               this.carta[doc.data().tipo].push(newItem)
             }
             this.todos.push(newItem)

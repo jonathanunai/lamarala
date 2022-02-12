@@ -2,13 +2,15 @@
   <div class="new-form">
     <form action="">
       <select v-model="model.tipo">
-        <option value="Entrada">Entrada</option>
-        <option value="Pescado">Pescado</option>
-        <option value="Arroz">Arroz</option>
-        <option value="Carne">Carne</option>
-        <option value="Postre">Postre</option>
+        <option
+          v-for="section in config.sections"
+          :key="`section${section.key}`"
+          :value="`section${section.key}`"
+        >
+          {{ section.value }}
+        </option>
+        <option disabled>──────────</option>
         <option value="Vino">Vino</option>
-        <option value="Marisco">Marisco</option>
         <option value="Degustacion">Plato degustación</option>
         <option value="Pan">Servicio de pan</option>
       </select>
@@ -60,7 +62,7 @@
 export default {
   data() {
     return {
-      config: { zones: [], types: [] },
+      config: { zones: [], types: [], sections: [] },
       id: '',
       errorMsg: '',
       model: {
