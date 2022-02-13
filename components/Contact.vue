@@ -35,7 +35,9 @@
       <h4>EMAIL</h4>
       <a href="mailto:info@lamarsalatoledo.com">info@lamarsalatoledo.com</a>
     </div>
-    <nuxt-link to="/reservas" class="book-button">RESERVAR</nuxt-link>
+    <nuxt-link to="/reservas" class="book-button">
+      {{ lang === 'en' ? 'BOOK A TABLE' : 'RESERVAR' }}
+    </nuxt-link>
 
     <social-links :column="true" />
   </div>
@@ -49,6 +51,11 @@ import MailIcon from '@/assets/svg/mail.svg'
 export default {
   layout: 'temp',
   components: { HorarioIcon, DireccionIcon, TelefonoIcon, MailIcon },
+  computed: {
+    lang() {
+      return this.$store.state.activeLanguage
+    },
+  },
 }
 </script>
 

@@ -9,7 +9,11 @@
       <div id="menu">
         <img src="/img/simbolo_la_mar_sala.png" />
         <ul @click="closeMenu">
-          <nuxt-link to="/"><li class="uppercase">Inicio</li></nuxt-link>
+          <nuxt-link to="/"
+            ><li class="uppercase">
+              {{ lang === 'en' ? 'Home' : 'Inicio' }}
+            </li></nuxt-link
+          >
           <li v-if="false" class="uppercase">
             Nuestras especialides
             <ul>
@@ -24,14 +28,24 @@
           </li>
 
           <nuxt-link to="/reservas"
-            ><li class="uppercase">Reservar</li></nuxt-link
+            ><li class="uppercase">
+              {{ lang === 'en' ? 'BOOK A TABLE' : 'RESERVAR' }}
+            </li></nuxt-link
           >
           <nuxt-link to="/carta"><li class="uppercase">Menu</li></nuxt-link>
           <nuxt-link :to="{ path: '/', hash: '#horario-y-contacto' }"
-            ><li class="uppercase">Horario & contacto</li></nuxt-link
+            ><li class="uppercase">
+              {{
+                lang === 'en'
+                  ? 'Opening hours and contact'
+                  : 'Horario & contacto'
+              }}
+            </li></nuxt-link
           >
           <nuxt-link to="/nuestras-fotografias"
-            ><li class="uppercase">Imágenes</li></nuxt-link
+            ><li class="uppercase">
+              {{ lang === 'en' ? 'Pictures' : 'Imágenes' }}
+            </li></nuxt-link
           >
         </ul>
         <social-links />
@@ -44,6 +58,9 @@ export default {
   computed: {
     openMenu() {
       return this.$store.state.menuOpen
+    },
+    lang() {
+      return this.$store.state.activeLanguage
     },
   },
   methods: {

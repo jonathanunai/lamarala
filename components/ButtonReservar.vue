@@ -1,11 +1,16 @@
 <template>
-  <nuxt-link to="/reservas" class="book-button" :class="white ? 'white' : ''"
-    >RESERVAR</nuxt-link
-  >
+  <nuxt-link to="/reservas" class="book-button" :class="white ? 'white' : ''">
+    {{ lang === 'en' ? 'BOOK A TABLE' : 'RESERVAR' }}
+  </nuxt-link>
 </template>
 <script>
 export default {
   props: { white: { type: Boolean, default: true } },
+  computed: {
+    lang() {
+      return this.$store.state.activeLanguage
+    },
+  },
 }
 </script>
 <style lang="scss">

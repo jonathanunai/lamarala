@@ -9,13 +9,19 @@
           ></span>
         </div>
         <div class="row-info">
-          <span class="strong">{{ menuItem.nombre }}</span>
-          {{ menuItem.desc }}
-          <span class="yellow">{{ menuItem.zona }}</span>
-          <span v-if="menuItem.precio"> ({{ menuItem.precio }} eur)</span>
-          <span v-if="menuItem.orden" class="yellow">
-            ({{ menuItem.orden }})</span
-          >
+          <div>
+            <span class="strong">{{ menuItem.nombre }}</span>
+            {{ menuItem.desc }}
+            <span class="yellow">{{ menuItem.zona }}</span>
+            <span v-if="menuItem.precio"> ({{ menuItem.precio }} eur)</span>
+            <span v-if="menuItem.orden" class="yellow">
+              ({{ menuItem.orden }})</span
+            >
+          </div>
+          <div class="english">
+            {{ menuItem.nombreEn }}
+            {{ menuItem.descEn }}
+          </div>
         </div>
         <div class="row-actions">
           <div class="del" @click="$emit('editItem', menuItem)">[edit]</div>

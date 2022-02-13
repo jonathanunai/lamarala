@@ -9,7 +9,7 @@
           :key="sec.key"
           @click="edit(sec.key)"
         >
-          {{ sec.key }}: {{ sec.value }}
+          {{ sec.key }}: {{ sec.value }} ({{ sec.valueEn }})
         </li>
       </ul>
     </div>
@@ -19,15 +19,30 @@
       header-title="EDITANDO"
       @toggleModal="showEdit = false"
     >
+      <h2>Sección {{ key }}</h2>
+      <div class="flex flex-col">
+        <div class="flex space-between">
+          <label for="zona">Nombre: </label>
+          <input v-model="key" type="hidden" name="key" />
+          <input
+            v-model="section"
+            type="text"
+            name="section"
+            placeholder="Sección"
+          />
+        </div>
+        <div class="flex">
+          <label for="zona">Ingés: </label>
+          <input v-model="key" type="hidden" name="key" />
+          <input
+            v-model="sectionEn"
+            type="text"
+            name="section"
+            placeholder="Section"
+          />
+        </div>
+      </div>
       <br />
-      <label for="zona">Nombre de la sección {{ key }}: </label>
-      <input v-model="key" type="hidden" name="key" />
-      <input
-        v-model="section"
-        type="text"
-        name="section"
-        placeholder="Sección"
-      />
       <div class="admin-button" @click="save">Guardar</div>
       <div class="admin-button" @click="showEdit = false">Cancelar</div>
     </modal-wrapper>
@@ -41,6 +56,7 @@ export default {
       showEdit: false,
       key: '',
       section: '',
+      sectionEn: '',
     }
   },
   created() {
@@ -57,14 +73,19 @@ export default {
     edit(val) {
       const section = this.config.sections.filter((el) => el.key === val)[0]
       this.section = section.value
+      this.sectionEn = section.valueEn
       this.key = section.key
       this.showEdit = true
     },
     save() {
-      this.config.sections.push({
+      const objIndex = this.config.sections.findIndex(
+        (obj) => obj.key === this.key
+      )
+      this.config.sections[objIndex] = {
         key: this.key,
         value: this.section,
-      })
+        valueEn: this.sectionEn,
+      }
       this.store()
     },
     store() {
@@ -78,6 +99,8 @@ export default {
         .then(() => {
           this.showEdit = false
           this.section = ''
+          this.sectionEn = ''
+          this.key = ''
         })
     },
   },
@@ -89,6 +112,7 @@ label {
 }
 li {
   position: relative;
+  cursor: pointer;
 }
 li span {
   color: #e57666;

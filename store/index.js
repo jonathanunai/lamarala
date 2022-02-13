@@ -4,6 +4,7 @@ export const state = () => ({
   user: null,
   menuOpen: false,
   editItem: false,
+  activeLanguage: 'es',
   textos: {
     introWeb: '',
     menuDegustacion: '',
@@ -20,6 +21,9 @@ export const mutations = {
   },
   SET_EDIT_ITEM(state, item) {
     state.editItem = item
+  },
+  CHANGE_LANGUAGE(state, lang) {
+    state.activeLanguage = lang
   },
   OPEN_MENU(state) {
     state.menuOpen = true
@@ -38,6 +42,9 @@ export const actions = {
   },
   loadTxt(state, data) {
     state.commit('LOAD_TXT', data)
+  },
+  changeLanguage(state, data) {
+    state.commit('CHANGE_LANGUAGE', data)
   },
   login(state, user) {
     state.commit('SET_USER', user)

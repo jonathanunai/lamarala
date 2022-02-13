@@ -2,7 +2,10 @@
   <ul class="menu-list">
     <li v-for="item in orderedMenu" :key="item.nombre">
       <div class="plato" :class="item.precio ? 'con-precio' : ''">
-        <span>{{ item.nombre }}</span> {{ item.desc }}
+        <span>{{
+          lang === 'en' && item.nombreEn ? item.nombreEn : item.nombre
+        }}</span>
+        {{ lang === 'en' && item.descEn ? item.descEn : item.desc }}
       </div>
       <div v-if="item.precio" class="precio">
         {{ item.precio.replace('.', ',') }}
@@ -21,6 +24,9 @@ export default {
       return Array.isArray(temp)
         ? temp.sort((a, b) => (parseInt(a.orden) > parseInt(b.orden) ? 1 : -1))
         : []
+    },
+    lang() {
+      return this.$store.state.activeLanguage
     },
   },
 }

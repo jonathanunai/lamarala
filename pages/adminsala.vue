@@ -172,13 +172,7 @@
                 class="list"
               >
                 <h2>
-                  {{
-                    id === 'Arroz'
-                      ? 'Arroces'
-                      : id === 'Degustacion'
-                      ? 'Menu Degustacion'
-                      : id + 's'
-                  }}
+                  {{ sectionName(id) }}
                 </h2>
                 <admin-list
                   :key="id + counter"
@@ -218,6 +212,7 @@ export default {
       item: null,
       dataReady: false,
       statusChanging: false,
+      config: {},
       carta: {},
       todos: [],
       vino: {},
@@ -256,6 +251,7 @@ export default {
   methods: {
     loadData() {
       this.dataReady = false
+      this.config = {}
       this.carta = {}
       this.vino = {}
       this.$firebase
@@ -392,6 +388,12 @@ export default {
       link.setAttribute('download', 'export.csv')
       // link.click()
     },
+    sectionName(sec) {
+      const section = this.config.sections.filter(
+        (el) => el.key === sec.slice(-1)
+      )[0]
+      return section ? section.value : sec
+    },
   },
 }
 </script>
@@ -469,6 +471,10 @@ export default {
     .flex-row {
       display: flex;
       justify-content: space-between;
+      padding-bottom: 0.5rem;
+      .english {
+        color: #ffe4c4;
+      }
       .del {
         cursor: pointer;
       }

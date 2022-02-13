@@ -16,11 +16,19 @@
       </select>
 
       <input v-model="model.nombre" type="text" placeholder="Nombre" />
+      <input v-model="model.nombreEn" type="text" placeholder="Nombre Inglés" />
+      <br />
       <input
         v-model="model.desc"
         type="text"
         class="desc"
         placeholder="Descripcón"
+      />
+      <input
+        v-model="model.descEn"
+        type="text"
+        class="desc"
+        placeholder="Descripcón Inglés"
       />
       <input
         v-if="model.tipo !== 'Degustacion'"
@@ -67,7 +75,9 @@ export default {
       errorMsg: '',
       model: {
         nombre: '',
+        nombreEn: '',
         desc: '',
+        descEn: '',
         precio: '',
         orden: '',
         tipo: '',

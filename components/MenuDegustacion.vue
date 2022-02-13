@@ -2,7 +2,9 @@
   <div class="menu-degustacion-wrapper" :class="modal ? 'in-modal' : ''">
     <div class="menu-degustacion" :class="modal ? 'in-modal' : ''">
       <div class="p-4">
-        <h2 class="degustacion">Menú degustación</h2>
+        <h2 class="degustacion">
+          {{ lang === 'en' ? 'Tasting menu' : 'Menú degustación' }}
+        </h2>
         <!-- eslint-disable-next-line vue/no-v-html -->
         <div style="text-align: center" v-html="menuDegustacion"></div>
       </div>
@@ -27,6 +29,9 @@ export default {
     return {}
   },
   computed: {
+    lang() {
+      return this.$store.state.activeLanguage
+    },
     menuDegustacion() {
       return this.$store.state.textos.menuDegustacion
     },

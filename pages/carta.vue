@@ -7,15 +7,21 @@
           :key="section.key"
           v-scroll-to="`#section${section.key}`"
         >
-          {{ section.value }}
+          {{ lang === 'es' ? section.value : section.valueEn }}
         </li>
-        <li @click="toggleModal()">Carta de Vinos</li>
-        <li @click="toggleModalDegustacion()">Menú Degustación</li>
+        <li @click="toggleModal()">
+          {{ lang === 'en' ? 'Wine menu' : 'Carta de vinos' }}
+        </li>
+        <li @click="toggleModalDegustacion()">
+          {{ lang === 'en' ? 'Tasting menu' : 'Menú degustación' }}
+        </li>
       </ul>
 
       <div v-for="section in config.sections" :key="section.key">
         <template v-if="section && section.value !== ''">
-          <h2 :id="`section${section.key}`">{{ section.value }}</h2>
+          <h2 :id="`section${section.key}`">
+            {{ lang === 'es' ? section.value : section.valueEn }}
+          </h2>
           <menu-list :menu="menu[`section${section.key}`]" />
           <menu-list v-if="section.key === '1'" :menu="menu.Entrada" />
           <menu-list v-if="section.key === '3'" :menu="menu.Arroz" />
@@ -81,6 +87,11 @@ export default {
       showDegustacion: false,
       config: {},
     }
+  },
+  computed: {
+    lang() {
+      return this.$store.state.activeLanguage
+    },
   },
   beforeMount() {
     window.addEventListener('scroll', this.handleScroll)

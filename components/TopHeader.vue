@@ -3,6 +3,7 @@
     <nav-menu />
     <nuxt-link to="/"><logo /></nuxt-link>
     <contact-bar />
+    <language-switcher />
   </div>
 </template>
 <script>
@@ -64,6 +65,10 @@ export default {
         top: 30px;
         transition: all 0.3s ease;
       }
+    }
+    .language-wrapper {
+      top: 36px;
+      transition: all 0.3s ease;
     }
   }
 }

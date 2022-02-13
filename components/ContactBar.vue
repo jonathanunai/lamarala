@@ -4,10 +4,22 @@
     <div><a href="tel:+34925254785">Tel. 925 254 785</a></div>
     <div class="hidden-sm"></div>
     <nuxt-link to="/reservas">
-      <div class="boxed hidden-sm">RESERVAR</div>
+      <div class="boxed hidden-sm">
+        {{ lang === 'en' ? 'BOOK A TABLE' : 'RESERVAR' }}
+      </div>
     </nuxt-link>
   </div>
 </template>
+<script>
+export default {
+  computed: {
+    lang() {
+      return this.$store.state.activeLanguage
+    },
+  },
+}
+</script>
+
 <style lang="scss">
 .contact-bar-wrapper {
   position: fixed;
@@ -26,7 +38,7 @@
   @include md {
     top: 10px;
     transition: all 0.3s ease;
-    right: 30px;
+    right: 86px;
     bottom: unset;
     background: $colorLight;
     width: 44%;
