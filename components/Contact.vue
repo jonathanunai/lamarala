@@ -63,6 +63,7 @@ export default {
 .horario-page {
   color: $colorGrey;
   padding: 24px;
+  padding-bottom: 48px;
   align-items: unset;
   flex-direction: column;
   text-align: center;

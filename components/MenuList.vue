@@ -16,10 +16,11 @@
 <script>
 export default {
   // eslint-disable-next-line
-  props: ['menu'],
+  props: ['menu', 'order'],
   computed: {
     orderedMenu() {
       if (!this.menu) return []
+      if (this.order === 'no') return this.menu
       const temp = this.menu
       return Array.isArray(temp)
         ? temp.sort((a, b) => (parseInt(a.orden) > parseInt(b.orden) ? 1 : -1))

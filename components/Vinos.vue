@@ -4,21 +4,21 @@
     <div v-for="zone in zones" :key="`${zone}-blanco`">
       <template v-if="getList('Blanco', zone).length > 0">
         <h4>{{ zone }}</h4>
-        <menu-list :menu="getList('Blanco', zone)" />
+        <menu-list :menu="getList('Blanco', zone)" :order="'no'" />
       </template>
     </div>
     <h2 id="espumosos">Espumosos</h2>
     <div v-for="zone in zones" :key="`${zone}-espumoso`">
       <template v-if="getList('Espumoso', zone).length > 0">
         <h4>{{ zone }}</h4>
-        <menu-list :menu="getList('Espumoso', zone)" />
+        <menu-list :menu="getList('Espumoso', zone)" :order="'no'" />
       </template>
     </div>
     <h2 id="tintos">Tintos</h2>
     <div v-for="zone in zones" :key="`${zone}-tinto`">
       <template v-if="getList('Tinto', zone).length > 0">
         <h4>{{ zone }}</h4>
-        <menu-list :menu="getList('Tinto', zone)" />
+        <menu-list :menu="getList('Tinto', zone)" :order="'no'" />
       </template>
     </div>
   </div>
