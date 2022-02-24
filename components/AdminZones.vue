@@ -6,7 +6,8 @@
     <div class="flex-row">
       <ul>
         <li v-for="zona in config.zones" :key="zona.key">
-          {{ zona.value }} <span @click="del(zona.key)">[x]</span>
+          {{ zona.order }} {{ zona.value }}
+          <span @click="del(zona.key)">[x]</span>
         </li>
       </ul>
     </div>
@@ -19,6 +20,7 @@
       <br />
       <label for="zona">Zona: </label>
       <input v-model="zone" type="text" name="zone" placeholder="Zona" />
+      <input v-model="order" type="text" name="order" placeholder="Posicion" />
       <div class="admin-button" @click="save">Guardar</div>
       <div class="admin-button" @click="showEdit = false">Cancelar</div>
     </modal-wrapper>
@@ -33,6 +35,7 @@ export default {
       config: { zones: [], types: [] },
       showEdit: false,
       zone: '',
+      order: '',
     }
   },
   created() {
@@ -51,9 +54,13 @@ export default {
       this.store()
     },
     save() {
-      this.config.zones.push({ key: slugify(this.zone), value: this.zone })
+      this.config.zones.push({
+        key: slugify(this.zone),
+        value: this.zone,
+        order: this.order,
+      })
       this.config.zones = this.config.zones.sort((a, b) =>
-        a.value > b.value ? 1 : b.value > a.value ? -1 : 0
+        a.order > b.order ? 1 : b.order > a.order ? -1 : 0
       )
       this.store()
     },
@@ -68,6 +75,7 @@ export default {
         .then(() => {
           this.showEdit = false
           this.zone = ''
+          this.order = ''
         })
     },
   },

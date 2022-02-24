@@ -1,24 +1,24 @@
 <template>
   <div class="vinos">
     <h2 id="blancos">Blancos</h2>
-    <div v-for="zone in zones" :key="`${zone}-blanco`">
-      <template v-if="getList('Blanco', zone).length > 0">
-        <h4>{{ zone }}</h4>
-        <menu-list :menu="getList('Blanco', zone)" :order="'no'" />
+    <div v-for="zone in zones" :key="`${zone.key}-blanco`">
+      <template v-if="getList('Blanco', zone.value).length > 0">
+        <h4>{{ zone.value }}</h4>
+        <menu-list :menu="getList('Blanco', zone.value)" :order="'no'" />
       </template>
     </div>
     <h2 id="espumosos">Espumosos</h2>
-    <div v-for="zone in zones" :key="`${zone}-espumoso`">
-      <template v-if="getList('Espumoso', zone).length > 0">
-        <h4>{{ zone }}</h4>
-        <menu-list :menu="getList('Espumoso', zone)" :order="'no'" />
+    <div v-for="zone in zones" :key="`${zone.key}-espumoso`">
+      <template v-if="getList('Espumoso', zone.value).length > 0">
+        <h4>{{ zone.value }}</h4>
+        <menu-list :menu="getList('Espumoso', zone.value)" :order="'no'" />
       </template>
     </div>
     <h2 id="tintos">Tintos</h2>
-    <div v-for="zone in zones" :key="`${zone}-tinto`">
-      <template v-if="getList('Tinto', zone).length > 0">
-        <h4>{{ zone }}</h4>
-        <menu-list :menu="getList('Tinto', zone)" :order="'no'" />
+    <div v-for="zone in zones" :key="`${zone.key}-tinto`">
+      <template v-if="getList('Tinto', zone.value).length > 0">
+        <h4>{{ zone.value }}</h4>
+        <menu-list :menu="getList('Tinto', zone.value)" :order="'no'" />
       </template>
     </div>
   </div>
@@ -38,13 +38,10 @@ function compare(a, b) {
 
 export default {
   // eslint-disable-next-line
-  props: ['vinos'],
+  props: ['vinos', 'zones'],
   computed: {
     orderedList() {
       return Array.isArray(this.vinos) ? [...this.vinos].sort(compare) : []
-    },
-    zones() {
-      return [...new Set(this.orderedList.map((el) => el.zona))]
     },
   },
   methods: {

@@ -39,7 +39,7 @@
           image="winetitle"
           @toggleModal="toggleModal"
         >
-          <vinos :vinos="menu.Vino" />
+          <vinos :vinos="menu.Vino" :zones="config.zones" />
         </modal-wrapper>
       </transition>
       <transition name="modal">
