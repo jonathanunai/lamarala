@@ -32,7 +32,11 @@
               {{ lang === 'en' ? 'BOOK A TABLE' : 'RESERVAR' }}
             </li></nuxt-link
           >
-          <nuxt-link to="/carta"><li class="uppercase">Menu</li></nuxt-link>
+          <nuxt-link to="/carta"
+            ><li class="uppercase">
+              {{ lang === 'en' ? 'Menu' : 'Carta' }}
+            </li></nuxt-link
+          >
           <nuxt-link :to="{ path: '/', hash: '#horario-y-contacto' }"
             ><li class="uppercase">
               {{
