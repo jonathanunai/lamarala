@@ -7,8 +7,8 @@
       width="100%"
       height="550"
       frameborder="0"
-      scrolling="no"
-      style="overflow: hidden; height: 1163px"
+      scrolling="yes"
+      style="overflow: hidden; padding-bottom: 2rem"
     ></iframe>
   </div>
 </template>
