@@ -141,12 +141,12 @@ export default {
 <style lang="scss">
 .menu-page {
   justify-content: left;
-  @include md {
-    align-items: stretch;
-  }
   padding-top: 120px;
   padding-bottom: 24px;
   flex-wrap: wrap;
+  @include md {
+    align-items: stretch;
+  }
   .right-col {
     top: 0px;
     position: relative;

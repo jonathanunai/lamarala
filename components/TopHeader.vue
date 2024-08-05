@@ -15,10 +15,12 @@ export default {
 .home-page {
   .top-header {
     &.top {
+      background: transparent;
       .logo-wrapper {
         left: 50%;
         transform: translateX(-50%);
         width: 330px !important;
+        max-width: 100%;
         top: 7vh;
         @include md {
           left: 120px;
@@ -30,8 +32,8 @@ export default {
   }
 }
 .top-header {
-  width: 100%;
   background: white;
+  width: 100%;
   position: fixed;
   height: 60px;
   z-index: 100;

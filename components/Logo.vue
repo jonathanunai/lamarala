@@ -1,7 +1,7 @@
 <template>
   <div class="logo-wrapper">
     <img
-      src="/img/logo-la-mar-sala.svg"
+      src="/LogoLaMarSala.png"
       alt="Logo cabecera La Mar Salá"
       :class="header ? 'header-logo' : ''"
     />
