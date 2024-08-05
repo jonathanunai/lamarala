@@ -42,5 +42,9 @@
     "sass": "^1.32.12",
     "sass-loader": "^10.1.1",
     "vue-svg-loader": "^0.17.0-beta.2"
+  },
+  "engines": {
+    "node": "14.x"
   }
+
 }
