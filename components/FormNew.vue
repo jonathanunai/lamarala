@@ -42,7 +42,6 @@
         placeholder="Orden"
         style="width: 1rem"
       />
-
       <div v-if="model.tipo === 'Vino'" class="seccion-vino">
         <select v-model="model.tipovino">
           <option value="Blanco">Blanco</option>
@@ -60,10 +59,20 @@
           </option>
         </select>
       </div>
+      <br />
+
+      <ul>
+        <li v-for="alergic in alergenics" :key="alergic">
+          <img :src="`/img/${alergic}.png`" :alt="alergic" />
+          <input v-model="model[alergic]" type="checkbox" :value="alergic" />
+        </li>
+      </ul>
+
       <div class="error-msg">{{ errorMsg }}</div>
       <input type="submit" value="Guardar" @click.prevent="addDocument" />
     </form>
     <div class="admin-button" @click="$emit('cancel')">Cancelar</div>
+    {{ model }}
   </div>
 </template>
 <script>
@@ -84,7 +93,24 @@ export default {
         zona: '',
         tipovino: '',
         isActive: 1,
+        alergenics: [],
       },
+      alergenics: [
+        'Lupin',
+        'Celery',
+        'Peanut',
+        'Mustard',
+        'Sesame',
+        'Sulfur',
+        'Mollusks',
+        'Crustacean',
+        'Peel',
+        'Soy',
+        'Fish',
+        'Dairy',
+        'Egg',
+        'Gluten',
+      ],
     }
   },
   computed: {
@@ -142,6 +168,14 @@ export default {
   select {
     width: 100%;
     margin: 0.35rem;
+  }
+  ul {
+    width: 100%;
+    margin: 0.35rem;
+    display: flex;
+    > * {
+      margin-right: 4px;
+    }
   }
 }
 .seccion-vino {

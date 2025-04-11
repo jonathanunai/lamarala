@@ -1,11 +1,18 @@
 <template>
   <ul class="menu-list">
-    <li v-for="item in orderedMenu" :key="item.nombre">
+    <li v-for="(item, k) in orderedMenu" :key="`${item.nombre}${k}`">
       <div class="plato" :class="item.precio ? 'con-precio' : ''">
         <span>{{
           lang === 'en' && item.nombreEn ? item.nombreEn : item.nombre
         }}</span>
         {{ lang === 'en' && item.descEn ? item.descEn : item.desc }}
+        <ul class="flex flex-row alergico">
+          <template v-for="a in alergenics">
+            <li v-if="item[a] === true" :key="a" class="">
+              <img :src="`/img//${a}.png`" :alt="a" class="" />
+            </li>
+          </template>
+        </ul>
       </div>
       <div v-if="item.precio" class="precio">
         {{ item.precio.replace('.', ',') }}
@@ -17,6 +24,26 @@
 export default {
   // eslint-disable-next-line
   props: ['menu', 'order'],
+  data() {
+    return {
+      alergenics: [
+        'Lupin',
+        'Celery',
+        'Peanut',
+        'Mustard',
+        'Sesame',
+        'Sulfur',
+        'Mollusks',
+        'Crustacean',
+        'Peel',
+        'Soy',
+        'Fish',
+        'Dairy',
+        'Egg',
+        'Gluten',
+      ],
+    }
+  },
   computed: {
     orderedMenu() {
       if (!this.menu) return []
@@ -63,6 +90,16 @@ export default {
   }
   .precio {
     font-weight: bold;
+  }
+  .alergico {
+    li {
+      padding: 0;
+      margin: 0;
+    }
+    img {
+      width: 18px;
+      margin-right: 8px;
+    }
   }
 }
 </style>
