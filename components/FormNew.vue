@@ -63,7 +63,7 @@
 
       <ul>
         <li v-for="alergic in alergenics" :key="alergic">
-          <img :src="`/img/${alergic}.png`" :alt="alergic" />
+          <img :src="`/img/icon${alergic}.png`" :alt="alergic" width="24px" />
           <input v-model="model[alergic]" type="checkbox" :value="alergic" />
         </li>
       </ul>
@@ -72,7 +72,6 @@
       <input type="submit" value="Guardar" @click.prevent="addDocument" />
     </form>
     <div class="admin-button" @click="$emit('cancel')">Cancelar</div>
-    {{ model }}
   </div>
 </template>
 <script>

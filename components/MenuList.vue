@@ -8,8 +8,8 @@
         {{ lang === 'en' && item.descEn ? item.descEn : item.desc }}
         <ul class="flex flex-row alergico">
           <template v-for="a in alergenics">
-            <li v-if="item[a] === true" :key="a" class="">
-              <img :src="`/img//${a}.png`" :alt="a" class="" />
+            <li v-if="item[a] === true" :key="a" @click="$emit('showAlergic')">
+              <img :src="`/img/icon${a}.png`" :alt="a" class="" />
             </li>
           </template>
         </ul>
@@ -55,6 +55,12 @@ export default {
     },
     lang() {
       return this.$store.state.activeLanguage
+    },
+  },
+  methods: {
+    showAlergic() {
+      console.log('showAlergic :>> ')
+      this.$emit('showAlergic')
     },
   },
 }

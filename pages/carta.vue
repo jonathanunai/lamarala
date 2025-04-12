@@ -22,12 +22,36 @@
           <h2 :id="`section${section.key}`">
             {{ lang === 'es' ? section.value : section.valueEn }}
           </h2>
-          <menu-list :menu="menu[`section${section.key}`]" />
-          <menu-list v-if="section.key === '1'" :menu="menu.Entrada" />
-          <menu-list v-if="section.key === '3'" :menu="menu.Arroz" />
-          <menu-list v-if="section.key === '4'" :menu="menu.Pescado" />
-          <menu-list v-if="section.key === '5'" :menu="menu.Carne" />
-          <menu-list v-if="section.key === '7'" :menu="menu.Postre" />
+          <menu-list
+            :menu="menu[`section${section.key}`]"
+            @showAlergic="handleShowAlergic"
+          />
+          <menu-list
+            v-if="section.key === '1'"
+            :menu="menu.Entrada"
+            @showAlergic="handleShowAlergic"
+          />
+          <hr v-if="section.key === '3'" />
+          <menu-list
+            v-if="section.key === '3'"
+            :menu="menu.Arroz"
+            @showAlergic="handleShowAlergic"
+          />
+          <menu-list
+            v-if="section.key === '4'"
+            :menu="menu.Pescado"
+            @showAlergic="handleShowAlergic"
+          />
+          <menu-list
+            v-if="section.key === '5'"
+            :menu="menu.Carne"
+            @showAlergic="handleShowAlergic"
+          />
+          <menu-list
+            v-if="section.key === '7'"
+            :menu="menu.Postre"
+            @showAlergic="handleShowAlergic"
+          />
           <star class="hide-on-large" />
         </template>
       </div>
@@ -40,6 +64,16 @@
           @toggleModal="toggleModal"
         >
           <vinos :vinos="menu.Vino" :zones="config.zones" />
+        </modal-wrapper>
+      </transition>
+      <transition name="modal">
+        <modal-wrapper
+          v-if="showAlergic"
+          header-title="Información sobre alérgenos"
+          image="tabla-alergenos-restaurantes"
+          @toggleModal="handleShowAlergic"
+        >
+          <alergics />
         </modal-wrapper>
       </transition>
       <transition name="modal">
@@ -76,7 +110,8 @@
   </div>
 </template>
 <script>
-import MenuList from '~/components/MenuList.vue'
+import MenuList from '@/components/MenuList.vue'
+
 export default {
   components: { MenuList },
   data() {
@@ -84,6 +119,7 @@ export default {
       imageDisplayed: 'inicio',
       menu: {},
       showVinos: false,
+      showAlergic: false,
       showDegustacion: false,
       config: {},
     }
@@ -104,6 +140,9 @@ export default {
   },
 
   methods: {
+    handleShowAlergic() {
+      this.showAlergic = !this.showAlergic
+    },
     toggleModal() {
       this.showVinos = !this.showVinos
     },
