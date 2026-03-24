@@ -1,8 +1,9 @@
-import firebase from 'firebase/app'
-import 'firebase/firestore'
-import 'firebase/auth'
+import firebase from 'firebase/compat/app'
+import 'firebase/compat/firestore'
+import 'firebase/compat/auth'
+import 'firebase/compat/storage'
 
-export default ({ env, store }, inject) => {
+export default defineNuxtPlugin(() => {
   const firebaseConfig = {
     apiKey: 'AIzaSyB8AdROVoE8bOFOLQoonf9sPgDbOeY29hg',
     authDomain: 'la-mar-sala.firebaseapp.com',
@@ -18,6 +19,10 @@ export default ({ env, store }, inject) => {
     firebase.initializeApp(firebaseConfig)
   }
 
-  inject('firebase', firebase)
-  inject('auth', firebase.auth())
-}
+  return {
+    provide: {
+      firebase,
+      auth: firebase.auth(),
+    },
+  }
+})

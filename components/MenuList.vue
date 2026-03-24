@@ -8,7 +8,11 @@
         {{ lang === 'en' && item.descEn ? item.descEn : item.desc }}
         <ul class="flex flex-row alergico">
           <template v-for="a in alergenics">
-            <li v-if="item[a] === true" :key="a" @click="$emit('showAlergic')">
+            <li
+              v-if="item[a] === true"
+              :key="a"
+              @click="store.toggleAlergicModal()"
+            >
               <img :src="`/img/icon${a}.png`" :alt="a" class="" />
             </li>
           </template>
@@ -20,51 +24,48 @@
     </li>
   </ul>
 </template>
-<script>
-export default {
-  // eslint-disable-next-line
-  props: ['menu', 'order'],
-  data() {
-    return {
-      alergenics: [
-        'Lupin',
-        'Celery',
-        'Peanut',
-        'Mustard',
-        'Sesame',
-        'Sulfur',
-        'Mollusks',
-        'Crustacean',
-        'Peel',
-        'Soy',
-        'Fish',
-        'Dairy',
-        'Egg',
-        'Gluten',
-      ],
-    }
-  },
-  computed: {
-    orderedMenu() {
-      if (!this.menu) return []
-      if (this.order === 'no') return this.menu
-      const temp = this.menu
-      return Array.isArray(temp)
-        ? temp.sort((a, b) => (parseInt(a.orden) > parseInt(b.orden) ? 1 : -1))
-        : []
-    },
-    lang() {
-      return this.$store.state.activeLanguage
-    },
-  },
-  methods: {
-    showAlergic() {
-      console.log('showAlergic :>> ')
-      this.$emit('showAlergic')
-    },
-  },
-}
+
+<script setup>
+import { computed } from 'vue'
+import { useAppStore } from '~/stores/app'
+
+const props = defineProps({
+  menu: { type: Array, default: null },
+  order: { type: String, default: null },
+})
+
+const store = useAppStore()
+
+const alergenics = [
+  'Lupin',
+  'Celery',
+  'Peanut',
+  'Mustard',
+  'Sesame',
+  'Sulfur',
+  'Mollusks',
+  'Crustacean',
+  'Peel',
+  'Soy',
+  'Fish',
+  'Dairy',
+  'Egg',
+  'Gluten',
+]
+
+const lang = computed(() => store.activeLanguage)
+
+const orderedMenu = computed(() => {
+  if (!props.menu) return []
+  if (props.order === 'no') return props.menu
+  return Array.isArray(props.menu)
+    ? [...props.menu].sort((a, b) =>
+        parseInt(a.orden) > parseInt(b.orden) ? 1 : -1,
+      )
+    : []
+})
 </script>
+
 <style lang="scss">
 .menu-list {
   padding: 0;
@@ -98,13 +99,16 @@ export default {
     font-weight: bold;
   }
   .alergico {
+    padding-top: 2px;
+    opacity: 0.7;
     li {
       padding: 0;
       margin: 0;
     }
     img {
-      width: 18px;
-      margin-right: 8px;
+      width: 14px;
+      margin-right: 6px;
+      cursor: pointer;
     }
   }
 }

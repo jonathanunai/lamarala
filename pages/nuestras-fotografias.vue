@@ -12,11 +12,7 @@
       </div>
     </div>
     <transition name="show">
-      <div
-        class="right-col"
-        :class="showModal ? 'showModal' : ''"
-        @click="closeRight"
-      >
+      <div v-show="showModal" class="right-col" @click="closeRight">
         <div class="image-display-wrapper">
           <div
             class="img-container"

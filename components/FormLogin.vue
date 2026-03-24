@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="error" class="error">Error de autenticacion: {{ error }}</div>
+    <div v-if="error" class="error">Error de autenticacion</div>
     <form action="#">
       <input
         v-model="form.email"
@@ -14,47 +14,28 @@
     </form>
   </div>
 </template>
-<script>
-import firebase from 'firebase'
 
-export default {
-  data() {
-    return {
-      form: {
-        email: null,
-        pass: null,
-      },
-      error: false,
-      authenticatedUser: '',
-    }
-  },
-  created() {
-    /*     firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        this.authenticatedUser = user
-        console.log(' LOGGED')
-      } else {
-        console.log('NOT LOGGED')
-      }
-    })
- */
-  },
-  methods: {
-    login() {
-      this.error = null
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.form.email, this.form.pass)
-        .catch((err) => {
-          this.error = err.message
-        })
-        .then((data) => {
-          this.$store.dispatch('login', data)
-        })
-    },
-    logout() {
-      firebase.auth().signOut()
-    },
-  },
+<script setup>
+import { ref } from 'vue'
+import { useAppStore } from '~/stores/app'
+import { useNuxtApp } from '#app'
+
+const store = useAppStore()
+const { $firebase } = useNuxtApp()
+
+const form = ref({ email: null, pass: null })
+const error = ref(null)
+
+async function login() {
+  error.value = null
+  try {
+    const data = await $firebase
+      .auth()
+      .signInWithEmailAndPassword(form.value.email, form.value.pass)
+    store.login(data)
+    await navigateTo('/adminsala')
+  } catch (err) {
+    error.value = err.message
+  }
 }
 </script>

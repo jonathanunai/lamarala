@@ -49,8 +49,8 @@ import TelefonoIcon from '@/assets/svg/telefono.svg'
 import MailIcon from '@/assets/svg/mail.svg'
 
 export default {
-  layout: 'temp',
   components: { HorarioIcon, DireccionIcon, TelefonoIcon, MailIcon },
+  layout: 'temp',
   computed: {
     lang() {
       return this.$store.state.activeLanguage

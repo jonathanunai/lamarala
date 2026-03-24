@@ -22,36 +22,13 @@
           <h2 :id="`section${section.key}`">
             {{ lang === 'es' ? section.value : section.valueEn }}
           </h2>
-          <menu-list
-            :menu="menu[`section${section.key}`]"
-            @showAlergic="handleShowAlergic"
-          />
-          <menu-list
-            v-if="section.key === '1'"
-            :menu="menu.Entrada"
-            @showAlergic="handleShowAlergic"
-          />
+          <menu-list :menu="menu[`section${section.key}`]" />
+          <menu-list v-if="section.key === '1'" :menu="menu.Entrada" />
           <hr v-if="section.key === '3'" />
-          <menu-list
-            v-if="section.key === '3'"
-            :menu="menu.Arroz"
-            @showAlergic="handleShowAlergic"
-          />
-          <menu-list
-            v-if="section.key === '4'"
-            :menu="menu.Pescado"
-            @showAlergic="handleShowAlergic"
-          />
-          <menu-list
-            v-if="section.key === '5'"
-            :menu="menu.Carne"
-            @showAlergic="handleShowAlergic"
-          />
-          <menu-list
-            v-if="section.key === '7'"
-            :menu="menu.Postre"
-            @showAlergic="handleShowAlergic"
-          />
+          <menu-list v-if="section.key === '3'" :menu="menu.Arroz" />
+          <menu-list v-if="section.key === '4'" :menu="menu.Pescado" />
+          <menu-list v-if="section.key === '5'" :menu="menu.Carne" />
+          <menu-list v-if="section.key === '7'" :menu="menu.Postre" />
           <star class="hide-on-large" />
         </template>
       </div>
@@ -61,19 +38,9 @@
           v-if="showVinos"
           header-title="Carta de vinos"
           image="winetitle"
-          @toggleModal="toggleModal"
+          :close="toggleModal"
         >
           <vinos :vinos="menu.Vino" :zones="config.zones" />
-        </modal-wrapper>
-      </transition>
-      <transition name="modal">
-        <modal-wrapper
-          v-if="showAlergic"
-          header-title="Información sobre alérgenos"
-          image="tabla-alergenos-restaurantes"
-          @toggleModal="handleShowAlergic"
-        >
-          <alergics />
         </modal-wrapper>
       </transition>
       <transition name="modal">
@@ -81,7 +48,7 @@
           v-if="showDegustacion"
           header-title=""
           image="menutitle"
-          @toggleModal="toggleModalDegustacion"
+          :close="toggleModalDegustacion"
         >
           <menu-degustacion :items="menu.Degustacion" modal="true" />
         </modal-wrapper>
@@ -101,7 +68,7 @@
         >
           <img
             v-if="section.value"
-            :src="`https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fsection${section.key}.jpeg?alt=media`"
+            :src="`https://res.cloudinary.com/dk7j4vigg/image/upload/images/section${section.key}`"
             alt=""
           />
         </div>
@@ -119,7 +86,6 @@ export default {
       imageDisplayed: 'inicio',
       menu: {},
       showVinos: false,
-      showAlergic: false,
       showDegustacion: false,
       config: {},
     }
@@ -132,7 +98,7 @@ export default {
   beforeMount() {
     window.addEventListener('scroll', this.handleScroll)
   },
-  beforeDestroy() {
+  beforeUnmount() {
     window.removeEventListener('scroll', this.handleScroll)
   },
   created() {
@@ -140,9 +106,6 @@ export default {
   },
 
   methods: {
-    handleShowAlergic() {
-      this.showAlergic = !this.showAlergic
-    },
     toggleModal() {
       this.showVinos = !this.showVinos
     },
@@ -168,7 +131,7 @@ export default {
             if (
               !Object.prototype.hasOwnProperty.call(this.menu, doc.data().tipo)
             )
-              this.$set(this.menu, doc.data().tipo, [])
+              this.menu[doc.data().tipo] = []
 
             this.menu[doc.data().tipo].push({ id: doc.id, ...doc.data() })
           })
@@ -219,7 +182,9 @@ export default {
     background-position: center;
     background-size: cover;
     background-color: $colorTurq;
-    text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
+    text-shadow:
+      0px 4px 3px rgba(0, 0, 0, 0.4),
+      0px 8px 13px rgba(0, 0, 0, 0.1),
       0px 18px 23px rgba(0, 0, 0, 0.1);
 
     @include md {
@@ -251,28 +216,28 @@ export default {
   }
 
   #section1 {
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fsection1.jpeg?alt=media');
+    background-image: url('https://res.cloudinary.com/dk7j4vigg/image/upload/images/section1');
   }
   #section2 {
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fsection2.jpeg?alt=media');
+    background-image: url('https://res.cloudinary.com/dk7j4vigg/image/upload/images/section2');
   }
   #section3 {
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fsection3.jpeg?alt=media');
+    background-image: url('https://res.cloudinary.com/dk7j4vigg/image/upload/images/section3');
   }
   #section4 {
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fsection4.jpeg?alt=media');
+    background-image: url('https://res.cloudinary.com/dk7j4vigg/image/upload/images/section4');
   }
   #section5 {
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fsection5.jpeg?alt=media');
+    background-image: url('https://res.cloudinary.com/dk7j4vigg/image/upload/images/section5');
   }
   #section6 {
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fsection6.jpeg?alt=media');
+    background-image: url('https://res.cloudinary.com/dk7j4vigg/image/upload/images/section6');
   }
   #section7 {
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fsection7.jpeg?alt=media');
+    background-image: url('https://res.cloudinary.com/dk7j4vigg/image/upload/images/section7');
   }
   #section8 {
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fsection8.jpeg?alt=media');
+    background-image: url('https://res.cloudinary.com/dk7j4vigg/image/upload/images/section8');
   }
 
   *[id^='section'] {

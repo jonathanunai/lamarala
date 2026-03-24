@@ -41,7 +41,7 @@ export default {
     backgroundStyle() {
       return [
         {
-          backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fmenu-degustacion.jpg?alt=media)`,
+          backgroundImage: `url(https://res.cloudinary.com/dk7j4vigg/image/upload/images/menu-degustacion)`,
         },
       ]
     },
@@ -82,7 +82,9 @@ export default {
     background-position: center;
     background-size: cover;
     background-color: $colorTurq;
-    text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
+    text-shadow:
+      0px 4px 3px rgba(0, 0, 0, 0.4),
+      0px 8px 13px rgba(0, 0, 0, 0.1),
       0px 18px 23px rgba(0, 0, 0, 0.1);
     background-image: url('/img/fotos/carpaccio-640.jpg');
   }

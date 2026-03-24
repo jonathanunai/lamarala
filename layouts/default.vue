@@ -1,11 +1,21 @@
 <template>
   <div class="content-wrapper" :class="path">
     <top-header :class="top ? 'top' : ''" />
-    <Nuxt />
+    <NuxtPage />
+    <transition name="modal">
+      <modal-wrapper
+        v-if="showAlergicModal"
+        header-title="Información sobre alérgenos"
+        image="tabla-alergenos-restaurantes"
+        :close="() => $store.dispatch('toggleAlergicModal')"
+      >
+        <alergics />
+      </modal-wrapper>
+    </transition>
   </div>
 </template>
 <script>
-export default {
+export default defineNuxtComponent({
   data() {
     return {
       scrollPosition: null,
@@ -18,9 +28,12 @@ export default {
     openMenu() {
       return this.$store.state.menuOpen
     },
+    showAlergicModal() {
+      return this.$store.state.showAlergicModal
+    },
     path() {
-      return this.$nuxt.$route.path.replace('/', '')
-        ? this.$nuxt.$route.path.replace('/', '') + '-page'
+      return this.$route.path.replace('/', '')
+        ? this.$route.path.replace('/', '') + '-page'
         : 'home-page'
     },
   },
@@ -33,8 +46,6 @@ export default {
       .get()
       .then((snapshot) => {
         snapshot.forEach((doc) => {
-          /* if (!Object.prototype.hasOwnProperty.call(textos, doc.id))
-              return */
           textos[doc.id] = doc.data().value
         })
       })
@@ -44,7 +55,7 @@ export default {
   beforeMount() {
     window.addEventListener('scroll', this.handleScroll)
   },
-  beforeDestroy() {
+  beforeUnmount() {
     window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
@@ -60,11 +71,10 @@ export default {
       },
     }
   },
-}
+})
 </script>
 <style>
 html {
-  font-size: 14px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;

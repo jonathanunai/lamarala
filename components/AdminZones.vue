@@ -11,11 +11,10 @@
         </li>
       </ul>
     </div>
-    <div class="admin-button" @click="$emit('cancel')">Volver</div>
     <modal-wrapper
       v-if="showEdit"
       header-title="EDITANDO"
-      @toggleModal="showEdit = false"
+      :close="() => (showEdit = false)"
     >
       <br />
       <label for="zona">Zona: </label>
@@ -26,59 +25,57 @@
     </modal-wrapper>
   </div>
 </template>
-<script>
-const slugify = require('slugify')
+<script setup>
+import { ref } from 'vue'
+import slugify from 'slugify'
+import { useNuxtApp } from '#app'
 
-export default {
-  data() {
-    return {
-      config: { zones: [], types: [] },
-      showEdit: false,
-      zone: '',
-      order: '',
-    }
-  },
-  created() {
-    this.$firebase
-      .firestore()
-      .collection('Config')
-      .doc('values')
-      .get()
-      .then((doc) => {
-        this.config = doc.data()
-      })
-  },
-  methods: {
-    del(val) {
-      this.config.zones = this.config.zones.filter((el) => el.key !== val)
-      this.store()
-    },
-    save() {
-      this.config.zones.push({
-        key: slugify(this.zone),
-        value: this.zone,
-        order: this.order,
-      })
-      this.config.zones = this.config.zones.sort((a, b) =>
-        a.order > b.order ? 1 : b.order > a.order ? -1 : 0
-      )
-      this.store()
-    },
-    store() {
-      this.$firebase
-        .firestore()
-        .collection('Config')
-        .doc('values')
-        .update({
-          zones: this.config.zones,
-        })
-        .then(() => {
-          this.showEdit = false
-          this.zone = ''
-          this.order = ''
-        })
-    },
-  },
+const emit = defineEmits(['cancel'])
+
+const { $firebase } = useNuxtApp()
+
+const config = ref({ zones: [], types: [] })
+const showEdit = ref(false)
+const zone = ref('')
+const order = ref('')
+
+$firebase
+  .firestore()
+  .collection('Config')
+  .doc('values')
+  .get()
+  .then((doc) => {
+    config.value = doc.data()
+  })
+
+function del(val) {
+  config.value.zones = config.value.zones.filter((el) => el.key !== val)
+  saveToFirestore()
+}
+
+function save() {
+  config.value.zones.push({
+    key: slugify(zone.value),
+    value: zone.value,
+    order: order.value,
+  })
+  config.value.zones = config.value.zones.sort((a, b) =>
+    a.order > b.order ? 1 : b.order > a.order ? -1 : 0,
+  )
+  saveToFirestore()
+}
+
+function saveToFirestore() {
+  $firebase
+    .firestore()
+    .collection('Config')
+    .doc('values')
+    .update({ zones: config.value.zones })
+    .then(() => {
+      showEdit.value = false
+      zone.value = ''
+      order.value = ''
+    })
 }
 </script>
 <style lang="scss" scoped>

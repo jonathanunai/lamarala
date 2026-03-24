@@ -1,6 +1,6 @@
 <template>
-  <div class="image-upload">
-    <div v-for="image in images" :key="image.name">
+  <div class="image-upload image-grid">
+    <div v-for="image in images" :key="image.name" class="card">
       <label for="imageUrl">Imagen de {{ image.name }}:</label>
       <img :src="longUrl(image.fileName)" class="img" alt="" />
 
@@ -28,6 +28,8 @@
   </div>
 </template>
 <script>
+import { useAppStore } from '~/stores/app'
+
 function renameFile(originalFile, newName) {
   return new File([originalFile], newName, {
     type: originalFile.type,
@@ -36,21 +38,19 @@ function renameFile(originalFile, newName) {
 }
 
 export default {
+  setup() {
+    return { store: useAppStore() }
+  },
   data() {
     return {
       fixedImages: {
-        portada: {
-          fileName: 'la-mar-sala-portada.jpg',
-          name: 'la portada',
-        },
+        portada: { fileName: 'la-mar-sala-portada.jpg', name: 'la portada' },
         menuDegustacion: {
           fileName: 'menu-degustacion.jpg',
           name: 'Menú degustación',
         },
       },
       isUploadingImage: false,
-      isDeletingImage: false,
-      rndCache: +new Date(),
     }
   },
   computed: {
@@ -60,66 +60,45 @@ export default {
         const name = `section${i}`
         aux[name] = {
           fileName: `${name}.jpeg`,
-          name: ` la seccion de Menú ${name}`,
+          name: `la seccion de Menú ${name}`,
         }
       }
       return { ...this.fixedImages, ...aux }
     },
   },
-  created() {
-    // this.images.map(i => {return {...i, imageUrl: ''}})
-  },
   methods: {
     launchImageFile(image) {
-      // Trigger the file input click event.
-      const ref = this.$refs[image.fileName][0]
-      ref.click()
+      this.$refs[image.fileName][0].click()
     },
     longUrl(file) {
-      return `https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2F${file}?alt=media&rnd=${this.rndCache}`
+      if (this.store.imageUrls[file]) return this.store.imageUrls[file]
+      const publicId = file.replace(/\.[^.]+$/, '')
+      return `https://res.cloudinary.com/dk7j4vigg/image/upload/images/${publicId}`
     },
-    uploadImageFile(files, image) {
-      if (!files.length) {
-        return
-      }
-
+    async uploadImageFile(files, image) {
+      if (!files.length) return
       const file = renameFile(files[0], image.fileName)
-
       if (!file.type.match('image.*')) {
         alert('Sólo imágenes.')
         return
       }
-
-      const metadata = {
-        contentType: file.type,
-      }
-
       this.isUploadingImage = true
-
-      // Create a reference to the destination where we're uploading the file
-      const storage = this.$firebase.storage()
-      const imageRef = storage.ref(`images/${image.fileName}`)
-
-      const uploadTask = imageRef
-        .put(file, metadata)
-        .then((snapshot) => {
-          // Once the image is uploaded, obtain the download URL, which
-          // is the publicly accessible URL of the image.
-          return snapshot.ref.getDownloadURL().then((url) => {
-            return url
-          })
+      try {
+        const formData = new FormData()
+        formData.append('file', file)
+        formData.append('public_id', image.fileName.replace(/\.[^.]+$/, ''))
+        const result = await $fetch('/api/upload-image', {
+          method: 'POST',
+          body: formData,
         })
-        .catch((error) => {
-          // eslint-disable-next-line no-console
-          console.error('Error uploading image', error)
-        })
-
-      // When the upload ends, set the value of the image URL
-      // and signal that uploading is done.
-      uploadTask.then((url) => {
-        this.rndCache = +new Date()
+        this.store.setImageUrl(image.fileName, result.url)
+      } catch (error) {
+        alert(`Error subiendo imagen: ${error.message || error}`)
+        // eslint-disable-next-line no-console
+        console.error('Error uploading image', error)
+      } finally {
         this.isUploadingImage = false
-      })
+      }
     },
   },
 }
@@ -127,6 +106,21 @@ export default {
 <style lang="scss">
 .image-upload {
   padding: 2rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 2rem;
+  gap: 2rem;
+  .card {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1rem;
+    border-radius: 0.2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.2),
+      0 1em 2em -1em rgba(0, 0, 0, 0.2);
+  }
   button.admin-button {
     margin: 0 0 2.5rem 0;
   }
@@ -134,16 +128,29 @@ export default {
     display: none;
   }
   .img {
-    width: 90%;
+    width: 100%;
     max-width: 350px;
     padding: 1rem 0;
     display: block;
   }
   label {
     font-size: 1.3rem;
+    color: lighten($colorTurq, 20%);
   }
   button {
     display: block;
+  }
+}
+@media (max-width: 700px) {
+  .image-upload {
+    grid-template-columns: 1fr;
+    button.admin-button {
+      margin: 0 0 2.5rem 0;
+    }
+
+    .img {
+      width: 100%;
+    }
   }
 }
 </style>

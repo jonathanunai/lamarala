@@ -2,19 +2,19 @@
   font-family: 'HelveticaNeue';
   font-weight: 400;
   font-style: normal;
-  src: url('~assets/fonts//HelveticaNeueLt.ttf') format('truetype');
+  src: url('~/assets/fonts/HelveticaNeueLt.ttf') format('truetype');
 }
 @font-face {
   font-family: 'HelveticaNeue';
   font-weight: 300;
   font-style: normal;
-  src: url('~assets/fonts//HelveticaNeue.ttf') format('truetype');
+  src: url('~/assets/fonts/HelveticaNeue.ttf') format('truetype');
 }
 @font-face {
   font-family: 'HelveticaNeue';
   font-weight: 700;
   font-style: normal;
-  src: url('~assets/fonts//HelveticaNeueBd.ttf') format('truetype');
+  src: url('~/assets/fonts/HelveticaNeueBd.ttf') format('truetype');
 }
 :root {
   --shadow-color: 0deg 0% 63%;
@@ -35,6 +35,9 @@
     25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 0.34);
 }
 
+html {
+  font-size: 16px;
+}
 body {
   font-family: 'HelveticaNeue', 'Verdana', 'Geneva';
 }
@@ -142,12 +145,12 @@ li {
   }
 }
 
+/* Vue 3 transition class names */
 .show-enter-active,
-.show-leave-enter {
-  transform: translateX(0);
+.show-leave-active {
   transition: all 0.3s linear;
 }
-.show-enter,
+.show-enter-from,
 .show-leave-to {
   transform: translateX(100%);
 }
@@ -155,7 +158,7 @@ li {
 .modal-leave-active {
   transition: opacity 0.5s;
 }
-.modal-enter,
+.modal-enter-from,
 .modal-leave-to {
   opacity: 0;
 }

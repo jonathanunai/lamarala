@@ -1,13 +1,13 @@
 <template>
   <div class="modal">
-    <div class="modal__mask" @click="$emit('toggleModal')"></div>
+    <div class="modal__mask" @click="close()"></div>
     <div class="modal__wrapper">
       <div class="modal__container">
         <div class="modal__header">
           <h2 v-if="headerTitle" id="vinos" class="title" :class="image">
             {{ headerTitle }}
           </h2>
-          <div class="modal__x" @click="$emit('toggleModal')">&times;</div>
+          <div class="modal__x" @click="close()">&times;</div>
         </div>
         <div class="modal__body">
           <slot />
@@ -17,11 +17,12 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  // eslint-disable-next-line vue/require-prop-types
-  props: ['image', 'headerTitle'],
-}
+<script setup>
+defineProps({
+  image: { type: String, default: null },
+  headerTitle: { type: String, default: null },
+  close: { type: Function, required: true },
+})
 </script>
 <style lang="scss">
 .modal {
@@ -51,7 +52,9 @@ export default {
     color: #333;
     display: flex;
     border-radius: 0.2em;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 1em 2em -1em;
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.2),
+      0 1em 2em -1em;
     @include md {
       width: 65vmin;
       min-height: 35vmin;

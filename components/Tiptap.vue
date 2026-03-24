@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { Editor, EditorContent } from '@tiptap/vue-2'
+import { Editor, EditorContent } from '@tiptap/vue-3'
 import { StarterKit } from '@tiptap/starter-kit'
 
 export default {
@@ -12,11 +12,13 @@ export default {
   },
 
   props: {
-    value: {
+    modelValue: {
       type: String,
       default: '',
     },
   },
+
+  emits: ['update:modelValue'],
 
   data() {
     return {
@@ -25,17 +27,9 @@ export default {
   },
 
   watch: {
-    value(value) {
-      // HTML
+    modelValue(value) {
       const isSame = this.editor.getHTML() === value
-
-      // JSON
-      // const isSame = this.editor.getJSON().toString() === value.toString()
-
-      if (isSame) {
-        return
-      }
-
+      if (isSame) return
       this.editor.commands.setContent(value, false)
     },
   },
@@ -45,11 +39,7 @@ export default {
       extensions: [StarterKit],
       content: this.modelValue,
       onUpdate: () => {
-        // HTML
-        this.$emit('input', this.editor.getHTML())
-
-        // JSON
-        // this.$emit('update:modelValue', this.editor.getJSON())
+        this.$emit('update:modelValue', this.editor.getHTML())
       },
     })
   },

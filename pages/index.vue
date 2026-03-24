@@ -35,7 +35,7 @@ export default {
             if (
               !Object.prototype.hasOwnProperty.call(this.menu, doc.data().tipo)
             )
-              this.$set(this.menu, doc.data().tipo, [])
+              this.menu[doc.data().tipo] = []
             this.menu[doc.data().tipo].push({ id: doc.id, ...doc.data() })
           })
         })

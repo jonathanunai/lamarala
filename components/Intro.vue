@@ -7,7 +7,7 @@ export default {
     backgroundStyle() {
       return [
         {
-          backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/la-mar-sala.appspot.com/o/images%2Fla-mar-sala-portada.jpg?alt=media)`,
+          backgroundImage: `url(https://res.cloudinary.com/dk7j4vigg/image/upload/images/la-mar-sala-portada)`,
         },
       ]
     },

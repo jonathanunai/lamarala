@@ -158,9 +158,9 @@
                 <admin-list
                   :key="tipo + zona + counter"
                   :list="listavinos"
-                  @editItem="editItem"
-                  @changeItemStatus="changeItemStatus"
-                  @confirmDeleteItem="confirmDeleteItem"
+                  @edit-item="editItem"
+                  @change-item-status="changeItemStatus"
+                  @confirm-delete-item="confirmDeleteItem"
                 />
               </div>
             </template>
@@ -177,9 +177,9 @@
                 <admin-list
                   :key="id + counter"
                   :list="cartaItem"
-                  @editItem="editItem"
-                  @changeItemStatus="changeItemStatus"
-                  @confirmDeleteItem="confirmDeleteItem"
+                  @edit-item="editItem"
+                  @change-item-status="changeItemStatus"
+                  @confirm-delete-item="confirmDeleteItem"
                 />
               </div>
             </template>
@@ -229,7 +229,7 @@ export default {
     orderedMenu() {
       const temp = this.menu
       return temp.sort((a, b) =>
-        a.nombre > b.nombre ? 1 : b.nombre > a.nombre ? -1 : 0
+        a.nombre > b.nombre ? 1 : b.nombre > a.nombre ? -1 : 0,
       )
     },
     editing() {
@@ -275,7 +275,7 @@ export default {
               if (
                 !Object.prototype.hasOwnProperty.call(
                   this.vino,
-                  doc.data().tipovino
+                  doc.data().tipovino,
                 )
               ) {
                 this.vino[doc.data().tipovino] = {}
@@ -283,7 +283,7 @@ export default {
               if (
                 !Object.prototype.hasOwnProperty.call(
                   this.vino[doc.data().tipovino],
-                  doc.data().zona
+                  doc.data().zona,
                 )
               ) {
                 this.vino[doc.data().tipovino][doc.data().zona] = []
@@ -294,7 +294,7 @@ export default {
               if (
                 !Object.prototype.hasOwnProperty.call(
                   this.carta,
-                  doc.data().tipo
+                  doc.data().tipo,
                 )
               ) {
                 this.carta[doc.data().tipo] = []
@@ -390,7 +390,7 @@ export default {
     },
     sectionName(sec) {
       const section = this.config.sections.filter(
-        (el) => el.key === sec.slice(-1)
+        (el) => el.key === sec.slice(-1),
       )[0]
       return section ? section.value : sec
     },
@@ -604,8 +604,8 @@ export default {
   .home-leave-active {
     transition: opacity 0.5s;
   }
-  .home-enter,
-  .home-leave-active {
+  .home-enter-from,
+  .home-leave-to {
     opacity: 0;
   }
   .bounce-enter-active {

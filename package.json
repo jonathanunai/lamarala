@@ -1,50 +1,38 @@
 {
   "name": "lamarsala",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt --port 3002",
+    "dev": "nuxt dev --port 3002",
     "build": "nuxt build",
-    "start": "nuxt start",
+    "preview": "nuxt preview",
     "generate": "nuxt generate",
-    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint": "npm run lint:js"
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
-    "@firebase/auth-interop-types": "^0.2.3",
-    "@firebase/auth-types": "^0.12.2",
-    "@firebase/util": "^1.0.0",
-    "@nuxt/content": "^1.14.0",
-    "@nuxtjs/firebase": "^7.5.0",
-    "@nuxtjs/pwa": "^3.3.5",
-    "@tiptap/starter-kit": "^2.0.0-beta.142",
-    "@tiptap/vue-2": "^2.0.0-beta.69",
-    "firebase": "^8.4.3",
-    "nuxt": "^2.18.1",
-    "nuxt-svg-loader": "^1.2.0",
-    "slugify": "^1.6.5",
-    "vue-json-excel": "^0.3.0",
-    "vue-scrollto": "^2.20.0",
-    "vuex-persistedstate": "^3.2.0"
+    "@pinia/nuxt": "^0.11.0",
+    "@tiptap/starter-kit": "^2.5.0",
+    "@tiptap/vue-3": "^2.5.0",
+    "@vite-pwa/nuxt": "^0.10.5",
+    "cloudinary": "^2.9.0",
+    "firebase": "^10.12.0",
+    "nuxt": "^4.0.0",
+    "nuxt-svgo": "^4.0.0",
+    "pinia": "^3.0.0",
+    "pinia-plugin-persistedstate": "^4.7.0",
+    "slugify": "^1.6.5"
   },
   "devDependencies": {
-    "@babel/runtime-corejs3": "^7.14.0",
-    "@nuxtjs/eslint-config": "^3.1.0",
-    "@nuxtjs/eslint-module": "^2.0.0",
-    "@nuxtjs/style-resources": "^1.0.0",
-    "babel-eslint": "^10.1.0",
-    "core-js": "^3.11.1",
-    "eslint": "^7.25.0",
-    "eslint-config-prettier": "^6.12.0",
-    "eslint-plugin-nuxt": "^1.0.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "prettier": "^2.2.1",
-    "sass": "^1.32.12",
-    "sass-loader": "^10.1.1",
-    "vue-svg-loader": "^0.17.0-beta.2"
+    "@nuxtjs/eslint-config": "^12.0.0",
+    "@nuxtjs/eslint-module": "^4.1.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-nuxt": "^4.0.0",
+    "eslint-plugin-prettier": "^5.1.0",
+    "prettier": "^3.2.0",
+    "sass": "^1.70.0"
   },
   "engines": {
-    "node": "18.x"
+    "node": ">=18.0.0"
   }
-
 }

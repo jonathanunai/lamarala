@@ -13,11 +13,10 @@
         </li>
       </ul>
     </div>
-    <div class="admin-button" @click="$emit('cancel')">Volver</div>
     <modal-wrapper
       v-if="showEdit"
       header-title="EDITANDO"
-      @toggleModal="showEdit = false"
+      :close="() => (showEdit = false)"
     >
       <h2>Sección {{ key }}</h2>
       <div class="flex flex-col">
@@ -79,7 +78,7 @@ export default {
     },
     save() {
       const objIndex = this.config.sections.findIndex(
-        (obj) => obj.key === this.key
+        (obj) => obj.key === this.key,
       )
       this.config.sections[objIndex] = {
         key: this.key,

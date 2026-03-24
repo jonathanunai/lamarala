@@ -48,7 +48,7 @@ export default {
     getList(tipo, zona) {
       return Array.isArray(this.orderedList)
         ? this.orderedList.filter(
-            (item) => item.tipovino === tipo && item.zona === zona
+            (item) => item.tipovino === tipo && item.zona === zona,
           )
         : []
     },

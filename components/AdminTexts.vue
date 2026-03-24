@@ -15,7 +15,6 @@
     </client-only>
     <div class="flex-row">
       <div class="admin-button" @click="save">Guardar</div>
-      <div class="admin-button" @click="$emit('cancel')">Cancelar</div>
     </div>
   </div>
 </template>
