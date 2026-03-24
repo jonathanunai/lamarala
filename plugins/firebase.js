@@ -4,15 +4,16 @@ import 'firebase/compat/auth'
 import 'firebase/compat/storage'
 
 export default defineNuxtPlugin(() => {
+  const config = useRuntimeConfig()
   const firebaseConfig = {
-    apiKey: 'AIzaSyB8AdROVoE8bOFOLQoonf9sPgDbOeY29hg',
-    authDomain: 'la-mar-sala.firebaseapp.com',
-    databaseURL: 'https://la-mar-sala.firebaseio.com',
-    projectId: 'la-mar-sala',
-    storageBucket: 'la-mar-sala.appspot.com',
-    messagingSenderId: '272277224213',
-    appId: '1:272277224213:web:5998318a4969fcdf61c71c',
-    measurementId: 'G-51DYL1QNRS',
+    apiKey: config.public.firebaseApiKey,
+    authDomain: config.public.firebaseAuthDomain,
+    databaseURL: config.public.firebaseDatabaseUrl,
+    projectId: config.public.firebaseProjectId,
+    storageBucket: config.public.firebaseStorageBucket,
+    messagingSenderId: config.public.firebaseMessagingSenderId,
+    appId: config.public.firebaseAppId,
+    measurementId: config.public.firebaseMeasurementId,
   }
 
   if (!firebase.apps.length) {
