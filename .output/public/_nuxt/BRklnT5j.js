@@ -1,0 +1,1 @@
+import{_ as t,m as o,o as s,c as n,b as c}from"./CuoSYrg1.js";const r={head(){return{bodyAttrs:{}}}},a={class:"content-wrapper"};function p(_,d,m,u,f,i){const e=o("Nuxt");return s(),n("div",a,[c(e)])}const x=t(r,[["render",p]]);export{x as default};
