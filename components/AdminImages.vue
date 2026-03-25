@@ -23,10 +23,6 @@
         @change.prevent="uploadImageFile($event.target.files, image)"
       />
     </div>
-
-    <div class="flex-row">
-      <div class="admin-button" @click="$emit('cancel')">Volver</div>
-    </div>
   </div>
 </template>
 <script>
