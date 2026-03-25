@@ -1,0 +1,1 @@
+import{N as n,f as o,e as r,j as s}from"./BAGNssCL.js";const p=n(t=>{const{$pinia:i}=o(),a=r(i),e=t.path==="/adminsala/login";if(!a.user&&!e)return s("/adminsala/login");if(a.user&&e)return s("/adminsala")});export{p as default};

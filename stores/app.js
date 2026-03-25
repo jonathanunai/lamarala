@@ -45,6 +45,9 @@ export const useAppStore = defineStore('app', {
     setImageUrl(fileName, url) {
       this.imageUrls = { ...this.imageUrls, [fileName]: url }
     },
+    loadImageUrls(urls) {
+      this.imageUrls = { ...this.imageUrls, ...urls }
+    },
   },
   persist: true,
 })

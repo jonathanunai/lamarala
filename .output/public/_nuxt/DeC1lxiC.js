@@ -1,1 +1,0 @@
-import{_ as e}from"./CPa0dJJZ.js";import{_ as s,c as t,a as _,b as n,o as r}from"./CuoSYrg1.js";const c={class:"login-page"},l={__name:"login",setup(p){return(i,o)=>{const a=e;return r(),t("div",c,[o[0]||(o[0]=_("h1",null,"La Mar Salá",-1)),n(a)])}}},f=s(l,[["__scopeId","data-v-06af7db7"]]);export{f as default};

@@ -30,13 +30,6 @@
 <script>
 import { useAppStore } from '~/stores/app'
 
-function renameFile(originalFile, newName) {
-  return new File([originalFile], newName, {
-    type: originalFile.type,
-    lastModified: originalFile.lastModified,
-  })
-}
-
 export default {
   emits: ['cancel'],
   setup() {
@@ -78,21 +71,31 @@ export default {
     },
     async uploadImageFile(files, image) {
       if (!files.length) return
-      const file = renameFile(files[0], image.fileName)
+      const file = files[0]
       if (!file.type.match('image.*')) {
         alert('Sólo imágenes.')
         return
       }
+      const config = useRuntimeConfig()
       this.isUploadingImage = true
       try {
         const formData = new FormData()
         formData.append('file', file)
-        formData.append('public_id', image.fileName.replace(/\.[^.]+$/, ''))
-        const result = await $fetch('/api/upload-image', {
-          method: 'POST',
-          body: formData,
-        })
-        this.store.setImageUrl(image.fileName, result.url)
+        formData.append('upload_preset', config.public.cloudinaryUploadPreset)
+        const res = await fetch(
+          `https://api.cloudinary.com/v1_1/${config.public.cloudinaryCloudName}/image/upload`,
+          { method: 'POST', body: formData },
+        )
+        const result = await res.json()
+        if (result.error) throw new Error(result.error.message)
+
+        await this.$firebase
+          .firestore()
+          .collection('Config')
+          .doc('values')
+          .update({ [`imageUrls.${image.fileName}`]: result.secure_url })
+
+        this.store.setImageUrl(image.fileName, result.secure_url)
       } catch (error) {
         alert(`Error subiendo imagen: ${error.message || error}`)
       } finally {
