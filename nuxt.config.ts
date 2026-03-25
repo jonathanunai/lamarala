@@ -91,6 +91,8 @@ export default defineNuxtConfig({
       navigateFallback: '/',
       globPatterns: ['**/*.{js,css,html,png,jpg,jpeg,svg,ico,webp}'],
       cleanupOutdatedCaches: true,
+      skipWaiting: true,
+      clientsClaim: true,
     },
     devOptions: {
       enabled: false,
