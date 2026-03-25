@@ -27,66 +27,18 @@
         </div>
 
         <nav class="sidebar-nav">
-          <p class="sidebar-section-label">Carta</p>
-          <div
-            class="admin-button"
-            :class="!wine && show === 'list' ? 'active' : ''"
-            @click="showMenu"
-          >
-            Todos
-          </div>
-          <div
-            class="admin-button"
-            :class="tipo === 'Tinto' && wine ? 'active' : ''"
-            @click="showWine('Tinto')"
-          >
-            Tintos
-          </div>
-          <div
-            class="admin-button"
-            :class="tipo === 'Blanco' && wine ? 'active' : ''"
-            @click="showWine('Blanco')"
-          >
-            Blancos
-          </div>
-          <div
-            class="admin-button"
-            :class="tipo === 'Espumoso' && wine ? 'active' : ''"
-            @click="showWine('Espumoso')"
-          >
-            Espumosos
-          </div>
-          <div class="admin-button" @click="showForm">+ Crear nuevo</div>
-
-          <p class="sidebar-section-label">Configuración</p>
-          <div
-            class="admin-button"
-            :class="show === 'sections' ? 'active' : ''"
-            @click="showThis('sections')"
-          >
-            Secciones
-          </div>
-          <div
-            class="admin-button"
-            :class="show === 'zones' ? 'active' : ''"
-            @click="showThis('zones')"
-          >
-            Zonas
-          </div>
-          <div
-            class="admin-button"
-            :class="show === 'texts' ? 'active' : ''"
-            @click="showThis('texts')"
-          >
-            Textos web
-          </div>
-          <div
-            class="admin-button"
-            :class="show === 'images' ? 'active' : ''"
-            @click="showThis('images')"
-          >
-            Imágenes
-          </div>
+          <template v-for="group in navGroups" :key="group.label">
+            <p class="sidebar-section-label">{{ group.label }}</p>
+            <div
+              v-for="btn in group.items"
+              :key="btn.label"
+              class="admin-button"
+              :class="{ active: isActive(btn) }"
+              @click="setView(btn)"
+            >
+              {{ btn.label }}
+            </div>
+          </template>
         </nav>
 
         <div class="sidebar-footer">
@@ -279,25 +231,43 @@ function changeItemStatus(i) {
     })
 }
 
-function showForm() {
-  show.value = 'form'
-  store.setEditItem(false)
+const navGroups = [
+  {
+    label: 'Carta',
+    items: [
+      { label: 'Todos', show: 'list', wine: false, tipo: '' },
+      { label: 'Tintos', show: 'list', wine: true, tipo: 'Tinto' },
+      { label: 'Blancos', show: 'list', wine: true, tipo: 'Blanco' },
+      { label: 'Espumosos', show: 'list', wine: true, tipo: 'Espumoso' },
+      { label: '+ Crear nuevo', show: 'form', wine: false, tipo: '' },
+    ],
+  },
+  {
+    label: 'Configuración',
+    items: [
+      { label: 'Secciones', show: 'sections', wine: false, tipo: '' },
+      { label: 'Zonas', show: 'zones', wine: false, tipo: '' },
+      { label: 'Textos web', show: 'texts', wine: false, tipo: '' },
+      { label: 'Imágenes', show: 'images', wine: false, tipo: '' },
+    ],
+  },
+]
+
+function setView(btn) {
+  show.value = btn.show
+  wine.value = btn.wine
+  tipo.value = btn.tipo
+  if (btn.show === 'form') store.setEditItem(false)
 }
 
-function showWine(t) {
-  wine.value = true
-  tipo.value = t
-  show.value = 'list'
-}
-
-function showThis(me) {
-  if (me === 'config' && show.value === me) show.value = 'list'
-  else show.value = me
-}
-
-function showMenu() {
-  wine.value = false
-  show.value = 'list'
+function isActive(btn) {
+  if (btn.show === 'list')
+    return (
+      show.value === 'list' &&
+      wine.value === btn.wine &&
+      tipo.value === btn.tipo
+    )
+  return show.value === btn.show
 }
 
 function added() {

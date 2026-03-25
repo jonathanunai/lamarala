@@ -74,6 +74,28 @@ export default defineNuxtConfig({
     'nuxt-svgo',
   ],
 
+  pwa: {
+    registerType: 'autoUpdate',
+    manifest: {
+      name: 'La Mar Salá',
+      short_name: 'La Mar Salá',
+      theme_color: '#008d8a',
+      background_color: '#ffffff',
+      display: 'standalone',
+      icons: [
+        { src: '/img/simbolo_la_mar_sala.png', sizes: '192x192', type: 'image/png' },
+        { src: '/img/simbolo_la_mar_sala.png', sizes: '512x512', type: 'image/png' },
+      ],
+    },
+    workbox: {
+      navigateFallback: '/',
+      globPatterns: ['**/*.{js,css,html,png,jpg,jpeg,svg,ico,webp}'],
+    },
+    devOptions: {
+      enabled: false,
+    },
+  },
+
   router: {
     options: {
       scrollBehaviorType: 'smooth',
