@@ -4075,7 +4075,7 @@ function _expandFromEnv(value) {
 const _inlineRuntimeConfig = {
   "app": {
     "baseURL": "/",
-    "buildId": "472df30a-5174-4bee-9c9e-85b626f68254",
+    "buildId": "409a457e-0abe-410f-8d4c-1ffa2a36c466",
     "buildAssetsDir": "/_nuxt/",
     "cdnURL": ""
   },
@@ -4529,910 +4529,910 @@ const assets = {
   "/.DS_Store": {
     "type": "text/plain; charset=utf-8",
     "etag": "\"2004-6V5W4KmwC0ZBKYbP3VroeToggdg\"",
-    "mtime": "2026-03-25T14:02:09.687Z",
+    "mtime": "2026-03-25T14:05:40.953Z",
     "size": 8196,
     "path": "../public/.DS_Store"
   },
   "/android-chrome-192x192.png": {
     "type": "image/png",
     "etag": "\"6470-4YpmbX4vhWec2H1VnP//zOyaRqI\"",
-    "mtime": "2026-03-25T14:02:09.689Z",
+    "mtime": "2026-03-25T14:05:40.952Z",
     "size": 25712,
     "path": "../public/android-chrome-192x192.png"
   },
   "/apple-touch-icon.png": {
     "type": "image/png",
     "etag": "\"59c8-B8tPpWSpyDdgyquHWkiiYcZ38Sk\"",
-    "mtime": "2026-03-25T14:02:09.687Z",
+    "mtime": "2026-03-25T14:05:40.954Z",
     "size": 22984,
     "path": "../public/apple-touch-icon.png"
-  },
-  "/LogoLaMarSala.png": {
-    "type": "image/png",
-    "etag": "\"23828-9RP0ycuT8FBt/AQiEIUUYwvTkvk\"",
-    "mtime": "2026-03-25T14:02:09.688Z",
-    "size": 145448,
-    "path": "../public/LogoLaMarSala.png"
-  },
-  "/favicon-16x16.png": {
-    "type": "image/png",
-    "etag": "\"219-9+pQ8gXiQVI4y+b+2/rRP87+9AU\"",
-    "mtime": "2026-03-25T14:02:09.688Z",
-    "size": 537,
-    "path": "../public/favicon-16x16.png"
-  },
-  "/android-chrome-512x512.png": {
-    "type": "image/png",
-    "etag": "\"1afb4-cWgDK/r2drLvXsKKSleRTzj9OwQ\"",
-    "mtime": "2026-03-25T14:02:09.688Z",
-    "size": 110516,
-    "path": "../public/android-chrome-512x512.png"
-  },
-  "/favicon-32x32.png": {
-    "type": "image/png",
-    "etag": "\"55f-ogMIPDmb6+WS3WdAkD3XlwsUtCk\"",
-    "mtime": "2026-03-25T14:02:09.688Z",
-    "size": 1375,
-    "path": "../public/favicon-32x32.png"
-  },
-  "/en-language.svg": {
-    "type": "image/svg+xml",
-    "etag": "\"4c2-SGG+Li9Yj1fdPj8cM0ewDhE24XE\"",
-    "mtime": "2026-03-25T14:02:09.689Z",
-    "size": 1218,
-    "path": "../public/en-language.svg"
   },
   "/es-language.svg": {
     "type": "image/svg+xml",
     "etag": "\"843-W0ad62D8tKZFh6cfKo9J+jkCOMo\"",
-    "mtime": "2026-03-25T14:02:09.688Z",
+    "mtime": "2026-03-25T14:05:40.952Z",
     "size": 2115,
     "path": "../public/es-language.svg"
+  },
+  "/en-language.svg": {
+    "type": "image/svg+xml",
+    "etag": "\"4c2-SGG+Li9Yj1fdPj8cM0ewDhE24XE\"",
+    "mtime": "2026-03-25T14:05:40.952Z",
+    "size": 1218,
+    "path": "../public/en-language.svg"
+  },
+  "/LogoLaMarSala.png": {
+    "type": "image/png",
+    "etag": "\"23828-9RP0ycuT8FBt/AQiEIUUYwvTkvk\"",
+    "mtime": "2026-03-25T14:05:40.953Z",
+    "size": 145448,
+    "path": "../public/LogoLaMarSala.png"
   },
   "/favicon.ico": {
     "type": "image/vnd.microsoft.icon",
     "etag": "\"3c2e-FHa6ukr/RenWJaFc7IOomJzXUd4\"",
-    "mtime": "2026-03-25T14:02:09.689Z",
+    "mtime": "2026-03-25T14:05:40.953Z",
     "size": 15406,
     "path": "../public/favicon.ico"
   },
   "/logo-la-mar-sala.png": {
     "type": "image/png",
     "etag": "\"bbfd-TJTerkFIJ2oibuHZyV/edw9Dlg0\"",
-    "mtime": "2026-03-25T14:02:09.690Z",
+    "mtime": "2026-03-25T14:05:40.954Z",
     "size": 48125,
     "path": "../public/logo-la-mar-sala.png"
+  },
+  "/android-chrome-512x512.png": {
+    "type": "image/png",
+    "etag": "\"1afb4-cWgDK/r2drLvXsKKSleRTzj9OwQ\"",
+    "mtime": "2026-03-25T14:05:40.954Z",
+    "size": 110516,
+    "path": "../public/android-chrome-512x512.png"
   },
   "/manifest.webmanifest": {
     "type": "application/manifest+json",
     "etag": "\"14a-UinePQHDLMz237Y/j3il2/SlzZU\"",
-    "mtime": "2026-03-25T14:02:09.644Z",
+    "mtime": "2026-03-25T14:05:40.902Z",
     "size": 330,
     "path": "../public/manifest.webmanifest"
   },
-  "/sw.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"22e3-m1suk/J7C8SoepmsCqd4GWqbHdM\"",
-    "mtime": "2026-03-25T14:02:10.787Z",
-    "size": 8931,
-    "path": "../public/sw.js"
+  "/favicon-32x32.png": {
+    "type": "image/png",
+    "etag": "\"55f-ogMIPDmb6+WS3WdAkD3XlwsUtCk\"",
+    "mtime": "2026-03-25T14:05:40.952Z",
+    "size": 1375,
+    "path": "../public/favicon-32x32.png"
   },
   "/workbox-8c29f6e4.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"3b13-Wh1UnUyyWpyRKjt8VAzqPv3W/FM\"",
-    "mtime": "2026-03-25T14:02:10.788Z",
+    "mtime": "2026-03-25T14:05:42.075Z",
     "size": 15123,
     "path": "../public/workbox-8c29f6e4.js"
   },
   "/_nuxt/AdminList.BP_V1N33.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"63b-S4hyYNXku1t3h1x99/XfEZKsD2E\"",
-    "mtime": "2026-03-25T14:02:09.650Z",
+    "mtime": "2026-03-25T14:05:40.909Z",
     "size": 1595,
     "path": "../public/_nuxt/AdminList.BP_V1N33.css"
   },
   "/_nuxt/BApj7ixS.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"c33-gR7AIOjr9Oa0+UJRYUdG4qnI5V4\"",
-    "mtime": "2026-03-25T14:02:09.650Z",
+    "mtime": "2026-03-25T14:05:40.909Z",
     "size": 3123,
     "path": "../public/_nuxt/BApj7ixS.js"
   },
-  "/_nuxt/BE3zjwUe.js": {
+  "/sw.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"14f4-H/zzgpPvcJTWtCyJ3Qzt6K5Y9xE\"",
-    "mtime": "2026-03-25T14:02:09.650Z",
-    "size": 5364,
-    "path": "../public/_nuxt/BE3zjwUe.js"
+    "etag": "\"22e3-KHKOEwOm3MAtKE72CYn14Z0RSJ4\"",
+    "mtime": "2026-03-25T14:05:42.073Z",
+    "size": 8931,
+    "path": "../public/sw.js"
   },
   "/_nuxt/BC64IBUe.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"150a-Po/De9xrjf467jqHTDrEB9aYYh4\"",
-    "mtime": "2026-03-25T14:02:09.650Z",
+    "mtime": "2026-03-25T14:05:40.909Z",
     "size": 5386,
     "path": "../public/_nuxt/BC64IBUe.js"
   },
-  "/_nuxt/BIl4cyR9.js": {
+  "/_nuxt/BE3zjwUe.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"1681-8OY0+UaG+gUiKJSGiH59s2B32fM\"",
-    "mtime": "2026-03-25T14:02:09.651Z",
-    "size": 5761,
-    "path": "../public/_nuxt/BIl4cyR9.js"
-  },
-  "/_nuxt/BRklnT5j.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"fa-ZUraQcF0XDy58LbYlceHY9ax1K4\"",
-    "mtime": "2026-03-25T14:02:09.651Z",
-    "size": 250,
-    "path": "../public/_nuxt/BRklnT5j.js"
+    "etag": "\"14f4-H/zzgpPvcJTWtCyJ3Qzt6K5Y9xE\"",
+    "mtime": "2026-03-25T14:05:40.909Z",
+    "size": 5364,
+    "path": "../public/_nuxt/BE3zjwUe.js"
   },
   "/_nuxt/CEnt-pmG.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"2fe-5JrrpKNpAyt2jx1Ocwyr/Dbin8A\"",
-    "mtime": "2026-03-25T14:02:09.651Z",
+    "mtime": "2026-03-25T14:05:40.910Z",
     "size": 766,
     "path": "../public/_nuxt/CEnt-pmG.js"
+  },
+  "/_nuxt/BRklnT5j.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"fa-ZUraQcF0XDy58LbYlceHY9ax1K4\"",
+    "mtime": "2026-03-25T14:05:40.910Z",
+    "size": 250,
+    "path": "../public/_nuxt/BRklnT5j.js"
+  },
+  "/_nuxt/BIl4cyR9.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"1681-8OY0+UaG+gUiKJSGiH59s2B32fM\"",
+    "mtime": "2026-03-25T14:05:40.910Z",
+    "size": 5761,
+    "path": "../public/_nuxt/BIl4cyR9.js"
   },
   "/_nuxt/CLBUB8Gk.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"eb4-bVSP+6U4QBRP45WnrrpFoSSEL7s\"",
-    "mtime": "2026-03-25T14:02:09.651Z",
+    "mtime": "2026-03-25T14:05:40.910Z",
     "size": 3764,
     "path": "../public/_nuxt/CLBUB8Gk.js"
-  },
-  "/_nuxt/CPa0dJJZ.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"399-CWy2IJ+011egAvI8k72Q9GTAOV0\"",
-    "mtime": "2026-03-25T14:02:09.651Z",
-    "size": 921,
-    "path": "../public/_nuxt/CPa0dJJZ.js"
   },
   "/_nuxt/CMUJ5CYf.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"e6-UW8/FiPAd0zHaRquRl27GWxx8gg\"",
-    "mtime": "2026-03-25T14:02:09.651Z",
+    "mtime": "2026-03-25T14:05:40.910Z",
     "size": 230,
     "path": "../public/_nuxt/CMUJ5CYf.js"
   },
   "/_nuxt/CfMddL_1.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"26b9-jxC1kEMr957GfblXJhUpMfJIHjw\"",
-    "mtime": "2026-03-25T14:02:09.651Z",
+    "mtime": "2026-03-25T14:05:40.910Z",
     "size": 9913,
     "path": "../public/_nuxt/CfMddL_1.js"
+  },
+  "/favicon-16x16.png": {
+    "type": "image/png",
+    "etag": "\"219-9+pQ8gXiQVI4y+b+2/rRP87+9AU\"",
+    "mtime": "2026-03-25T14:05:40.953Z",
+    "size": 537,
+    "path": "../public/favicon-16x16.png"
+  },
+  "/_nuxt/CPa0dJJZ.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"399-CWy2IJ+011egAvI8k72Q9GTAOV0\"",
+    "mtime": "2026-03-25T14:05:40.910Z",
+    "size": 921,
+    "path": "../public/_nuxt/CPa0dJJZ.js"
   },
   "/_nuxt/D3Kx8K0c.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"5c-4jhMkezkyeMFKsDf88r+sBxG6CE\"",
-    "mtime": "2026-03-25T14:02:09.652Z",
+    "mtime": "2026-03-25T14:05:40.911Z",
     "size": 92,
     "path": "../public/_nuxt/D3Kx8K0c.js"
-  },
-  "/_nuxt/DeC1lxiC.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"13b-5cZDZ+KowHPL+Ei+cf5TRcbZr0k\"",
-    "mtime": "2026-03-25T14:02:09.652Z",
-    "size": 315,
-    "path": "../public/_nuxt/DeC1lxiC.js"
   },
   "/_nuxt/DVXlyNLQ.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"d7b-CgiroULXPtyqzMwwamNx456QNGE\"",
-    "mtime": "2026-03-25T14:02:09.652Z",
+    "mtime": "2026-03-25T14:05:40.911Z",
     "size": 3451,
     "path": "../public/_nuxt/DVXlyNLQ.js"
+  },
+  "/_nuxt/DeC1lxiC.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"13b-5cZDZ+KowHPL+Ei+cf5TRcbZr0k\"",
+    "mtime": "2026-03-25T14:05:40.911Z",
+    "size": 315,
+    "path": "../public/_nuxt/DeC1lxiC.js"
   },
   "/_nuxt/HelveticaNeue.CPQ5B6TE.ttf": {
     "type": "font/ttf",
     "etag": "\"a0dc-2CugS3Q42pg21wG79wRgDXe0ZsA\"",
-    "mtime": "2026-03-25T14:02:09.653Z",
+    "mtime": "2026-03-25T14:05:40.911Z",
     "size": 41180,
     "path": "../public/_nuxt/HelveticaNeue.CPQ5B6TE.ttf"
   },
-  "/_nuxt/HelveticaNeueBd.fbX3coJF.ttf": {
+  "/_nuxt/HelveticaNeueLt.CHSy1uMB.ttf": {
     "type": "font/ttf",
-    "etag": "\"9a60-reu4zMlIUYQkdDO8x07mIYbZ804\"",
-    "mtime": "2026-03-25T14:02:09.653Z",
-    "size": 39520,
-    "path": "../public/_nuxt/HelveticaNeueBd.fbX3coJF.ttf"
+    "etag": "\"9ca8-rI2FEOQyd6W+vR97wM8Fw2vGM0w\"",
+    "mtime": "2026-03-25T14:05:40.911Z",
+    "size": 40104,
+    "path": "../public/_nuxt/HelveticaNeueLt.CHSy1uMB.ttf"
   },
   "/_nuxt/KLqFIIv4.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"23b-dSFot2CQ/FKo+qmHsnxu4p8FV3w\"",
-    "mtime": "2026-03-25T14:02:09.654Z",
+    "mtime": "2026-03-25T14:05:40.912Z",
     "size": 571,
     "path": "../public/_nuxt/KLqFIIv4.js"
   },
   "/_nuxt/LQaTVk-U.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"b5-09IOMngdYdMG6mF7BcM4ml/227k\"",
-    "mtime": "2026-03-25T14:02:09.654Z",
+    "mtime": "2026-03-25T14:05:40.911Z",
     "size": 181,
     "path": "../public/_nuxt/LQaTVk-U.js"
-  },
-  "/_nuxt/HelveticaNeueLt.CHSy1uMB.ttf": {
-    "type": "font/ttf",
-    "etag": "\"9ca8-rI2FEOQyd6W+vR97wM8Fw2vGM0w\"",
-    "mtime": "2026-03-25T14:02:09.653Z",
-    "size": 40104,
-    "path": "../public/_nuxt/HelveticaNeueLt.CHSy1uMB.ttf"
   },
   "/_nuxt/MenuDegustacion.B83I5BfP.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"8f8-UodXAUi3mIfdcSxLaNjDXzB/Od4\"",
-    "mtime": "2026-03-25T14:02:09.654Z",
+    "mtime": "2026-03-25T14:05:40.912Z",
     "size": 2296,
     "path": "../public/_nuxt/MenuDegustacion.B83I5BfP.css"
-  },
-  "/_nuxt/ModalWrapper.DrUmCbfR.css": {
-    "type": "text/css; charset=utf-8",
-    "etag": "\"5b5-w30OuNODU4Ajn1LQsxSybWLE2/g\"",
-    "mtime": "2026-03-25T14:02:09.654Z",
-    "size": 1461,
-    "path": "../public/_nuxt/ModalWrapper.DrUmCbfR.css"
-  },
-  "/_nuxt/adminLayer.BQRJIJpb.css": {
-    "type": "text/css; charset=utf-8",
-    "etag": "\"156-usK6cZaPbUcSp2MODDTrwqCvYmI\"",
-    "mtime": "2026-03-25T14:02:09.654Z",
-    "size": 342,
-    "path": "../public/_nuxt/adminLayer.BQRJIJpb.css"
-  },
-  "/_nuxt/OOgaOrpq.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"1422-X8y1TG3/J7C0kVKsIzW81y+TZds\"",
-    "mtime": "2026-03-25T14:02:09.654Z",
-    "size": 5154,
-    "path": "../public/_nuxt/OOgaOrpq.js"
   },
   "/_nuxt/QgDLZXDo.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"a22-YWYxoHGryYhPx0c/1oSxdhx0stE\"",
-    "mtime": "2026-03-25T14:02:09.654Z",
+    "mtime": "2026-03-25T14:05:40.912Z",
     "size": 2594,
     "path": "../public/_nuxt/QgDLZXDo.js"
   },
   "/_nuxt/SocialLinks.CnwJoi3G.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"176-6yhZuJuOVroX8tss/5O8iOqXWLk\"",
-    "mtime": "2026-03-25T14:02:09.654Z",
+    "mtime": "2026-03-25T14:05:40.912Z",
     "size": 374,
     "path": "../public/_nuxt/SocialLinks.CnwJoi3G.css"
+  },
+  "/_nuxt/adminLayer.BQRJIJpb.css": {
+    "type": "text/css; charset=utf-8",
+    "etag": "\"156-usK6cZaPbUcSp2MODDTrwqCvYmI\"",
+    "mtime": "2026-03-25T14:05:40.914Z",
+    "size": 342,
+    "path": "../public/_nuxt/adminLayer.BQRJIJpb.css"
   },
   "/_nuxt/adminsala.BWzEwurU.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"12f1-dvYKIwPJD2/KRDk2aNB++STgaOE\"",
-    "mtime": "2026-03-25T14:02:09.654Z",
+    "mtime": "2026-03-25T14:05:40.913Z",
     "size": 4849,
     "path": "../public/_nuxt/adminsala.BWzEwurU.css"
   },
   "/_nuxt/carta.Bnew3bC7.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"869-Nzt93BJHq6PHPW4Ji5ma8wGj2go\"",
-    "mtime": "2026-03-25T14:02:09.655Z",
+    "mtime": "2026-03-25T14:05:40.913Z",
     "size": 2153,
     "path": "../public/_nuxt/carta.Bnew3bC7.css"
+  },
+  "/_nuxt/OOgaOrpq.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"1422-X8y1TG3/J7C0kVKsIzW81y+TZds\"",
+    "mtime": "2026-03-25T14:05:40.912Z",
+    "size": 5154,
+    "path": "../public/_nuxt/OOgaOrpq.js"
+  },
+  "/_nuxt/HelveticaNeueBd.fbX3coJF.ttf": {
+    "type": "font/ttf",
+    "etag": "\"9a60-reu4zMlIUYQkdDO8x07mIYbZ804\"",
+    "mtime": "2026-03-25T14:05:40.912Z",
+    "size": 39520,
+    "path": "../public/_nuxt/HelveticaNeueBd.fbX3coJF.ttf"
   },
   "/_nuxt/default.BF9OnQN3.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"1163-pp8psL1WG7kS3ksk5EtjRFS9x64\"",
-    "mtime": "2026-03-25T14:02:09.655Z",
+    "mtime": "2026-03-25T14:05:40.913Z",
     "size": 4451,
     "path": "../public/_nuxt/default.BF9OnQN3.css"
   },
-  "/_nuxt/error-404._yXoGkXB.css": {
+  "/_nuxt/ModalWrapper.DrUmCbfR.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"97e-UvhxUpGzrIO+HDYB4qU9Txgu35A\"",
-    "mtime": "2026-03-25T14:02:09.655Z",
-    "size": 2430,
-    "path": "../public/_nuxt/error-404._yXoGkXB.css"
+    "etag": "\"5b5-w30OuNODU4Ajn1LQsxSybWLE2/g\"",
+    "mtime": "2026-03-25T14:05:40.912Z",
+    "size": 1461,
+    "path": "../public/_nuxt/ModalWrapper.DrUmCbfR.css"
   },
   "/_nuxt/entry.DWqwM9_y.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"b42-xiHUJXxkHSiQZ0Q4RZTzSyGjbg8\"",
-    "mtime": "2026-03-25T14:02:09.655Z",
+    "mtime": "2026-03-25T14:05:40.913Z",
     "size": 2882,
     "path": "../public/_nuxt/entry.DWqwM9_y.css"
+  },
+  "/_nuxt/error-404._yXoGkXB.css": {
+    "type": "text/css; charset=utf-8",
+    "etag": "\"97e-UvhxUpGzrIO+HDYB4qU9Txgu35A\"",
+    "mtime": "2026-03-25T14:05:40.913Z",
+    "size": 2430,
+    "path": "../public/_nuxt/error-404._yXoGkXB.css"
   },
   "/_nuxt/error-500.BENb_mjk.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"773-BFLUend+w1t3SP3QDB+Z0A0V5pI\"",
-    "mtime": "2026-03-25T14:02:09.655Z",
+    "mtime": "2026-03-25T14:05:40.913Z",
     "size": 1907,
     "path": "../public/_nuxt/error-500.BENb_mjk.css"
-  },
-  "/_nuxt/fd1cNttn.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"1296-rFIp46dcCSvE6kj/zOR8ld+KkJM\"",
-    "mtime": "2026-03-25T14:02:09.655Z",
-    "size": 4758,
-    "path": "../public/_nuxt/fd1cNttn.js"
-  },
-  "/_nuxt/index.Dh9W3mTQ.css": {
-    "type": "text/css; charset=utf-8",
-    "etag": "\"139a-MVhNKIfyz5lvKw49O6fJ+BBiRfM\"",
-    "mtime": "2026-03-25T14:02:09.656Z",
-    "size": 5018,
-    "path": "../public/_nuxt/index.Dh9W3mTQ.css"
   },
   "/_nuxt/index.K9LylmxG.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"6e5-yb/k57KeD8HI0mcqmzQ7mZXpRRg\"",
-    "mtime": "2026-03-25T14:02:09.657Z",
+    "mtime": "2026-03-25T14:05:40.913Z",
     "size": 1765,
     "path": "../public/_nuxt/index.K9LylmxG.css"
+  },
+  "/_nuxt/index.Dh9W3mTQ.css": {
+    "type": "text/css; charset=utf-8",
+    "etag": "\"139a-MVhNKIfyz5lvKw49O6fJ+BBiRfM\"",
+    "mtime": "2026-03-25T14:05:40.914Z",
+    "size": 5018,
+    "path": "../public/_nuxt/index.Dh9W3mTQ.css"
+  },
+  "/_nuxt/fd1cNttn.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"1296-rFIp46dcCSvE6kj/zOR8ld+KkJM\"",
+    "mtime": "2026-03-25T14:05:40.913Z",
+    "size": 4758,
+    "path": "../public/_nuxt/fd1cNttn.js"
   },
   "/_nuxt/login.CqHgoCOZ.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"e1-/r6US0dUfWZp8WEIyYbefVS/5DY\"",
-    "mtime": "2026-03-25T14:02:09.656Z",
+    "mtime": "2026-03-25T14:05:40.913Z",
     "size": 225,
     "path": "../public/_nuxt/login.CqHgoCOZ.css"
   },
   "/_nuxt/CuoSYrg1.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"b890a-bRhw+YdzodiOFvYkbEOHYhp1jRo\"",
-    "mtime": "2026-03-25T14:02:09.655Z",
+    "mtime": "2026-03-25T14:05:40.914Z",
     "size": 755978,
     "path": "../public/_nuxt/CuoSYrg1.js"
   },
   "/_nuxt/nuestras-fotografias.C0rHqqy5.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"80f-EID/sSVDjw9FjyODUA/ZZohdUIQ\"",
-    "mtime": "2026-03-25T14:02:09.656Z",
+    "mtime": "2026-03-25T14:05:40.914Z",
     "size": 2063,
     "path": "../public/_nuxt/nuestras-fotografias.C0rHqqy5.css"
   },
   "/_nuxt/p7Pu8Hfy.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"1c2f-o3SGDjxgu4CpHxWEm4JMDy0qD7g\"",
-    "mtime": "2026-03-25T14:02:09.656Z",
+    "mtime": "2026-03-25T14:05:40.914Z",
     "size": 7215,
     "path": "../public/_nuxt/p7Pu8Hfy.js"
   },
   "/_nuxt/reservas.DReEwJSh.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"1d-zXSdJ0hSQWfNBO9FR2tQCjPdVtg\"",
-    "mtime": "2026-03-25T14:02:09.656Z",
+    "mtime": "2026-03-25T14:05:40.914Z",
     "size": 29,
     "path": "../public/_nuxt/reservas.DReEwJSh.css"
   },
   "/_nuxt/yurUtZtC.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"2a6c-S77EPqhYXzRqyDusl/fbB6MsROI\"",
-    "mtime": "2026-03-25T14:02:09.657Z",
+    "mtime": "2026-03-25T14:05:40.914Z",
     "size": 10860,
     "path": "../public/_nuxt/yurUtZtC.js"
   },
   "/img/Celery.png": {
     "type": "image/png",
     "etag": "\"2bc-XDfFJjdD8v2JoaDn6OK8fMMfFnU\"",
-    "mtime": "2026-03-25T14:02:09.667Z",
+    "mtime": "2026-03-25T14:05:40.927Z",
     "size": 700,
     "path": "../public/img/Celery.png"
   },
   "/img/Crustacean.png": {
     "type": "image/png",
     "etag": "\"371-fEnbvdOnoNB5ik95A7EsiURSN98\"",
-    "mtime": "2026-03-25T14:02:09.667Z",
+    "mtime": "2026-03-25T14:05:40.928Z",
     "size": 881,
     "path": "../public/img/Crustacean.png"
+  },
+  "/_nuxt/uTuhEhkC.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"4d158-rHX4z06gAy0c/ReQ29AQcfNtI38\"",
+    "mtime": "2026-03-25T14:05:40.915Z",
+    "size": 315736,
+    "path": "../public/_nuxt/uTuhEhkC.js"
   },
   "/img/Dairy.png": {
     "type": "image/png",
     "etag": "\"2d8-5lZ8rIljEETGMu7dWP9NsiZEu/E\"",
-    "mtime": "2026-03-25T14:02:09.667Z",
+    "mtime": "2026-03-25T14:05:40.929Z",
     "size": 728,
     "path": "../public/img/Dairy.png"
-  },
-  "/img/Fish.png": {
-    "type": "image/png",
-    "etag": "\"2f4-Cxet9yi1Lht4r22+7hj6BO0sz7c\"",
-    "mtime": "2026-03-25T14:02:09.667Z",
-    "size": 756,
-    "path": "../public/img/Fish.png"
   },
   "/img/Egg.png": {
     "type": "image/png",
     "etag": "\"314-NdVLnACq1nyB3MaQUBZEFQGVxJs\"",
-    "mtime": "2026-03-25T14:02:09.668Z",
+    "mtime": "2026-03-25T14:05:40.929Z",
     "size": 788,
     "path": "../public/img/Egg.png"
+  },
+  "/img/Fish.png": {
+    "type": "image/png",
+    "etag": "\"2f4-Cxet9yi1Lht4r22+7hj6BO0sz7c\"",
+    "mtime": "2026-03-25T14:05:40.928Z",
+    "size": 756,
+    "path": "../public/img/Fish.png"
   },
   "/img/Gluten.png": {
     "type": "image/png",
     "etag": "\"3d2-bI0OG1hy6s5C4MBR7NhRDjNKL+A\"",
-    "mtime": "2026-03-25T14:02:09.669Z",
+    "mtime": "2026-03-25T14:05:40.928Z",
     "size": 978,
     "path": "../public/img/Gluten.png"
   },
   "/img/Mollusks.png": {
     "type": "image/png",
     "etag": "\"353-UvDuIQr3MlkeRYnkMR4e9gdis60\"",
-    "mtime": "2026-03-25T14:02:09.667Z",
+    "mtime": "2026-03-25T14:05:40.929Z",
     "size": 851,
     "path": "../public/img/Mollusks.png"
   },
   "/img/Mustard.png": {
     "type": "image/png",
     "etag": "\"2f8-8551J/HEHd4hMitWDS8rDxjuV+8\"",
-    "mtime": "2026-03-25T14:02:09.669Z",
+    "mtime": "2026-03-25T14:05:40.930Z",
     "size": 760,
     "path": "../public/img/Mustard.png"
-  },
-  "/img/Lupin.png": {
-    "type": "image/png",
-    "etag": "\"326-0qcJmC889HIOrooMeVq0FTWYLY4\"",
-    "mtime": "2026-03-25T14:02:09.667Z",
-    "size": 806,
-    "path": "../public/img/Lupin.png"
   },
   "/img/Peanut.png": {
     "type": "image/png",
     "etag": "\"3c8-YMwuyq0ae8t/8673O1J4Qj+U1uI\"",
-    "mtime": "2026-03-25T14:02:09.668Z",
+    "mtime": "2026-03-25T14:05:40.929Z",
     "size": 968,
     "path": "../public/img/Peanut.png"
-  },
-  "/_nuxt/uTuhEhkC.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"4d158-rHX4z06gAy0c/ReQ29AQcfNtI38\"",
-    "mtime": "2026-03-25T14:02:09.658Z",
-    "size": 315736,
-    "path": "../public/_nuxt/uTuhEhkC.js"
   },
   "/img/Peel.png": {
     "type": "image/png",
     "etag": "\"3b0-ufqn7yVV036JtHEIXx0mCtj4xYc\"",
-    "mtime": "2026-03-25T14:02:09.669Z",
+    "mtime": "2026-03-25T14:05:40.930Z",
     "size": 944,
     "path": "../public/img/Peel.png"
   },
   "/img/Sesame.png": {
     "type": "image/png",
     "etag": "\"369-oSnOBSXFyT4n30BeEQite2tXgLA\"",
-    "mtime": "2026-03-25T14:02:09.670Z",
+    "mtime": "2026-03-25T14:05:40.930Z",
     "size": 873,
     "path": "../public/img/Sesame.png"
   },
   "/img/Soy.png": {
     "type": "image/png",
     "etag": "\"368-nx9InmAK2xAc0WAUImSZmBGIYio\"",
-    "mtime": "2026-03-25T14:02:09.669Z",
+    "mtime": "2026-03-25T14:05:40.930Z",
     "size": 872,
     "path": "../public/img/Soy.png"
   },
   "/img/Sulfur.png": {
     "type": "image/png",
     "etag": "\"2d6-diUyXFLeFmwG8zcwJ271ikLa5Ec\"",
-    "mtime": "2026-03-25T14:02:09.670Z",
+    "mtime": "2026-03-25T14:05:40.931Z",
     "size": 726,
     "path": "../public/img/Sulfur.png"
-  },
-  "/img/franja_imagen_inferior100.png": {
-    "type": "image/png",
-    "etag": "\"dc04-t0uU8qZkN+HZ9ny9/pVSNL+GyM4\"",
-    "mtime": "2026-03-25T14:02:09.669Z",
-    "size": 56324,
-    "path": "../public/img/franja_imagen_inferior100.png"
-  },
-  "/img/franja_imagen_inferior_15.png": {
-    "type": "image/png",
-    "etag": "\"616f-jzNl9+m0gEawFI1OtvWiswfjgmc\"",
-    "mtime": "2026-03-25T14:02:09.669Z",
-    "size": 24943,
-    "path": "../public/img/franja_imagen_inferior_15.png"
   },
   "/img/Pez-mantequilla.jpg": {
     "type": "image/jpeg",
     "etag": "\"6cab5-0SXgrh1Osv2n6Amk1/2NELIENtI\"",
-    "mtime": "2026-03-25T14:02:09.669Z",
+    "mtime": "2026-03-25T14:05:40.934Z",
     "size": 445109,
     "path": "../public/img/Pez-mantequilla.jpg"
   },
-  "/img/gambita-roja-fresca.jpg": {
-    "type": "image/jpeg",
-    "etag": "\"3c635-tut4T0MVzhdiHOGhBLZWiqefk64\"",
-    "mtime": "2026-03-25T14:02:09.670Z",
-    "size": 247349,
-    "path": "../public/img/gambita-roja-fresca.jpg"
+  "/img/franja_imagen_inferior100.png": {
+    "type": "image/png",
+    "etag": "\"dc04-t0uU8qZkN+HZ9ny9/pVSNL+GyM4\"",
+    "mtime": "2026-03-25T14:05:40.934Z",
+    "size": 56324,
+    "path": "../public/img/franja_imagen_inferior100.png"
   },
   "/img/iconCelery.png": {
     "type": "image/png",
     "etag": "\"12e1-2pv44VJOi52Tu1PpLpklTjL/yQU\"",
-    "mtime": "2026-03-25T14:02:09.669Z",
+    "mtime": "2026-03-25T14:05:40.931Z",
     "size": 4833,
     "path": "../public/img/iconCelery.png"
+  },
+  "/img/Lupin.png": {
+    "type": "image/png",
+    "etag": "\"326-0qcJmC889HIOrooMeVq0FTWYLY4\"",
+    "mtime": "2026-03-25T14:05:40.929Z",
+    "size": 806,
+    "path": "../public/img/Lupin.png"
+  },
+  "/img/franja_imagen_inferior_15.png": {
+    "type": "image/png",
+    "etag": "\"616f-jzNl9+m0gEawFI1OtvWiswfjgmc\"",
+    "mtime": "2026-03-25T14:05:40.935Z",
+    "size": 24943,
+    "path": "../public/img/franja_imagen_inferior_15.png"
+  },
+  "/img/gambita-roja-fresca.jpg": {
+    "type": "image/jpeg",
+    "etag": "\"3c635-tut4T0MVzhdiHOGhBLZWiqefk64\"",
+    "mtime": "2026-03-25T14:05:40.937Z",
+    "size": 247349,
+    "path": "../public/img/gambita-roja-fresca.jpg"
   },
   "/img/iconCrustacean.png": {
     "type": "image/png",
     "etag": "\"14c9-u1wI+/gztLZk2CECQwRXPCQsJ0U\"",
-    "mtime": "2026-03-25T14:02:09.670Z",
+    "mtime": "2026-03-25T14:05:40.931Z",
     "size": 5321,
     "path": "../public/img/iconCrustacean.png"
-  },
-  "/img/iconEgg.png": {
-    "type": "image/png",
-    "etag": "\"1098-jq3W/sJYh0inlLo2i/5LR9p4J8g\"",
-    "mtime": "2026-03-25T14:02:09.673Z",
-    "size": 4248,
-    "path": "../public/img/iconEgg.png"
   },
   "/img/iconDairy.png": {
     "type": "image/png",
     "etag": "\"1271-vyOeiF4KsuMR0knNfnHgAH2pLzA\"",
-    "mtime": "2026-03-25T14:02:09.671Z",
+    "mtime": "2026-03-25T14:05:40.936Z",
     "size": 4721,
     "path": "../public/img/iconDairy.png"
   },
-  "/img/iconFish.png": {
+  "/img/iconEgg.png": {
     "type": "image/png",
-    "etag": "\"10cc-BoUmRq5qH7L4Q6mQG5hQZEcPE2c\"",
-    "mtime": "2026-03-25T14:02:09.672Z",
-    "size": 4300,
-    "path": "../public/img/iconFish.png"
+    "etag": "\"1098-jq3W/sJYh0inlLo2i/5LR9p4J8g\"",
+    "mtime": "2026-03-25T14:05:40.932Z",
+    "size": 4248,
+    "path": "../public/img/iconEgg.png"
   },
   "/img/iconGluten.png": {
     "type": "image/png",
     "etag": "\"150b-KQLDRyJfor/fqRY7JV69nTpKjco\"",
-    "mtime": "2026-03-25T14:02:09.671Z",
+    "mtime": "2026-03-25T14:05:40.932Z",
     "size": 5387,
     "path": "../public/img/iconGluten.png"
-  },
-  "/img/iconLupin.png": {
-    "type": "image/png",
-    "etag": "\"110f-Tj2C87wsImxPZ46aZabo10my4eA\"",
-    "mtime": "2026-03-25T14:02:09.673Z",
-    "size": 4367,
-    "path": "../public/img/iconLupin.png"
   },
   "/img/iconMollusks.png": {
     "type": "image/png",
     "etag": "\"1234-H+JRcuQ8C+sgNJQIXMg27sj8K5c\"",
-    "mtime": "2026-03-25T14:02:09.671Z",
+    "mtime": "2026-03-25T14:05:40.933Z",
     "size": 4660,
     "path": "../public/img/iconMollusks.png"
+  },
+  "/img/iconLupin.png": {
+    "type": "image/png",
+    "etag": "\"110f-Tj2C87wsImxPZ46aZabo10my4eA\"",
+    "mtime": "2026-03-25T14:05:40.933Z",
+    "size": 4367,
+    "path": "../public/img/iconLupin.png"
+  },
+  "/img/iconFish.png": {
+    "type": "image/png",
+    "etag": "\"10cc-BoUmRq5qH7L4Q6mQG5hQZEcPE2c\"",
+    "mtime": "2026-03-25T14:05:40.932Z",
+    "size": 4300,
+    "path": "../public/img/iconFish.png"
   },
   "/img/iconPeanut.png": {
     "type": "image/png",
     "etag": "\"16fa-C2LKKq/KWo903I4DMyCq/KvYJQc\"",
-    "mtime": "2026-03-25T14:02:09.673Z",
+    "mtime": "2026-03-25T14:05:40.934Z",
     "size": 5882,
     "path": "../public/img/iconPeanut.png"
-  },
-  "/img/iconMustard.png": {
-    "type": "image/png",
-    "etag": "\"10e8-tAZOD7/cgB1FOvxN38EV+CHvd0Q\"",
-    "mtime": "2026-03-25T14:02:09.673Z",
-    "size": 4328,
-    "path": "../public/img/iconMustard.png"
-  },
-  "/img/iconPeel.png": {
-    "type": "image/png",
-    "etag": "\"14d3-lQeqpM/unf0sYdlfY+P6OzpExeI\"",
-    "mtime": "2026-03-25T14:02:09.673Z",
-    "size": 5331,
-    "path": "../public/img/iconPeel.png"
   },
   "/img/iconSesame.png": {
     "type": "image/png",
     "etag": "\"1302-b8ov63ly8HLBLBDf8jUVPNVOLW4\"",
-    "mtime": "2026-03-25T14:02:09.673Z",
+    "mtime": "2026-03-25T14:05:40.935Z",
     "size": 4866,
     "path": "../public/img/iconSesame.png"
-  },
-  "/img/iconSoy.png": {
-    "type": "image/png",
-    "etag": "\"1939-cMLwDi6QmD65xUMVrDwFEGtERi0\"",
-    "mtime": "2026-03-25T14:02:09.674Z",
-    "size": 6457,
-    "path": "../public/img/iconSoy.png"
   },
   "/img/iconSulfur.png": {
     "type": "image/png",
     "etag": "\"1988-j9Dx3tiH1GuXyrvZcWsmO7pvxNA\"",
-    "mtime": "2026-03-25T14:02:09.675Z",
+    "mtime": "2026-03-25T14:05:40.941Z",
     "size": 6536,
     "path": "../public/img/iconSulfur.png"
   },
-  "/img/logo-la-mar-sala.svg": {
-    "type": "image/svg+xml",
-    "etag": "\"edd2-Oe2qHZWeU7lIOTSA7spE8AICwsY\"",
-    "mtime": "2026-03-25T14:02:09.674Z",
-    "size": 60882,
-    "path": "../public/img/logo-la-mar-sala.svg"
-  },
-  "/img/imagen_mar_25.png": {
+  "/img/iconMustard.png": {
     "type": "image/png",
-    "etag": "\"430ae-RiFfTXNXc8dzW02a7HLVXKpmoPU\"",
-    "mtime": "2026-03-25T14:02:09.674Z",
-    "size": 274606,
-    "path": "../public/img/imagen_mar_25.png"
+    "etag": "\"10e8-tAZOD7/cgB1FOvxN38EV+CHvd0Q\"",
+    "mtime": "2026-03-25T14:05:40.934Z",
+    "size": 4328,
+    "path": "../public/img/iconMustard.png"
   },
-  "/img/imagen_mar_100.png": {
+  "/img/iconSoy.png": {
     "type": "image/png",
-    "etag": "\"49557-CkKm1Y9UeT44W+r6u8BDid/KeDM\"",
-    "mtime": "2026-03-25T14:02:09.675Z",
-    "size": 300375,
-    "path": "../public/img/imagen_mar_100.png"
+    "etag": "\"1939-cMLwDi6QmD65xUMVrDwFEGtERi0\"",
+    "mtime": "2026-03-25T14:05:40.935Z",
+    "size": 6457,
+    "path": "../public/img/iconSoy.png"
   },
-  "/img/simbolo_la_mar_sala.png": {
+  "/img/iconPeel.png": {
     "type": "image/png",
-    "etag": "\"17a3-0tybZCFODzqw6c3kZq5I9tqXTfQ\"",
-    "mtime": "2026-03-25T14:02:09.675Z",
-    "size": 6051,
-    "path": "../public/img/simbolo_la_mar_sala.png"
+    "etag": "\"14d3-lQeqpM/unf0sYdlfY+P6OzpExeI\"",
+    "mtime": "2026-03-25T14:05:40.935Z",
+    "size": 5331,
+    "path": "../public/img/iconPeel.png"
   },
   "/img/logo_la_mar_sala.png": {
     "type": "image/png",
     "etag": "\"4c93-iTSHddl5Uf1Cy6Y8R37bcXRAVW8\"",
-    "mtime": "2026-03-25T14:02:09.674Z",
+    "mtime": "2026-03-25T14:05:40.939Z",
     "size": 19603,
     "path": "../public/img/logo_la_mar_sala.png"
   },
-  "/img/tripadvisor.png": {
+  "/img/simbolo_la_mar_sala.png": {
     "type": "image/png",
-    "etag": "\"671c-bJzu6K5RjRgj7heuxuez1Ia0ajw\"",
-    "mtime": "2026-03-25T14:02:09.676Z",
-    "size": 26396,
-    "path": "../public/img/tripadvisor.png"
+    "etag": "\"17a3-0tybZCFODzqw6c3kZq5I9tqXTfQ\"",
+    "mtime": "2026-03-25T14:05:40.939Z",
+    "size": 6051,
+    "path": "../public/img/simbolo_la_mar_sala.png"
+  },
+  "/img/logo-la-mar-sala.svg": {
+    "type": "image/svg+xml",
+    "etag": "\"edd2-Oe2qHZWeU7lIOTSA7spE8AICwsY\"",
+    "mtime": "2026-03-25T14:05:40.940Z",
+    "size": 60882,
+    "path": "../public/img/logo-la-mar-sala.svg"
   },
   "/img/percebe-gallego.jpg": {
     "type": "image/jpeg",
     "etag": "\"26b71-8uwtPeka7RYT+zxs8mwGQaGpj0w\"",
-    "mtime": "2026-03-25T14:02:09.676Z",
+    "mtime": "2026-03-25T14:05:40.940Z",
     "size": 158577,
     "path": "../public/img/percebe-gallego.jpg"
   },
+  "/img/tripadvisor.png": {
+    "type": "image/png",
+    "etag": "\"671c-bJzu6K5RjRgj7heuxuez1Ia0ajw\"",
+    "mtime": "2026-03-25T14:05:40.939Z",
+    "size": 26396,
+    "path": "../public/img/tripadvisor.png"
+  },
+  "/img/imagen_mar_25.png": {
+    "type": "image/png",
+    "etag": "\"430ae-RiFfTXNXc8dzW02a7HLVXKpmoPU\"",
+    "mtime": "2026-03-25T14:05:40.938Z",
+    "size": 274606,
+    "path": "../public/img/imagen_mar_25.png"
+  },
   "/_nuxt/builds/latest.json": {
     "type": "application/json",
-    "etag": "\"47-dkxsQkZxZZa31l294EkkGEjUfl4\"",
-    "mtime": "2026-03-25T14:02:09.641Z",
+    "etag": "\"47-fRFqGfpntxIm78uswKySmv1s8Yg\"",
+    "mtime": "2026-03-25T14:05:40.900Z",
     "size": 71,
     "path": "../public/_nuxt/builds/latest.json"
   },
   "/img/tabla-alergenos-restaurantes.png": {
     "type": "image/png",
     "etag": "\"433fe-hVNaYYO+nY8sKIAExOjw0+FF9w4\"",
-    "mtime": "2026-03-25T14:02:09.676Z",
+    "mtime": "2026-03-25T14:05:40.939Z",
     "size": 275454,
     "path": "../public/img/tabla-alergenos-restaurantes.png"
   },
   "/img/fotos/alcachofas-640.jpg": {
     "type": "image/jpeg",
     "etag": "\"846e-NTdMAUTf5vLaKNMWgrnxpBr8gOQ\"",
-    "mtime": "2026-03-25T14:02:09.677Z",
+    "mtime": "2026-03-25T14:05:40.940Z",
     "size": 33902,
     "path": "../public/img/fotos/alcachofas-640.jpg"
   },
   "/img/fotos/alcachofas-2048.jpg": {
     "type": "image/jpeg",
     "etag": "\"2e5cc-rvMJ6s+eL+jXXwgqouIsclF+GE0\"",
-    "mtime": "2026-03-25T14:02:09.668Z",
+    "mtime": "2026-03-25T14:05:40.929Z",
     "size": 189900,
     "path": "../public/img/fotos/alcachofas-2048.jpg"
+  },
+  "/img/imagen_mar_100.png": {
+    "type": "image/png",
+    "etag": "\"49557-CkKm1Y9UeT44W+r6u8BDid/KeDM\"",
+    "mtime": "2026-03-25T14:05:40.938Z",
+    "size": 300375,
+    "path": "../public/img/imagen_mar_100.png"
   },
   "/img/fotos/anchoa-2048.jpg": {
     "type": "image/jpeg",
     "etag": "\"1e24b-phxWBjF7PdRSf7BouOZlagqiXDA\"",
-    "mtime": "2026-03-25T14:02:09.677Z",
+    "mtime": "2026-03-25T14:05:40.944Z",
     "size": 123467,
     "path": "../public/img/fotos/anchoa-2048.jpg"
   },
   "/img/fotos/anchoa-640.jpg": {
     "type": "image/jpeg",
     "etag": "\"4ef7-h8nxVbjkrXiqmRwulMKadyubgAM\"",
-    "mtime": "2026-03-25T14:02:09.676Z",
+    "mtime": "2026-03-25T14:05:40.940Z",
     "size": 20215,
     "path": "../public/img/fotos/anchoa-640.jpg"
   },
   "/img/fotos/arroz-carabinero-2048.jpg": {
     "type": "image/jpeg",
     "etag": "\"dc2d-6bzCEUyYAAC+Ydj7RNPqFUFtbvk\"",
-    "mtime": "2026-03-25T14:02:09.677Z",
+    "mtime": "2026-03-25T14:05:40.941Z",
     "size": 56365,
     "path": "../public/img/fotos/arroz-carabinero-2048.jpg"
   },
   "/img/fotos/arroz-carabinero-640.jpg": {
     "type": "image/jpeg",
     "etag": "\"62d5-i6A8lR06bZoVcPwKsLFj9OJT5XU\"",
-    "mtime": "2026-03-25T14:02:09.677Z",
+    "mtime": "2026-03-25T14:05:40.940Z",
     "size": 25301,
     "path": "../public/img/fotos/arroz-carabinero-640.jpg"
   },
   "/img/fotos/bacalao-640.jpg": {
     "type": "image/jpeg",
     "etag": "\"45bc-yWpSalUyrZmUusBbmv7oKfMgWLg\"",
-    "mtime": "2026-03-25T14:02:09.678Z",
+    "mtime": "2026-03-25T14:05:40.941Z",
     "size": 17852,
     "path": "../public/img/fotos/bacalao-640.jpg"
-  },
-  "/img/fotos/carpaccio-640.jpg": {
-    "type": "image/jpeg",
-    "etag": "\"7d81-2nVejRnSJl95WOVDztIJc/RmE4A\"",
-    "mtime": "2026-03-25T14:02:09.678Z",
-    "size": 32129,
-    "path": "../public/img/fotos/carpaccio-640.jpg"
-  },
-  "/img/fotos/chipiron-640.jpg": {
-    "type": "image/jpeg",
-    "etag": "\"4d59-DGK40QNbnPMu9hJMUbOWs9uJx9g\"",
-    "mtime": "2026-03-25T14:02:09.678Z",
-    "size": 19801,
-    "path": "../public/img/fotos/chipiron-640.jpg"
   },
   "/img/fotos/bacalao-2048.jpg": {
     "type": "image/jpeg",
     "etag": "\"1a0ac-8RRR3m9eH9sM8pG7mtea+5ycN20\"",
-    "mtime": "2026-03-25T14:02:09.677Z",
+    "mtime": "2026-03-25T14:05:40.941Z",
     "size": 106668,
     "path": "../public/img/fotos/bacalao-2048.jpg"
   },
-  "/img/fotos/ensalada-foie-2048.jpg": {
+  "/img/fotos/carpaccio-2048.jpg": {
     "type": "image/jpeg",
-    "etag": "\"2dc3a-p/wY52xZAqpZSb8k81QdGF+uXPc\"",
-    "mtime": "2026-03-25T14:02:09.679Z",
-    "size": 187450,
-    "path": "../public/img/fotos/ensalada-foie-2048.jpg"
+    "etag": "\"2d725-qGVJuAC7LLfvmm45/kChtOMj6gA\"",
+    "mtime": "2026-03-25T14:05:40.942Z",
+    "size": 186149,
+    "path": "../public/img/fotos/carpaccio-2048.jpg"
+  },
+  "/img/fotos/carpaccio-640.jpg": {
+    "type": "image/jpeg",
+    "etag": "\"7d81-2nVejRnSJl95WOVDztIJc/RmE4A\"",
+    "mtime": "2026-03-25T14:05:40.942Z",
+    "size": 32129,
+    "path": "../public/img/fotos/carpaccio-640.jpg"
+  },
+  "/img/fotos/chipiron-2048.jpg": {
+    "type": "image/jpeg",
+    "etag": "\"1c002-z8v+YjkAhOS6xJKchjTg7WJak4g\"",
+    "mtime": "2026-03-25T14:05:40.944Z",
+    "size": 114690,
+    "path": "../public/img/fotos/chipiron-2048.jpg"
+  },
+  "/img/fotos/chipiron-640.jpg": {
+    "type": "image/jpeg",
+    "etag": "\"4d59-DGK40QNbnPMu9hJMUbOWs9uJx9g\"",
+    "mtime": "2026-03-25T14:05:40.942Z",
+    "size": 19801,
+    "path": "../public/img/fotos/chipiron-640.jpg"
   },
   "/img/fotos/ensalada-foie-640.jpg": {
     "type": "image/jpeg",
     "etag": "\"7417-gkfaGUVGRStFP0De4nWkz8cWD/c\"",
-    "mtime": "2026-03-25T14:02:09.679Z",
+    "mtime": "2026-03-25T14:05:40.942Z",
     "size": 29719,
     "path": "../public/img/fotos/ensalada-foie-640.jpg"
   },
   "/img/fotos/kokotxas-640.jpg": {
     "type": "image/jpeg",
     "etag": "\"50ec-+xfWI+EPnySsv8ySr5TX/7NQIVY\"",
-    "mtime": "2026-03-25T14:02:09.679Z",
+    "mtime": "2026-03-25T14:05:40.947Z",
     "size": 20716,
     "path": "../public/img/fotos/kokotxas-640.jpg"
-  },
-  "/img/fotos/marisco-bg.jpg": {
-    "type": "image/jpeg",
-    "etag": "\"123ae-dHH5e30qcLECGbSqPYMFX7JVLYg\"",
-    "mtime": "2026-03-25T14:02:09.680Z",
-    "size": 74670,
-    "path": "../public/img/fotos/marisco-bg.jpg"
-  },
-  "/img/fotos/chipiron-2048.jpg": {
-    "type": "image/jpeg",
-    "etag": "\"1c002-z8v+YjkAhOS6xJKchjTg7WJak4g\"",
-    "mtime": "2026-03-25T14:02:09.678Z",
-    "size": 114690,
-    "path": "../public/img/fotos/chipiron-2048.jpg"
-  },
-  "/img/fotos/carpaccio-2048.jpg": {
-    "type": "image/jpeg",
-    "etag": "\"2d725-qGVJuAC7LLfvmm45/kChtOMj6gA\"",
-    "mtime": "2026-03-25T14:02:09.685Z",
-    "size": 186149,
-    "path": "../public/img/fotos/carpaccio-2048.jpg"
   },
   "/img/fotos/mariscos-640.jpg": {
     "type": "image/jpeg",
     "etag": "\"6fa4-zTfNF0hHtmZkJhI05Edbd5wZmXo\"",
-    "mtime": "2026-03-25T14:02:09.680Z",
+    "mtime": "2026-03-25T14:05:40.946Z",
     "size": 28580,
     "path": "../public/img/fotos/mariscos-640.jpg"
   },
   "/img/fotos/kokotxas-2048.jpg": {
     "type": "image/jpeg",
     "etag": "\"1f063-gCDT8QO5XyQreBH3GToWzpPKEDQ\"",
-    "mtime": "2026-03-25T14:02:09.679Z",
+    "mtime": "2026-03-25T14:05:40.944Z",
     "size": 127075,
     "path": "../public/img/fotos/kokotxas-2048.jpg"
+  },
+  "/img/fotos/ensalada-foie-2048.jpg": {
+    "type": "image/jpeg",
+    "etag": "\"2dc3a-p/wY52xZAqpZSb8k81QdGF+uXPc\"",
+    "mtime": "2026-03-25T14:05:40.949Z",
+    "size": 187450,
+    "path": "../public/img/fotos/ensalada-foie-2048.jpg"
   },
   "/img/fotos/sardina-640.jpg": {
     "type": "image/jpeg",
     "etag": "\"6860-+DVWS7LjGYO7pUUt0LhndBjDP8g\"",
-    "mtime": "2026-03-25T14:02:09.680Z",
+    "mtime": "2026-03-25T14:05:40.946Z",
     "size": 26720,
     "path": "../public/img/fotos/sardina-640.jpg"
-  },
-  "/img/fotos/sardina-2048.jpg": {
-    "type": "image/jpeg",
-    "etag": "\"14915-K7MA+6r2wc9wjUmzpFwgo/I4TnM\"",
-    "mtime": "2026-03-25T14:02:09.680Z",
-    "size": 84245,
-    "path": "../public/img/fotos/sardina-2048.jpg"
-  },
-  "/img/fotos/steak-tartar-640.jpg": {
-    "type": "image/jpeg",
-    "etag": "\"956d-OURYkhsJiXHpNrDE0fbr3EwLPN4\"",
-    "mtime": "2026-03-25T14:02:09.681Z",
-    "size": 38253,
-    "path": "../public/img/fotos/steak-tartar-640.jpg"
-  },
-  "/img/fotos/mariscos-2048.jpg": {
-    "type": "image/jpeg",
-    "etag": "\"296fc-/vttUlm0acJ+QOe3GZQ2Juiu/PA\"",
-    "mtime": "2026-03-25T14:02:09.684Z",
-    "size": 169724,
-    "path": "../public/img/fotos/mariscos-2048.jpg"
-  },
-  "/img/fotos/tarta-640.jpg": {
-    "type": "image/jpeg",
-    "etag": "\"5b3f-oZ/x/sZ+Sm6M2pmwLYP0cVi35q8\"",
-    "mtime": "2026-03-25T14:02:09.683Z",
-    "size": 23359,
-    "path": "../public/img/fotos/tarta-640.jpg"
   },
   "/img/fotos/steak-tartar-2048.jpg": {
     "type": "image/jpeg",
     "etag": "\"3cbc5-B/uH8x0t4x0cU99cUhnL+BWhi9k\"",
-    "mtime": "2026-03-25T14:02:09.683Z",
+    "mtime": "2026-03-25T14:05:40.947Z",
     "size": 248773,
     "path": "../public/img/fotos/steak-tartar-2048.jpg"
   },
-  "/img/fotos/tartar-640.jpg": {
+  "/img/fotos/marisco-bg.jpg": {
     "type": "image/jpeg",
-    "etag": "\"53cd-IDY2bCZHGrkUh3zZEyO4bLPK4u0\"",
-    "mtime": "2026-03-25T14:02:09.684Z",
-    "size": 21453,
-    "path": "../public/img/fotos/tartar-640.jpg"
+    "etag": "\"123ae-dHH5e30qcLECGbSqPYMFX7JVLYg\"",
+    "mtime": "2026-03-25T14:05:40.945Z",
+    "size": 74670,
+    "path": "../public/img/fotos/marisco-bg.jpg"
+  },
+  "/img/fotos/steak-tartar-640.jpg": {
+    "type": "image/jpeg",
+    "etag": "\"956d-OURYkhsJiXHpNrDE0fbr3EwLPN4\"",
+    "mtime": "2026-03-25T14:05:40.947Z",
+    "size": 38253,
+    "path": "../public/img/fotos/steak-tartar-640.jpg"
   },
   "/img/fotos/tarta-2048.jpg": {
     "type": "image/jpeg",
     "etag": "\"1ed69-qlH3NgOQV3+Z4FSByCoN5yMdn4A\"",
-    "mtime": "2026-03-25T14:02:09.683Z",
+    "mtime": "2026-03-25T14:05:40.951Z",
     "size": 126313,
     "path": "../public/img/fotos/tarta-2048.jpg"
+  },
+  "/img/fotos/tarta-640.jpg": {
+    "type": "image/jpeg",
+    "etag": "\"5b3f-oZ/x/sZ+Sm6M2pmwLYP0cVi35q8\"",
+    "mtime": "2026-03-25T14:05:40.947Z",
+    "size": 23359,
+    "path": "../public/img/fotos/tarta-640.jpg"
+  },
+  "/img/fotos/sardina-2048.jpg": {
+    "type": "image/jpeg",
+    "etag": "\"14915-K7MA+6r2wc9wjUmzpFwgo/I4TnM\"",
+    "mtime": "2026-03-25T14:05:40.946Z",
+    "size": 84245,
+    "path": "../public/img/fotos/sardina-2048.jpg"
+  },
+  "/img/fotos/tartar-640.jpg": {
+    "type": "image/jpeg",
+    "etag": "\"53cd-IDY2bCZHGrkUh3zZEyO4bLPK4u0\"",
+    "mtime": "2026-03-25T14:05:40.950Z",
+    "size": 21453,
+    "path": "../public/img/fotos/tartar-640.jpg"
+  },
+  "/img/fotos/mariscos-2048.jpg": {
+    "type": "image/jpeg",
+    "etag": "\"296fc-/vttUlm0acJ+QOe3GZQ2Juiu/PA\"",
+    "mtime": "2026-03-25T14:05:40.945Z",
+    "size": 169724,
+    "path": "../public/img/fotos/mariscos-2048.jpg"
   },
   "/img/fotos/tartar-2048.jpg": {
     "type": "image/jpeg",
     "etag": "\"1d3de-51mYIRLXKvdbGfV6uA6SXlZ18Bs\"",
-    "mtime": "2026-03-25T14:02:09.684Z",
+    "mtime": "2026-03-25T14:05:40.948Z",
     "size": 119774,
     "path": "../public/img/fotos/tartar-2048.jpg"
   },
   "/img/fotos/tataki-2048.jpg": {
     "type": "image/jpeg",
     "etag": "\"20169-KUm9kJ3wC7gJ4Oh5PG9Zb2FVfp4\"",
-    "mtime": "2026-03-25T14:02:09.686Z",
+    "mtime": "2026-03-25T14:05:40.949Z",
     "size": 131433,
     "path": "../public/img/fotos/tataki-2048.jpg"
   },
   "/img/fotos/tataki-640.jpg": {
     "type": "image/jpeg",
     "etag": "\"5b01-FaKyeLhnrklbEoownL1YAl/baUw\"",
-    "mtime": "2026-03-25T14:02:09.684Z",
+    "mtime": "2026-03-25T14:05:40.948Z",
     "size": 23297,
     "path": "../public/img/fotos/tataki-640.jpg"
   },
   "/img/fotos/torrija-640.jpg": {
     "type": "image/jpeg",
     "etag": "\"88e0-dQstNshyM3Y8qqXXLvc6sttXeWE\"",
-    "mtime": "2026-03-25T14:02:09.685Z",
+    "mtime": "2026-03-25T14:05:40.949Z",
     "size": 35040,
     "path": "../public/img/fotos/torrija-640.jpg"
-  },
-  "/_nuxt/builds/meta/472df30a-5174-4bee-9c9e-85b626f68254.json": {
-    "type": "application/json",
-    "etag": "\"58-1bzd0QDQMQMHVrInMBWafNu/O4E\"",
-    "mtime": "2026-03-25T14:02:09.638Z",
-    "size": 88,
-    "path": "../public/_nuxt/builds/meta/472df30a-5174-4bee-9c9e-85b626f68254.json"
   },
   "/img/fotos/vinos-640.jpg": {
     "type": "image/jpeg",
     "etag": "\"65d8-ryTn6vBnCJIW58TuEgRhBrY1744\"",
-    "mtime": "2026-03-25T14:02:09.686Z",
+    "mtime": "2026-03-25T14:05:40.950Z",
     "size": 26072,
     "path": "../public/img/fotos/vinos-640.jpg"
+  },
+  "/_nuxt/builds/meta/409a457e-0abe-410f-8d4c-1ffa2a36c466.json": {
+    "type": "application/json",
+    "etag": "\"58-2vK4Rah3oDUBDUu2+wYLi6rJDxc\"",
+    "mtime": "2026-03-25T14:05:40.897Z",
+    "size": 88,
+    "path": "../public/_nuxt/builds/meta/409a457e-0abe-410f-8d4c-1ffa2a36c466.json"
   },
   "/img/fotos/torrija-2048.jpg": {
     "type": "image/jpeg",
     "etag": "\"2391a-AaZK5hhP3Az12cwbAa/uvgt0ngo\"",
-    "mtime": "2026-03-25T14:02:09.685Z",
+    "mtime": "2026-03-25T14:05:40.950Z",
     "size": 145690,
     "path": "../public/img/fotos/torrija-2048.jpg"
   },
   "/img/fotos/vinos-2048.jpg": {
     "type": "image/jpeg",
     "etag": "\"4a9e4-LlUuNVWhpd0B34I9xLsEoVUlG8M\"",
-    "mtime": "2026-03-25T14:02:09.686Z",
+    "mtime": "2026-03-25T14:05:40.951Z",
     "size": 305636,
     "path": "../public/img/fotos/vinos-2048.jpg"
   }
