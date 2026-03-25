@@ -73,6 +73,10 @@ export default defineNuxtConfig({
     'nuxt-svgo',
   ],
 
+  nitro: {
+    preset: 'netlify',
+  },
+
   router: {
     options: {
       scrollBehaviorType: 'smooth',
