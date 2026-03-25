@@ -87,13 +87,17 @@ export default {
         const result = await res.json()
         if (result.error) throw new Error(result.error.message)
 
+        const updatedUrls = {
+          ...this.store.imageUrls,
+          [image.fileName]: result.secure_url,
+        }
         await this.$firebase
           .firestore()
           .collection('Config')
           .doc('values')
-          .update({ [`imageUrls.${image.fileName}`]: result.secure_url })
+          .update({ imageUrls: updatedUrls })
 
-        this.store.setImageUrl(image.fileName, result.secure_url)
+        this.store.loadImageUrls(updatedUrls)
       } catch (error) {
         alert(`Error subiendo imagen: ${error.message || error}`)
       } finally {
