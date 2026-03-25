@@ -99,6 +99,10 @@ export default defineNuxtConfig({
     },
   },
 
+  generate: {
+    dir: 'dist',
+  },
+
   router: {
     options: {
       scrollBehaviorType: 'smooth',
