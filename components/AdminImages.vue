@@ -38,6 +38,7 @@ function renameFile(originalFile, newName) {
 }
 
 export default {
+  emits: ['cancel'],
   setup() {
     return { store: useAppStore() }
   },
@@ -82,20 +83,22 @@ export default {
         alert('Sólo imágenes.')
         return
       }
+      const config = useRuntimeConfig()
       this.isUploadingImage = true
       try {
         const formData = new FormData()
         formData.append('file', file)
+        formData.append('upload_preset', config.public.cloudinaryUploadPreset)
         formData.append('public_id', image.fileName.replace(/\.[^.]+$/, ''))
-        const result = await $fetch('/api/upload-image', {
-          method: 'POST',
-          body: formData,
-        })
-        this.store.setImageUrl(image.fileName, result.url)
+        const res = await fetch(
+          `https://api.cloudinary.com/v1_1/${config.public.cloudinaryCloudName}/image/upload`,
+          { method: 'POST', body: formData },
+        )
+        const result = await res.json()
+        if (result.error) throw new Error(result.error.message)
+        this.store.setImageUrl(image.fileName, result.secure_url)
       } catch (error) {
         alert(`Error subiendo imagen: ${error.message || error}`)
-        // eslint-disable-next-line no-console
-        console.error('Error uploading image', error)
       } finally {
         this.isUploadingImage = false
       }
