@@ -5,12 +5,14 @@
       <img :src="longUrl(image.fileName)" class="img" alt="" />
 
       <button
-        :disabled="isUploadingImage"
+        :disabled="uploadingImage === image.fileName"
         class="admin-button"
         type="button"
         @click="launchImageFile(image)"
       >
-        {{ isUploadingImage ? 'Subiendo...' : 'Cambiar imagen' }}
+        {{
+          uploadingImage === image.fileName ? 'Subiendo...' : 'Cambiar imagen'
+        }}
       </button>
       <!-- This is the real file input element. -->
       <input
@@ -44,7 +46,7 @@ export default {
           name: 'Menú degustación',
         },
       },
-      isUploadingImage: false,
+      uploadingImage: null,
     }
   },
   computed: {
@@ -77,7 +79,7 @@ export default {
         return
       }
       const config = useRuntimeConfig()
-      this.isUploadingImage = true
+      this.uploadingImage = image.fileName
       try {
         const formData = new FormData()
         formData.append('file', file)
@@ -99,7 +101,7 @@ export default {
       } catch (error) {
         alert(`Error subiendo imagen: ${error.message || error}`)
       } finally {
-        this.isUploadingImage = false
+        this.uploadingImage = null
       }
     },
   },
